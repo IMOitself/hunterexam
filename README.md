@@ -30,7 +30,9 @@
 ## ⬇️ Download
 <details>
   <summary>WINDOWS [VS Code or other]</summary>
-  
+
+![hakdog](instruction1.png)
+![hakdog](instruction2.png)
 * Enter this code
     ```bash
     git clone https://github.com/IMOitself/hunterexam.git
