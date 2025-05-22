@@ -29,7 +29,7 @@
 
 ## ⬇️ Download
 <details>
-  <summary>WINDOWS [VS Code or other]</summary>
+  <summary> 💻 WINDOWS [VS Code or other]</summary>
 
 ![hakdog](images/instruction1.png)
 ![hakdog](images/instruction2.png)
@@ -41,7 +41,7 @@
 </details>
 
 <details>
-  <summary>ANDROID [Termux]</summary>
+  <summary>📱 ANDROID</summary>
   
 * Download Termux
     [download link](https://f-droid.org/repo/com.termux_1021.apk)
@@ -57,7 +57,7 @@
 
 ## ▶️ How to Run
 
-once downloaded, on your Terminal (VS Code or Termux or other IDE):
+once downloaded, on the same Terminal:
 
 ### Run `Main.java`
 
