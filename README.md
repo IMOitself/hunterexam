@@ -31,8 +31,11 @@
 <details>
   <summary> 💻 WINDOWS [VS Code or other]</summary>
 
-![hakdog](images/instruction1.png)
-![hakdog](images/instruction2.png)
+  * Download Github Desktop
+    [download link](https://desktop.github.com/download/)
+  * On your coding software e.g VS Code
+  * ![hakdog](images/instruction1.png)
+  * ![hakdog](images/instruction2.png)
 * Enter this code
     ```bash
     git clone https://github.com/IMOitself/hunterexam.git
@@ -49,7 +52,10 @@
 * Enter this code
     ```bash
     pkg update && pkg upgrade -y
-    pkg install git -y
+    pkg install git openjdk-17 -y
+    git --version
+    java -version
+    javac -version
     termux-setup-storage
     cd ~/storage/downloads
     cd hunterexam/
