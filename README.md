@@ -1,11 +1,4 @@
-# Hunter Exam
 ![hakdog](image.png)
-
-## 🚀 How to Contribute
-
-later.
-
----
 
 ## 📁 Files
 
@@ -15,22 +8,56 @@ later.
 * **`_Phase4.java`**: (sir Rey)
 * **`_PhaseFinal.java`**: (Meynard)
 
-Files that will connect everything:
+<details>
+  <summary>Files for connecting everything:</summary>
+  
 * **`_Intro.java`** 
 * **`Main.java`**
 * **`UI.java`**
 
-Files just for testing our SQL database:
+</details>
+
+<details>
+  <summary>Files just for testing our SQL database:</summary>
+  
 * **`SQL.java`**
 * **`mysql-connector-j-9.3.0.jar`**
 
+</details>
+
 ---
+
+## ⬇️ Download
+<details>
+  <summary>WINDOWS [VS Code or other]</summary>
+  
+* Enter this code
+    ```bash
+    git clone https://github.com/IMOitself/hunterexam.git
+    ```
+  
+</details>
+
+<details>
+  <summary>ANDROID [Termux]</summary>
+  
+* Download Termux
+    [download link](https://f-droid.org/repo/com.termux_1021.apk)
+* Enter this code
+    ```bash
+    pkg update && pkg upgrade -y
+    pkg install git -y
+    termux-setup-storage
+    cd ~/storage/downloads
+    git clone https://github.com/IMOitself/hunterexam.git
+    ```
+</details>
 
 ## ▶️ How to Run
 
-inside your coding software, on the Terminal:
+once downloaded, on your Terminal (VS Code or Termux or other IDE):
 
-### Running `Main.java`
+### Run `Main.java`
 
 * 
     ```bash
@@ -38,7 +65,7 @@ inside your coding software, on the Terminal:
     java -cp classes Main
     ```
 
-### Running `SQL.java`
+### or Run `SQL.java`
 
 * 
    ```bash
