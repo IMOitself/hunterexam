@@ -10,10 +10,7 @@ public class SQL {
         String password = "AVNS_FZjhURUQoeysC1t3OjX";
 
         try {
-            // Load MySQL JDBC driver
             Class.forName("com.mysql.cj.jdbc.Driver");
-
-            // Connect to DB
             Connection conn = DriverManager.getConnection(url, user, password);
             System.out.println("Connection successful!");
 
