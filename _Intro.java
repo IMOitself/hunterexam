@@ -2,7 +2,8 @@ import java.util.Scanner;
 
 public class _Intro {
 
-    private static void printStartMenu() {
+    public static void titleScreen(Scanner scanner){
+        UI.clearScreen();
         System.out.println();
         System.out.println("██╗  ██╗██╗   ██╗███╗   ██╗████████╗███████╗██████╗ ");
         System.out.println("██║  ██║██║   ██║████╗  ██║╚══██╔══╝██╔════╝██╔══██╗");
@@ -18,11 +19,6 @@ public class _Intro {
         System.out.println("        ███████╗██╔╝ ██╗██║  ██║██║ ╚═╝ ██║         ");
         System.out.println("        ╚══════╝╚═╝  ╚═╝╚═╝  ╚═╝╚═╝     ╚═╝         ");
         System.out.println("\n           Press Enter to continue...             ");
-    }
-
-    public static void titleScreen(Scanner scanner){
-        UI.clearScreen();
-        printStartMenu();
         scanner.nextLine();
     }
 
@@ -92,7 +88,6 @@ public class _Intro {
             UI.printBox("4. Phase 4");
             UI.printBox("5. Final");
             UI.printBox("6. Back");
-            System.out.println("\nPress Enter To Continue...");
             input = scanner.nextLine();
 
         } while (!input.equals("1") && !input.equals("2") && !input.equals("3") && !input.equals("4") && !input.equals("5") && !input.equals("6"));
