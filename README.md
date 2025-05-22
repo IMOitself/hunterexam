@@ -36,6 +36,7 @@
 * Enter this code
     ```bash
     git clone https://github.com/IMOitself/hunterexam.git
+    cd hunterexam/
     ```
   
 </details>
@@ -51,6 +52,7 @@
     pkg install git -y
     termux-setup-storage
     cd ~/storage/downloads
+    cd hunterexam/
     git clone https://github.com/IMOitself/hunterexam.git
     ```
 </details>
