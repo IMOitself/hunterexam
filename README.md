@@ -72,6 +72,6 @@
    javac -cp ".;mysql-connector-j-9.3.0.jar" SQL.java
    java -cp ".;mysql-connector-j-9.3.0.jar" SQL 
    ```
+---
 
-
-run the `Main.java` or `SQL.java` on the same Terminal where u downloaded the files.
+**❗ Note:** run the `Main.java` or `SQL.java` on the same Terminal where u downloaded the files.
