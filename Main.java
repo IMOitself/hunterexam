@@ -7,12 +7,6 @@ class Main {
         // _Intro
         _Intro.titleScreen(scanner);
         _Intro.mainMenu(scanner);
-
-        // _Phase1
-        // _Phase2
-        // _Phase3
-        // _Phase4
-        // _PhaseFinal
         
         scanner.close();
     }

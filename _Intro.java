@@ -28,25 +28,35 @@ public class _Intro {
 
     public static void mainMenu(Scanner scanner){
         String input = "";
+        
         do {
             UI.clearScreen();
+            UI.printBox("0. test hehe");
             UI.printBox("1. Login");
             UI.printBox("2. Register");
             UI.printBox("3. Exit");
-            System.out.println("\nPress Enter To Continue...");
             input = scanner.nextLine();
-        } while (!input.equals("1") && !input.equals("2") && !input.equals("3"));
 
-        if(input.equals("1")){
-            UI.printBox("soon.");
+        } while (!input.equals("0") && !input.equals("1") && !input.equals("2") && !input.equals("3"));
+
+        switch(input){
+            case "0":
+                testScreen(scanner);
+                break;
+            case "1":
+                UI.printBox("coming soon.");
+
                 try {
                     Thread.sleep(500);
-                    mainMenu(scanner);
-                } catch (InterruptedException e) {}
-        }
+                } catch (Exception e) {}
 
-        if(input.equals("2")){
-            registerScreen(scanner);
+                mainMenu(scanner);
+                break;
+            case "2":
+                registerScreen(scanner);
+                break;
+            case "3":
+                break;
         }
     }
 
@@ -63,13 +73,49 @@ public class _Intro {
 
         try {
             Thread.sleep(500);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+        } catch (Exception e) {}
         
         UI.clearScreen();
         UI.printBox("Welcome To Hunter Exam, " + input + "!");
         System.out.println("\nPress Enter To Continue...");
         scanner.nextLine();
+    }
+
+    public static void testScreen(Scanner scanner){
+        String input = "";
+        
+        do {
+            UI.clearScreen();
+            UI.printBox("1. Phase 1");
+            UI.printBox("2. Phase 2");
+            UI.printBox("3. Phase 3");
+            UI.printBox("4. Phase 4");
+            UI.printBox("5. Final");
+            UI.printBox("6. Back");
+            System.out.println("\nPress Enter To Continue...");
+            input = scanner.nextLine();
+
+        } while (!input.equals("1") && !input.equals("2") && !input.equals("3") && !input.equals("4") && !input.equals("5") && !input.equals("6"));
+
+        switch(input){
+            case "1":
+                _Phase1.exampleScreen(scanner);
+                break;
+            case "2":
+                _Phase2.exampleScreen(scanner);
+                break;
+            case "3":
+                _Phase3.exampleScreen(scanner);
+                break;
+            case "4":
+                _Phase4.exampleScreen(scanner);
+                break;
+            case "5":
+                _PhaseFinal.exampleScreen(scanner);
+                break;
+            case "6":
+                mainMenu(scanner);
+                break;
+        }
     }
 }
