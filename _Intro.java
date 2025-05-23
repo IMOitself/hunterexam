@@ -20,6 +20,7 @@ public class _Intro {
         System.out.println("        ╚══════╝╚═╝  ╚═╝╚═╝  ╚═╝╚═╝     ╚═╝         ");
         System.out.println("\n           Press Enter to continue...             ");
         scanner.nextLine();
+        _Intro.mainMenu(scanner);
     }
 
     public static void mainMenu(Scanner scanner){

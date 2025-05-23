@@ -6,7 +6,6 @@ class Main {
 
         // _Intro
         _Intro.titleScreen(scanner);
-        _Intro.mainMenu(scanner);
         
         scanner.close();
     }
