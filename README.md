@@ -27,15 +27,22 @@
 
 ---
 
+## 
+
+<div align="center">
+
 ## ⬇️ Download
+</div>
+
 <details>
-  <summary> 💻 WINDOWS [VS Code or other]</summary>
+  <summary> 
+    💻 WINDOWS</summary>
 
   * Download Github Desktop
     [download link](https://desktop.github.com/download/)
-  * On your coding software e.g VS Code
-  * ![hakdog](images/instruction1.png)
-  * ![hakdog](images/instruction2.png)
+  * On your coding software e.g VS Code or other
+  * <img src="images/instruction1.png" alt="hakdog" width="400"/>
+  * <img src="images/instruction2.png" alt="hakdog" width="400"/>
 * Enter this code
     ```bash
     git clone https://github.com/IMOitself/hunterexam.git
@@ -63,9 +70,12 @@
     ```
 </details>
 
-## ▶️ How to Run
+<div align="center">
 
-### Run `Main.java`
+## ▶️ How to Run
+</div>
+
+**Run `Main.java`**
 
 * 
     ```bash
@@ -73,7 +83,7 @@
     java -cp classes Main
     ```
 
-### or Run `SQL.java`
+**or Run `SQL.java`**
 
 * 
    ```bash
