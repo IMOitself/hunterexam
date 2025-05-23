@@ -40,6 +40,8 @@
 
   * Download Github Desktop
     [download link](https://desktop.github.com/download/)
+  * Download OpenJDK and run it
+    [download link](https://download.oracle.com/java/24/latest/jdk-24_windows-x64_bin.exe)
   * On your coding software e.g VS Code or other
   * <img src="images/instruction1.png" alt="hakdog" width="400"/>
   * <img src="images/instruction2.png" alt="hakdog" width="400"/>
@@ -90,6 +92,7 @@
    javac -d classes SQL.java
    java -cp classes:mysql-connector-j-9.3.0.jar SQL
    ```
+
 ---
 
 **❗ Note:** run the `Main.java` or `SQL.java` on the same Terminal where u downloaded the files.
