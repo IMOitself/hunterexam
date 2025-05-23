@@ -87,8 +87,8 @@
 
 * 
    ```bash
-   javac -d classes -cp ".;mysql-connector-j-9.3.0.jar" SQL.java
-   java -cp ".;classes;mysql-connector-j-9.3.0.jar" SQL
+   javac -d classes SQL.java
+   java -cp classes:mysql-connector-j-9.3.0.jar SQL
    ```
 ---
 
