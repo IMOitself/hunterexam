@@ -38,8 +38,8 @@
   <summary> 
     💻 WINDOWS</summary>
 
-  * Download Github Desktop
-    [download link](https://desktop.github.com/download/)
+  * Download Git and run it
+    [download link](https://github.com/git-for-windows/git/releases/download/v2.49.0.windows.1/Git-2.49.0-64-bit.exe)
   * Download OpenJDK and run it
     [download link](https://download.oracle.com/java/24/latest/jdk-24_windows-x64_bin.exe)
   * On your coding software e.g VS Code or other
