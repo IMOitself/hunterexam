@@ -8,7 +8,8 @@ public class _PhaseFinal {
     static int playerHP = 100;
     static int enemyHP = 100;
 
-    static int chosenEnemy = 0;
+    static String chosenEnemy = "";
+    static String chosenEnemyDialog = "";
 
     static String[] enemies = {
         "Gon",
@@ -22,11 +23,26 @@ public class _PhaseFinal {
         "Pokkle"
     };
 
-    public static void exampleScreen(Scanner scanner) {
-        chosenEnemy = random.nextInt(enemies.length);
-        String enemy = enemies[chosenEnemy];
-        UI.clearScreen();
+    static String[] enemyDialogs = {
+        "Gon: Wow! This is amazing! Right, Killua? \nKillua: Yeah..",
+        "Killua: Hmph. So this is it?",
+        "Kurapika: My objective is clear. I will not be swayed.",
+        "Leorio: Alright, alright, I get it! Sheesh!",
+        "Hisoka: Heh>:)",
+        "* Gittarackur is revealed to be Illumi * \nIllumi: Killua. Come home.",
+        "Hanzo: My training is second to none!",
+        "Bodoro: ...",
+        "Pokkle: Okay, my arrows should be effective against this type...",
+    };
 
+    public static void exampleScreen(Scanner scanner){
+        UI.clearScreen();
+        narratorScreen(scanner);
+        enemyChooseScreen(scanner);
+        gameScreen(scanner);
+    }
+
+    public static void narratorScreen(Scanner scanner){
         String[] narratorLines = {
             "Netero: Everyone rested up? Good. Now, then.",
             "For the Final Phase of the Hunter Exam,\nwe will be competing in a one-on-one tournament.",
@@ -40,14 +56,24 @@ public class _PhaseFinal {
             System.out.println(line);
             scanner.nextLine();
         }
+    }
+
+    public static void enemyChooseScreen(Scanner scanner){
+        int randomEnemyIndex = random.nextInt(enemies.length);
+        chosenEnemy = enemies[randomEnemyIndex];
+        chosenEnemyDialog = enemyDialogs[randomEnemyIndex];
 
         UI.clearScreen();
-        System.out.println("Enemy: " + enemy);
-
+        UI.printBox("Enemy: " + chosenEnemy);
+        System.out.println(chosenEnemyDialog);
         System.out.println("\nPress Enter To Continue...");
         scanner.nextLine();
-        UI.clearScreen();
 
+        if (chosenEnemy.equals("Gittarackur")) chosenEnemy = "Illumi";
+    }
+
+    public static void gameScreen(Scanner scanner) {
+        UI.clearScreen();
         while (playerHP > 0 && enemyHP > 0) {
             displayStatus();
             System.out.println("What will you do?");
@@ -110,7 +136,7 @@ public class _PhaseFinal {
 
     static void displayStatus() {
         System.out.println("\nPlayer HP: " + playerHP + " | Enemy HP: " + enemyHP);
-        System.out.println("\n    YOU          " + enemies[chosenEnemy]);
+        System.out.println("\n    YOU          " + chosenEnemy);
         displayStickmenSideBySide(playerHP, enemyHP);
     }
 
