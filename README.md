@@ -86,22 +86,25 @@
 **or Run `SQL.java`**
 
 <details>
-  <summary>💻 WINDOWS</summary>
-* 
-   ```bash
-   javac -d classes SQL.java
-   java -cp classes:mysql-connector-j-9.3.0.jar SQL
-   ```
-</details>
-<details>
-  <summary>📱 ANDROID</summary>
+  <summary>windows</summary>
+  
 * 
    ```bash
    javac -d classes SQL.java
    java -cp "classes;mysql-connector-j-9.3.0.jar" SQL
    ```
+   
 </details>
----
+<details>
+  <summary>android</summary>
+  
+* 
+   ```bash
+   javac -d classes SQL.java
+   java -cp classes:mysql-connector-j-9.3.0.jar SQL
+   ```
+   
+</details>
 
 **❗ Note:** run the `Main.java` or `SQL.java` on the same Terminal where u downloaded the files.
 
