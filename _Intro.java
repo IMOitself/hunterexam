@@ -60,7 +60,7 @@ public class _Intro {
             UI.clearScreen();
             UI.printBox("Create Your Username:");
             input = scanner.nextLine();
-        } while (!input.equals("Gon"));
+        } while (input.isEmpty());
 
         UI.clearScreen();
         UI.printBox("Create Your Username: " + input);
@@ -70,9 +70,10 @@ public class _Intro {
         } catch (Exception e) {}
         
         UI.clearScreen();
-        UI.printBox("Welcome To Hunter Exam, " + input + "!");
+        UI.printBox("Welcome To Hunter Exam, " + input + "!\n\ncoming soon...");
         System.out.println("\nPress Enter To Continue...");
         scanner.nextLine();
+        mainMenu(scanner);
     }
 
     public static void testScreen(Scanner scanner){
