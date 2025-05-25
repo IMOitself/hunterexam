@@ -8,14 +8,23 @@ public class _PhaseFinal {
     static int playerHP = 100;
     static int enemyHP = 100;
 
+    static int chosenEnemy = 0;
+
     static String[] enemies = {
-        "A calm woman sharpening knives. She smiles faintly.",
-        "A tall man with glowing eyes. He says nothing.",
-        "A child humming and twirling a blade."
+        "Gon",
+        "Killua",
+        "Kurapika",
+        "Leorio",
+        "Hisoka",
+        "Gittarackur",
+        "Hanzo",
+        "Bodoro",
+        "Pokkle"
     };
 
     public static void exampleScreen(Scanner scanner) {
-        String enemy = enemies[random.nextInt(enemies.length)];
+        chosenEnemy = random.nextInt(enemies.length);
+        String enemy = enemies[chosenEnemy];
         UI.clearScreen();
         System.out.println("Narrator: A shadow steps from the trees. You feel killing intent...");
         System.out.println("Enemy: " + enemy);
@@ -38,6 +47,8 @@ public class _PhaseFinal {
             scanner.nextLine();
             UI.clearScreen();
         }
+
+        displayStatus();
 
         if (playerHP <= 0) {
             UI.printBox("You collapsed. Exam failed.");
@@ -84,7 +95,7 @@ public class _PhaseFinal {
 
     static void displayStatus() {
         System.out.println("\nPlayer HP: " + playerHP + " | Enemy HP: " + enemyHP);
-        System.out.println("\n   PLAYER         ENEMY");
+        System.out.println("\n    YOU          " + enemies[chosenEnemy]);
         displayStickmenSideBySide(playerHP, enemyHP);
     }
 
@@ -99,13 +110,29 @@ public class _PhaseFinal {
 
     static String[] getStickmanLines(int hp) {
         if (hp > 70) {
-            return new String[]{"  O  ", " /|\\ ", " / \\ "};
+            return new String[]{
+                "  O  ",
+                " /|\\ ",
+                " / \\ "
+            };
         } else if (hp > 40) {
-            return new String[]{"  O  ", " /|  ", " /   "};
+            return new String[]{
+                "  O  ",
+                " /|  ",
+                " /   "
+            };
         } else if (hp > 0) {
-            return new String[]{"  o  ", " /   ", "     "};
+            return new String[]{
+                "  o  ",
+                " /   ",
+                "     "
+            };
         } else {
-            return new String[]{"  x  ", "     ", "RIP  "};
+            return new String[]{
+                "  x  ",
+                "     ",
+                "RIP  "
+            };
         }
     }
 }
