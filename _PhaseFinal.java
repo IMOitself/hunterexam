@@ -26,7 +26,22 @@ public class _PhaseFinal {
         chosenEnemy = random.nextInt(enemies.length);
         String enemy = enemies[chosenEnemy];
         UI.clearScreen();
-        System.out.println("Narrator: A shadow steps from the trees. You feel killing intent...");
+
+        String[] narratorLines = {
+            "Netero: Everyone rested up? Good. Now, then.",
+            "For the Final Phase of the Hunter Exam,\nwe will be competing in a one-on-one tournament.",
+            "Now, for the rules of the tournament:",
+            "1. You must win by making your opponent concede.",
+            "2. Killing your opponent is strictly forbidden.",
+            "\nPress Enter To Continue...",
+        };
+
+        for (String line : narratorLines) {
+            System.out.println(line);
+            scanner.nextLine();
+        }
+
+        UI.clearScreen();
         System.out.println("Enemy: " + enemy);
 
         System.out.println("\nPress Enter To Continue...");
