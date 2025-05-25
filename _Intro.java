@@ -28,10 +28,7 @@ public class _Intro {
         
         do {
             UI.clearScreen();
-            UI.printBox("0. test hehe");
-            UI.printBox("1. Login");
-            UI.printBox("2. Register");
-            UI.printBox("3. Exit");
+            UI.printBox("0. test hehe\n1. Login\n2. Register\n3. Exit");
             input = scanner.nextLine();
 
         } while (!input.equals("0") && !input.equals("1") && !input.equals("2") && !input.equals("3"));
@@ -83,12 +80,7 @@ public class _Intro {
         
         do {
             UI.clearScreen();
-            UI.printBox("1. Phase 1");
-            UI.printBox("2. Phase 2");
-            UI.printBox("3. Phase 3");
-            UI.printBox("4. Phase 4");
-            UI.printBox("5. Final");
-            UI.printBox("6. Back");
+            UI.printBox("1. Phase 1\n2. Phase 2\n3. Phase 3\n4. Phase 4\n5. Final\n6. Back");
             input = scanner.nextLine();
 
         } while (!input.equals("1") && !input.equals("2") && !input.equals("3") && !input.equals("4") && !input.equals("5") && !input.equals("6"));

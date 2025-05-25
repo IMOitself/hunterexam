@@ -27,10 +27,7 @@ public class _PhaseFinal {
         while (playerHP > 0 && enemyHP > 0) {
             displayStatus();
             System.out.println("What will you do?");
-            UI.printBox("1. Attack");
-            UI.printBox("2. Talk");
-            UI.printBox("3. Throw/Distract");
-            UI.printBox("4. Run/Hide");
+            UI.printBox("1. Attack\n2. Talk\n3. Throw/Distract\n4. Run/Hide");
 
             String choice = scanner.nextLine().trim();
 
@@ -97,6 +94,7 @@ public class _PhaseFinal {
         for (int i = 0; i < player.length; i++) {
             System.out.printf("   %-10s   %-10s\n", player[i], enemy[i]);
         }
+        System.out.println();
     }
 
     static String[] getStickmanLines(int hp) {

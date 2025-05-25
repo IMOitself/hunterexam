@@ -4,9 +4,27 @@ public class UI {
     }
 
     public static void printBox(String text) {
-        int textLength = text.length();
-        System.out.println("╔" + "═".repeat(textLength + 2) + "╗");
-        System.out.println("║" + " " + text + " " + "║");
-        System.out.println("╚" + "═".repeat(textLength + 2) + "╝");
+        String[] textLines = text.split("\n");
+
+        int maxLineLength = 0;
+        for (String line : textLines) {
+            maxLineLength = Math.max(maxLineLength, line.length());
+        }
+
+        String horizontalLine = "";
+        for (int i = 0; i < maxLineLength + 2; i++) {
+            horizontalLine += "═";
+        }
+
+        System.out.println("╔" + horizontalLine + "╗");
+        for (String line : textLines) {
+            int remainingSpace = (maxLineLength - line.length());
+
+            for (int i = 0; i < remainingSpace; i++) {
+                line += " ";
+            }
+            System.out.println("║" + " " + line + " " + "║");
+        }
+        System.out.println("╚" + horizontalLine + "╝");
     }
 }
