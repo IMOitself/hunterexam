@@ -106,8 +106,6 @@
    
 </details>
 
-**❗ Note:** run the `Main.java` or `SQL.java` on the same Terminal where u downloaded the files.
-
 <div align="center">
 
 ## ▶️ How to Update
