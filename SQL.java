@@ -11,7 +11,9 @@ public class SQL {
         String url = "jdbc:mysql://db-mysql-sgp1-information-management-do-user-9437339-0.l.db.ondigitalocean.com:25060/defaultdb?useSSL=true&requireSSL=true";
         String user = "hunter_exam_user";
         String pass = "AVNS_FZjhURUQoeysC1t3OjX";
-
+		
+		System.out.println("Connecting...");
+		
         try {
             UI.clearScreen();
             System.out.println("Connecting to database...");

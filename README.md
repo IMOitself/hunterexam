@@ -75,25 +75,28 @@
 ## ▶️ How to Run
 </div>
 
-**Run `Main.java`**
+**Run `Main.java` [new]**
 
-* 
-    ```bash
-    javac -d classes *.java
-    java -cp classes Main
-    ```
-
-**or Run `SQL.java`**
-
+<details>
+  <summary>windows</summary>
+  
 * 
    ```bash
-   javac -d classes SQL.java
-   java -cp classes:mysql-connector-j-9.3.0.jar SQL
+   javac -d classes *.java
+   java -cp "classes;mysql-connector-j-9.3.0.jar" Main
    ```
-
----
-
-**❗ Note:** run the `Main.java` or `SQL.java` on the same Terminal where u downloaded the files.
+   
+</details>
+<details>
+  <summary>android</summary>
+  
+* 
+   ```bash
+   javac -d classes *.java
+   java -cp classes:mysql-connector-j-9.3.0.jar Main
+   ```
+   
+</details>
 
 <div align="center">
 
