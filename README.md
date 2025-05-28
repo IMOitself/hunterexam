@@ -75,23 +75,15 @@
 ## ▶️ How to Run
 </div>
 
-**Run `Main.java`**
-
-* 
-    ```bash
-    javac -d classes *.java
-    java -cp classes Main
-    ```
-
-**or Run `SQL.java`**
+**Run `Main.java` [new]**
 
 <details>
   <summary>windows</summary>
   
 * 
    ```bash
-   javac -d classes SQL.java
-   java -cp "classes;mysql-connector-j-9.3.0.jar" SQL
+   javac -d classes *.java
+   java -cp "classes;mysql-connector-j-9.3.0.jar" Main
    ```
    
 </details>
@@ -100,8 +92,8 @@
   
 * 
    ```bash
-   javac -d classes SQL.java
-   java -cp classes:mysql-connector-j-9.3.0.jar SQL
+   javac -d classes *.java
+   java -cp classes:mysql-connector-j-9.3.0.jar Main
    ```
    
 </details>
