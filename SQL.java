@@ -2,6 +2,8 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
 
 public class SQL {
 
@@ -53,5 +55,45 @@ public class SQL {
             System.err.println("Error: " + e.getMessage());
             e.printStackTrace();
         }
+    }
+
+    public static List<String> runGetResult(String sql) {
+        List<String> result = new ArrayList<>();
+        try {
+            Statement stmt = conn.createStatement();
+            ResultSet rs = stmt.executeQuery(sql);
+            while (rs.next()) {
+                result.add(rs.getString(1));
+            }
+            rs.close();
+            stmt.close();
+            return result;
+        } catch (Exception e) {
+            System.err.println("Error: " + e.getMessage());
+            e.printStackTrace();
+        }
+        return result;
+    }
+
+    public static List<String> runGetResultAll(String sql) {
+        List<String> result = new ArrayList<>();
+        try {
+            Statement stmt = conn.createStatement();
+            ResultSet rs = stmt.executeQuery(sql);
+            while (rs.next()) {
+                String line = "";
+                for(int i = 1; i <= rs.getMetaData().getColumnCount(); i++) {
+                    line += rs.getString(i) + "::";
+                }
+                result.add(line);
+            }
+            rs.close();
+            stmt.close();
+            return result;
+        } catch (Exception e) {
+            System.err.println("Error: " + e.getMessage());
+            e.printStackTrace();
+        }
+        return result;
     }
 }

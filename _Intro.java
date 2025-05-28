@@ -74,7 +74,6 @@ public class _Intro {
         
         do {
             UI.clearScreen();
-            SQL.runWithResult("SHOW TABLES;");
             UI.printBox("1. Phase 1\n2. Phase 2\n3. Phase 3\n4. Phase 4\n5. Final\n6. Back");
             input = scanner.nextLine();
 
