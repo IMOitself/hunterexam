@@ -52,7 +52,7 @@ public class _PhaseFinal {
         };
 
         for (String line : narratorLines) {
-            System.out.println(line);
+            System.out.print(line + "\n");
             scanner.nextLine();
         }
     }
@@ -62,7 +62,6 @@ public class _PhaseFinal {
         displayStatus();
         UI.printBox("Enemy: " + chosenEnemy);
         System.out.println(chosenEnemyDialog);
-        System.out.println("\nPress Enter To Continue...");
         scanner.nextLine();
 
         if (chosenEnemy.equals("Gittarackur")) chosenEnemy = "Illumi";
@@ -70,25 +69,30 @@ public class _PhaseFinal {
 
     public static void gameScreen(Scanner scanner) {
         String input = "";
-        do {
-            UI.clearScreen();
-            displayStatus();
-            UI.printBox("1. Attack\n2. Talk\n3. Distract\n4. Run");
-            input = scanner.nextLine();
+        UI.clearScreen();
+        displayStatus();
+        UI.printBox("1. Attack\n2. Talk\n3. Distract\n4. Run");
+        input = scanner.nextLine();
 
-        } while (
-            !input.equals("1") && !input.equals("2") && !input.equals("3") && !input.equals("4")
-        );
-
-        String result = evaluateChoice(input);
-        UI.printBox(result);
-        System.out.println("\nPress Enter To Continue...");
-        scanner.nextLine();
-
-        if (playerHP > 0 && enemyHP > 0){
-            gameScreen(scanner);
-        }else{
-            gameEndScreen(scanner);
+        switch (input) {
+            case "1":
+            case "2":
+            case "3":
+            case "4":
+                String result = evaluateChoice(input);
+                UI.printBox(result);
+                System.out.println("\nPress Enter To Continue...");
+                scanner.nextLine();
+    
+                if (playerHP > 0 && enemyHP > 0){
+                    gameScreen(scanner);
+                }else{
+                    gameEndScreen(scanner);
+                }
+                break;
+            default:
+                gameScreen(scanner);
+                break;
         }
     }
 
