@@ -136,7 +136,10 @@ public class _PhaseFinal {
         String[] player = getStickmanLines(playerHP);
         String[] enemy = getStickmanLines(enemyHP);
         for (int i = 0; i < player.length; i++) {
-            System.out.printf("   %-10s   %-10s\n", player[i], enemy[i]);
+            System.out.print("   ");
+            System.out.print(player[i]);
+            System.out.print("        ");
+            System.out.println(enemy[i]);
         }
         System.out.println();
     }
