@@ -20,7 +20,6 @@ public class _Intro {
         System.out.println("        ╚══════╝╚═╝  ╚═╝╚═╝  ╚═╝╚═╝     ╚═╝         ");
         System.out.println("\n           Press Enter to continue...             ");
         scanner.nextLine();
-        _Intro.mainMenu(scanner);
     }
 
     public static void mainMenu(Scanner scanner){
@@ -39,11 +38,7 @@ public class _Intro {
                 break;
             case "1":
                 UI.printBox("coming soon.");
-
-                try {
-                    Thread.sleep(500);
-                } catch (Exception e) {}
-
+                UI.delay(500);
                 mainMenu(scanner);
                 break;
             case "2":
@@ -65,9 +60,7 @@ public class _Intro {
         UI.clearScreen();
         UI.printBox("Create Your Username: " + input);
 
-        try {
-            Thread.sleep(500);
-        } catch (Exception e) {}
+        UI.delay(500);
         
         UI.clearScreen();
         UI.printBox("Welcome To Hunter Exam, " + input + "!\n\ncoming soon...");
@@ -81,6 +74,7 @@ public class _Intro {
         
         do {
             UI.clearScreen();
+            SQL.runWithResult("SHOW TABLES;");
             UI.printBox("1. Phase 1\n2. Phase 2\n3. Phase 3\n4. Phase 4\n5. Final\n6. Back");
             input = scanner.nextLine();
 
@@ -106,5 +100,10 @@ public class _Intro {
                 mainMenu(scanner);
                 break;
         }
+    }
+
+    public static void homeScreen(Scanner scanner){
+        titleScreen(scanner);
+        mainMenu(scanner);
     }
 }

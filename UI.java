@@ -27,4 +27,10 @@ public class UI {
         }
         System.out.println("╚" + horizontalLine + "╝");
     }
+
+    public static void delay(int ms){
+        try {
+            Thread.sleep(ms);
+        } catch (Exception e) {}
+    }
 }

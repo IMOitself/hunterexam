@@ -77,7 +77,7 @@ public class _PhaseFinal {
         while (playerHP > 0 && enemyHP > 0) {
             displayStatus();
             System.out.println("What will you do?");
-            UI.printBox("1. Attack\n2. Talk\n3. Throw/Distract\n4. Run/Hide");
+            UI.printBox("1. Attack\n2. Talk\n3. Distract\n4. Run");
 
             String choice = scanner.nextLine().trim();
 
@@ -102,7 +102,7 @@ public class _PhaseFinal {
         enemyHP = 100;
         scanner.nextLine();
         UI.clearScreen();
-        _Intro.titleScreen(scanner);
+        _Intro.homeScreen(scanner);
     }
 
     static String evaluateChoice(String choice) {
