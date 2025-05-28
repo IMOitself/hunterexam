@@ -40,12 +40,6 @@ public class _PhaseFinal {
         talkActions = SQL.runGetResultAll("SELECT * FROM p5actions WHERE action_type_id = 2;");
         distractActions = SQL.runGetResultAll("SELECT * FROM p5actions WHERE action_type_id = 3;");
         runActions = SQL.runGetResultAll("SELECT * FROM p5actions WHERE action_type_id = 4;");
-
-        UI.clearScreen();
-        for (String s : attackActions) {
-            System.out.println(s);
-        }
-        scanner.nextLine();
     }
 
     public static void narratorScreen(Scanner scanner){
