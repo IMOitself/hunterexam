@@ -1,6 +1,6 @@
 ![hakdog](images/image.png)
 
-## 📁 Files
+## Scroll Down
 
 * **`_Phase1.java`**: (Ashton)
 * **`_Phase2.java`**: (Tachi)
@@ -18,12 +18,18 @@
 </details>
 
 <details>
-  <summary>Files just for testing our SQL database:</summary>
+  <summary>Files just for our SQL database:</summary>
   
 * **`SQL.java`**
 * **`mysql-connector-j-9.3.0.jar`**
 
 </details>
+
+---
+
+### Our Gdocs link
+
+**https://docs.google.com/document/d/1ucKV3zvFgoE3a4URU_5xpBQgntx16v6M493VRHTVhvc/edit?usp=sharing**
 
 ## 
 
