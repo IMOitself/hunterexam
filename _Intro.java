@@ -2,8 +2,7 @@ import java.util.Scanner;
 
 public class _Intro {
 
-    public static void titleScreen(Scanner scanner){
-        UI.clearScreen();
+    public static void printTitle(){
         System.out.println();
         System.out.println("██╗  ██╗██╗   ██╗███╗   ██╗████████╗███████╗██████╗ ");
         System.out.println("██║  ██║██║   ██║████╗  ██║╚══██╔══╝██╔════╝██╔══██╗");
@@ -18,7 +17,13 @@ public class _Intro {
         System.out.println("        ██╔══╝   ██╔██╗ ██╔══██║██║╚██╔╝██║         ");
         System.out.println("        ███████╗██╔╝ ██╗██║  ██║██║ ╚═╝ ██║         ");
         System.out.println("        ╚══════╝╚═╝  ╚═╝╚═╝  ╚═╝╚═╝     ╚═╝         ");
-        System.out.println("\n           Press Enter to continue...             ");
+        System.out.println();
+    }
+
+    public static void titleScreen(Scanner scanner){
+        UI.clearScreen();
+        printTitle();
+        System.out.println("             Press Enter to continue...             ");
         scanner.nextLine();
     }
 
@@ -27,6 +32,7 @@ public class _Intro {
         
         do {
             UI.clearScreen();
+            printTitle();
             UI.printBox("0. test hehe\n1. Login\n2. Register\n3. Exit");
             input = scanner.nextLine();
 

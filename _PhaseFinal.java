@@ -59,6 +59,7 @@ public class _PhaseFinal {
 
     public static void enemyChooseScreen(Scanner scanner){
         UI.clearScreen();
+        displayStatus();
         UI.printBox("Enemy: " + chosenEnemy);
         System.out.println(chosenEnemyDialog);
         System.out.println("\nPress Enter To Continue...");
@@ -76,10 +77,7 @@ public class _PhaseFinal {
             input = scanner.nextLine();
 
         } while (
-            !input.equals("1") && 
-            !input.equals("2") && 
-            !input.equals("3") && 
-            !input.equals("4")
+            !input.equals("1") && !input.equals("2") && !input.equals("3") && !input.equals("4")
         );
 
         String result = evaluateChoice(input);
@@ -116,18 +114,12 @@ public class _PhaseFinal {
                 break;
         }
 
-        try {
         if (action.length > 0) {
             enemyHP += Integer.parseInt(action[3]);
             playerHP += Integer.parseInt(action[4]);
             return action[2];
-            }
-        } catch (NumberFormatException e) {
-            for (String s : action) {
-                System.out.println(s);
-            }
         }
-        return "You hesitated or made an invalid choice.";
+        return "invalid.";
     }
 
     static void displayStatus() {
@@ -175,10 +167,15 @@ public class _PhaseFinal {
 
     static void gameEndScreen(Scanner scanner){
         UI.clearScreen();
+        displayStatus();
         if (playerHP <= 0) {
             UI.printBox("You collapsed. Exam failed.");
-        } else {
-            UI.printBox("Enemy steps back and disappears. You passed the final test.");
+        } else
+        if (enemyHP < 0) {
+            UI.printBox("You killed the enemy. Exam failed.");
+        }
+        else {
+            UI.printBox("CONGRATULATIONS! You passed the hunter exam!");
         }
 
         System.out.println("\nPress Enter To Continue...");

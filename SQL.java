@@ -14,10 +14,7 @@ public class SQL {
         String user = "hunter_exam_user";
         String pass = "AVNS_FZjhURUQoeysC1t3OjX";
 		
-		System.out.println("Connecting...");
-		
         try {
-            UI.clearScreen();
             System.out.println("Connecting to database...");
             Class.forName("com.mysql.cj.jdbc.Driver");
             conn = DriverManager.getConnection(url, user, pass);
