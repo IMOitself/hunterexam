@@ -8,7 +8,6 @@ public class _PlayerScreen {
         UI.printGreyText("\nPress Enter to test each phases");
         scanner.nextLine();
 		testScreen(scanner);
-        
     }
 
     public static void testScreen(Scanner scanner) {
@@ -24,7 +23,7 @@ public class _PlayerScreen {
                 _Phase2.exampleScreen(scanner);
                 break;
             case "3":
-                _Phase3.exampleScreen(scanner);
+                _Phase3.main(null);
                 break;
             case "4":
                 _Phase4.exampleScreen(scanner);
