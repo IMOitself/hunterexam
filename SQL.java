@@ -33,7 +33,6 @@ public class SQL {
             stmt.close();
         } catch (Exception e) {
             System.err.println("Error: " + e.getMessage());
-            e.printStackTrace();
         }
     }
 
@@ -48,7 +47,6 @@ public class SQL {
             stmt.close();
         } catch (Exception e) {
             System.err.println("Error: " + e.getMessage());
-            e.printStackTrace();
         }
     }
 
@@ -65,7 +63,6 @@ public class SQL {
             return result;
         } catch (Exception e) {
             System.err.println("Error: " + e.getMessage());
-            e.printStackTrace();
         }
         return result;
     }
@@ -87,7 +84,6 @@ public class SQL {
             return result;
         } catch (Exception e) {
             System.err.println("Error: " + e.getMessage());
-            e.printStackTrace();
         }
         return result;
     }
