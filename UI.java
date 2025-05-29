@@ -6,6 +6,14 @@ public class UI {
 	public static void printGreyText(String string){
 		System.out.println("\033[2m" + string + "\033[0m");
 	}
+	
+	public static void colorGrey(){
+		System.out.print("\033[2m");
+	}
+	
+	public static void colorReset(){
+		System.out.print("\033[0m");
+	}
 
     public static void printBox(String text) {
         String[] textLines = text.split("\n");

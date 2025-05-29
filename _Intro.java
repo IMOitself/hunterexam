@@ -31,6 +31,9 @@ public class _Intro {
         String input = "";
         UI.clearScreen();
         printTitle();
+		UI.colorGrey();
+		UI.printBox(Player.getTopPlayers());
+		UI.colorReset();
         UI.printBox("0. test hehe\n1. Login\n2. Register\n3. Exit");
         input = scanner.nextLine();
 
