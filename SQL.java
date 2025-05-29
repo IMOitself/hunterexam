@@ -36,20 +36,6 @@ public class SQL {
         }
     }
 
-    public static void runWithResult(String sql) {
-        try {
-            Statement stmt = conn.createStatement();
-            ResultSet rs = stmt.executeQuery(sql);
-            while (rs.next()) {
-                System.out.println(rs.getString(1));
-            }
-            rs.close();
-            stmt.close();
-        } catch (Exception e) {
-            System.err.println("Error: " + e.getMessage());
-        }
-    }
-
     public static List<String> runGetResult(String sql) {
         List<String> result = new ArrayList<>();
         try {

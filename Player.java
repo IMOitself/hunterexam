@@ -1,6 +1,13 @@
 
-import java.util.List;public class Player 
+import java.util.List;
+public class Player 
 {
+	static String username;
+	static String password;
+	static int currentPhase;
+	static int currentScore;
+
+
 	static String getTopPlayers(){
 		String a = "";
 		int i = 1;
@@ -12,23 +19,40 @@ import java.util.List;public class Player
 		
 		for(String player : topPlayers){
 			player = player.replace("::", "    ").trim();
-			if(i == 1){
-				a += "TOP PLAYERS:";
-				a += "\n🥇 " + player;
-			}else
-			
-			if(i == 2){
-				a += "\n🥈 " + player;
-			}else
-			
-			if(i == 3){
-				a += "\n🥉 " + player;
-			}
-			else{
-				a += "\n " + i + " " + player;
-			}
+			if(i == 1) a += "TOP PLAYERS:";
+			a += "\n " + i + " " + player;
 			i++;
 		}
 		return a;
+	}
+
+	static boolean isUsernameExists(String username){
+		return !SQL.runGetResult("SELECT username FROM players WHERE username = '" + username + "';").isEmpty();
+	}
+
+	static void register(String username, String password){
+		SQL.run("INSERT INTO players (username, password) VALUES ('" + username + "', '" + password + "');");
+	}
+
+	static boolean canLogin(String username, String password){
+		List<String> player = SQL.runGetResultAll("SELECT username, password, current_phase, current_score FROM players WHERE username = '" + username + "';");
+		
+		if(player.isEmpty()){
+			System.out.println("username not found.");
+			return false;
+		}
+		
+		String[] playerData = player.get(0).split("::");
+		
+		if(!playerData[1].equals(password)){
+			System.out.println("password do not match.");
+			return false;
+		}
+
+		Player.username = username;
+		Player.password = password;
+		Player.currentPhase = Integer.parseInt(playerData[2]);
+		Player.currentScore = Integer.parseInt(playerData[3]);
+		return true;
 	}
 }

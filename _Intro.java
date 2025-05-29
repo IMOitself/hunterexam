@@ -42,9 +42,7 @@ public class _Intro {
                 testScreen(scanner);
                 break;
             case "1":
-                UI.printBox("coming soon.");
-                UI.delay(500);
-                mainMenu(scanner);
+                loginScreen(scanner);
                 break;
             case "2":
                 registerScreen(scanner);
@@ -58,25 +56,65 @@ public class _Intro {
     }
 
     public static void registerScreen(Scanner scanner) {
-        String input = "";
-
         UI.clearScreen();
         UI.printBox("Create Your Username:");
-        input = scanner.nextLine();
+        String username = scanner.nextLine();
 
-        if (input.isEmpty()) {
+        if (username.isEmpty()) {
             registerScreen(scanner);
-        } else {
+        }
+        else if(Player.isUsernameExists(username)){
             UI.clearScreen();
-            UI.printBox("Create Your Username: " + input);
-
+            UI.printBox("Username Already Taken.\nPlease Try Again.");
             UI.delay(500);
-
+            registerScreen(scanner);
+        }
+        else {
             UI.clearScreen();
-            UI.printBox("Welcome To Hunter Exam, " + input + "!\n\ncoming soon...");
-            UI.printGreyText("\nPress Enter To Continue...");
-            scanner.nextLine();
-            mainMenu(scanner);
+            UI.printBox("Create Your Username: " + username + "\nCreate Your Password:");
+            String password = scanner.nextLine();
+            UI.clearScreen();
+            UI.printBox("Create Your Username: " + username + "\nCreate Your Password: " + password);
+            UI.delay(750);
+
+            Player.register(username, password);
+
+            if(Player.canLogin(username, password)){
+                UI.clearScreen();
+                UI.printBox("Welcome To Hunter Exam, " + username + "!");
+                UI.printGreyText("\nPress Enter To Continue...");
+                scanner.nextLine();
+                _PlayerScreen.exampleScreen(scanner);
+            }else{
+                mainMenu(scanner);
+            }
+        }
+    }
+
+    public static void loginScreen(Scanner scanner){
+        UI.clearScreen();
+        UI.printBox("Username:");
+        String username = scanner.nextLine();
+
+        if (username.isEmpty()) {
+            loginScreen(scanner);
+        }
+        else {
+            UI.clearScreen();
+            UI.printBox("Username: " + username + "\nPassword:");
+            String password = scanner.nextLine();
+
+            if(Player.canLogin(username, password)){
+                UI.clearScreen();
+                UI.printBox("Welcome Back, " + username);
+                UI.printGreyText("\nPress Enter To Continue...");
+                scanner.nextLine();
+                _PlayerScreen.exampleScreen(scanner);
+            }
+            else{
+                scanner.nextLine();
+                mainMenu(scanner);
+            }
         }
     }
 
