@@ -2,6 +2,10 @@ public class UI {
     public static void clearScreen() {
         System.out.print("\033[H\033[2J");
     }
+	
+	public static void printGreyText(String string){
+		System.out.println("\033[2m" + string + "\033[0m");
+	}
 
     public static void printBox(String text) {
         String[] textLines = text.split("\n");

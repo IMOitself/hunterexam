@@ -23,7 +23,7 @@ public class _Intro {
     public static void titleScreen(Scanner scanner) {
         UI.clearScreen();
         printTitle();
-        System.out.println("             Press Enter to continue...             ");
+        UI.printGreyText("             Press Enter to continue...             ");
         scanner.nextLine();
     }
 
@@ -71,7 +71,7 @@ public class _Intro {
 
             UI.clearScreen();
             UI.printBox("Welcome To Hunter Exam, " + input + "!\n\ncoming soon...");
-            System.out.println("\nPress Enter To Continue...");
+            UI.printGreyText("\nPress Enter To Continue...");
             scanner.nextLine();
             mainMenu(scanner);
         }

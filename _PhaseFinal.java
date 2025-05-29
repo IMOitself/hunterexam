@@ -48,13 +48,15 @@ public class _PhaseFinal {
             "For the Final Phase of the Hunter Exam,\nwe will be competing in a one-on-one tournament.",
             "Now, for the rules of the tournament:",
             "1. You must win by making your opponent concede.\n2. Killing your opponent is strictly forbidden.",
-            "\nPress Enter To Continue...",
         };
 
         for (String line : narratorLines) {
             System.out.print(line + "\n");
             scanner.nextLine();
         }
+		
+		UI.printGreyText("\nPress Enter To Continue...");
+		scanner.nextLine();
     }
 
     public static void enemyChooseScreen(Scanner scanner){
@@ -81,7 +83,7 @@ public class _PhaseFinal {
             case "4":
                 String result = evaluateChoice(input);
                 UI.printBox(result);
-                System.out.println("\nPress Enter To Continue...");
+                UI.printGreyText("\nPress Enter To Continue...");
                 scanner.nextLine();
     
                 if (playerHP > 0 && enemyHP > 0){
@@ -185,7 +187,7 @@ public class _PhaseFinal {
             UI.printBox("CONGRATULATIONS! You passed the hunter exam!");
         }
 
-        System.out.println("\nPress Enter To Continue...");
+        UI.printGreyText("\nPress Enter To Continue...");
         playerHP = 100;
         enemyHP = 100;
         scanner.nextLine();

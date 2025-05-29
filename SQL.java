@@ -21,8 +21,6 @@ public class SQL {
             System.out.println("Connection successful!");
 
         } catch (Exception e) {
-            System.err.println("Error: " + e.getMessage());
-            e.printStackTrace();
             return false;
         }
         return true;
