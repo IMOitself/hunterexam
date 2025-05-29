@@ -5,22 +5,16 @@ public class _PlayerScreen {
         UI.clearScreen();
         UI.printGreyText("[ Work in progress ]");
         UI.printBox("Username: " + Player.username + "\nPassword: " + Player.password + "\nCurrent Phase: " + Player.currentPhase + "\nCurrent Score: " + Player.currentScore);
-        UI.printGreyText("\nPress Enter To go to Main Menu...\n0. Test hehe");
-        String input = scanner.nextLine();
-        if(input.equals("0")){
-            testScreen(scanner);
-        }
-        else{
-            _Intro.mainMenu(scanner);
-        }
+        UI.printGreyText("\nPress Enter to test each phases");
+        scanner.nextLine();
+		testScreen(scanner);
+        
     }
 
     public static void testScreen(Scanner scanner) {
-        String input = "";
-
         UI.clearScreen();
-        UI.printBox("1. Phase 1\n2. Phase 2\n3. Phase 3\n4. Phase 4\n5. Final\n6. Back");
-        input = scanner.nextLine();
+        UI.printBox("1. Phase 1\n2. Phase 2\n3. Phase 3\n4. Phase 4\n5. Final\n6. Main Menu\n7. Back");
+        String input = scanner.nextLine();
 
         switch (input) {
             case "1":
@@ -38,8 +32,11 @@ public class _PlayerScreen {
             case "5":
                 _PhaseFinal.exampleScreen(scanner);
                 break;
-            case "6":
-                _Intro.mainMenu(scanner);
+			case "6":
+                _Intro.homeScreen(scanner);
+                break;
+            case "7":
+                _PlayerScreen.exampleScreen(scanner);
                 break;
             default:
                 testScreen(scanner);
