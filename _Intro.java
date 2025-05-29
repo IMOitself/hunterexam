@@ -2,8 +2,7 @@ import java.util.Scanner;
 
 public class _Intro {
 
-    public static void titleScreen(Scanner scanner){
-        UI.clearScreen();
+    public static void printTitle() {
         System.out.println();
         System.out.println("██╗  ██╗██╗   ██╗███╗   ██╗████████╗███████╗██████╗ ");
         System.out.println("██║  ██║██║   ██║████╗  ██║╚══██╔══╝██╔════╝██╔══██╗");
@@ -18,93 +17,113 @@ public class _Intro {
         System.out.println("        ██╔══╝   ██╔██╗ ██╔══██║██║╚██╔╝██║         ");
         System.out.println("        ███████╗██╔╝ ██╗██║  ██║██║ ╚═╝ ██║         ");
         System.out.println("        ╚══════╝╚═╝  ╚═╝╚═╝  ╚═╝╚═╝     ╚═╝         ");
-        System.out.println("\n           Press Enter to continue...             ");
-        scanner.nextLine();
-        _Intro.mainMenu(scanner);
+        System.out.println();
     }
 
-    public static void mainMenu(Scanner scanner){
-        String input = "";
-        
-        do {
-            UI.clearScreen();
-            UI.printBox("0. test hehe\n1. Login\n2. Register\n3. Exit");
-            input = scanner.nextLine();
+    public static void titleScreen(Scanner scanner) {
+        UI.clearScreen();
+        printTitle();
+        UI.printGreyText("             Press Enter to continue...             ");
+        scanner.nextLine();
+    }
 
-        } while (!input.equals("0") && !input.equals("1") && !input.equals("2") && !input.equals("3"));
+    public static void mainMenu(Scanner scanner) {
+        UI.clearScreen();
+        printTitle();
+		UI.colorGrey();
+		UI.printBox(Player.getTopPlayers());
+		UI.colorReset();
+        UI.printBox("1. Login\n2. Register\n3. Exit");
+        String input = scanner.nextLine();
 
-        switch(input){
-            case "0":
-                testScreen(scanner);
-                break;
+        switch (input) {
             case "1":
-                UI.printBox("coming soon.");
-
-                try {
-                    Thread.sleep(500);
-                } catch (Exception e) {}
-
-                mainMenu(scanner);
+                loginScreen(scanner);
                 break;
             case "2":
                 registerScreen(scanner);
                 break;
             case "3":
                 break;
-        }
-    }
-
-    public static void registerScreen(Scanner scanner){
-        String input = "";
-        do {
-            UI.clearScreen();
-            UI.printBox("Create Your Username:");
-            input = scanner.nextLine();
-        } while (input.isEmpty());
-
-        UI.clearScreen();
-        UI.printBox("Create Your Username: " + input);
-
-        try {
-            Thread.sleep(500);
-        } catch (Exception e) {}
-        
-        UI.clearScreen();
-        UI.printBox("Welcome To Hunter Exam, " + input + "!\n\ncoming soon...");
-        System.out.println("\nPress Enter To Continue...");
-        scanner.nextLine();
-        mainMenu(scanner);
-    }
-
-    public static void testScreen(Scanner scanner){
-        String input = "";
-        
-        do {
-            UI.clearScreen();
-            UI.printBox("1. Phase 1\n2. Phase 2\n3. Phase 3\n4. Phase 4\n5. Final\n6. Back");
-            input = scanner.nextLine();
-
-        } while (!input.equals("1") && !input.equals("2") && !input.equals("3") && !input.equals("4") && !input.equals("5") && !input.equals("6"));
-
-        switch(input){
-            case "1":
-                _Phase1.exampleScreen(scanner);
-                break;
-            case "2":
-                _Phase2.exampleScreen(scanner);
-                break;
-            case "3":
-                _Phase3.exampleScreen(scanner);
-                break;
-            case "4":
-                _Phase4.exampleScreen(scanner);
-                break;
-            case "5":
-                _PhaseFinal.exampleScreen(scanner);
-                break;
-            case "6":
+            default:
                 mainMenu(scanner);
                 break;
         }
+    }
+
+    public static void registerScreen(Scanner scanner) {
+        UI.clearScreen();
+		printTitle();
+        UI.printBox("Create Your Username:");
+        String username = scanner.nextLine();
+
+        if (username.isEmpty()) {
+            registerScreen(scanner);
+        }
+        else if(Player.isUsernameExists(username)){
+            UI.clearScreen();
+			printTitle();
+            UI.printBox("Username Already Taken.\nPlease Try Again.");
+            UI.delay(500);
+            registerScreen(scanner);
+        }
+        else {
+            UI.clearScreen();
+			printTitle();
+            UI.printBox("Create Your Username: " + username + "\nCreate Your Password:");
+            String password = scanner.nextLine();
+            UI.clearScreen();
+			printTitle();
+            UI.printBox("Create Your Username: " + username + "\nCreate Your Password: " + password);
+            UI.delay(750);
+
+            Player.register(username, password);
+
+            if(Player.canLogin(username, password)){
+                UI.clearScreen();
+				printTitle();
+                UI.printBox("Welcome To Hunter Exam, " + username + "!");
+                UI.printGreyText("\nPress Enter To Continue...");
+                scanner.nextLine();
+                _PlayerScreen.exampleScreen(scanner);
+            }else{
+                mainMenu(scanner);
+            }
+        }
+    }
+
+    public static void loginScreen(Scanner scanner){
+        UI.clearScreen();
+		printTitle();
+        UI.printBox("Username:");
+        String username = scanner.nextLine();
+
+        if (username.isEmpty()) {
+            loginScreen(scanner);
+        }
+        else {
+            UI.clearScreen();
+			printTitle();
+            UI.printBox("Username: " + username + "\nPassword:");
+            String password = scanner.nextLine();
+
+            if(Player.canLogin(username, password)){
+                UI.clearScreen();
+				printTitle();
+                UI.printBox("Welcome Back, " + username);
+                UI.printGreyText("\nPress Enter To Continue...");
+                scanner.nextLine();
+                _PlayerScreen.exampleScreen(scanner);
+            }
+            else{
+                scanner.nextLine();
+                mainMenu(scanner);
+            }
+        }
+    }
+
+    public static void homeScreen(Scanner scanner) {
+        titleScreen(scanner);
+        mainMenu(scanner);
     }
 }

@@ -6,6 +6,17 @@ class Main {
 
         // _Intro
         _Intro.titleScreen(scanner);
+
+        if(SQL.canConnect()){
+			UI.clearScreen();
+            SQL.run("USE hunter_exam;");
+			UI.delay(250);
+            _Intro.mainMenu(scanner);
+        }
+        else{
+            System.out.println("Connection failed. Press Enter to exit...");
+            scanner.nextLine();
+        }
         
         scanner.close();
     }

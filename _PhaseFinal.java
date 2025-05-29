@@ -1,5 +1,7 @@
 import java.util.Scanner;
+import java.util.List;
 import java.util.Random;
+import java.util.ArrayList;
 
 public class _PhaseFinal {
     static Scanner scanner = new Scanner(System.in);
@@ -11,35 +13,33 @@ public class _PhaseFinal {
     static String chosenEnemy = "";
     static String chosenEnemyDialog = "";
 
-    static String[] enemies = {
-        "Gon",
-        "Killua",
-        "Kurapika",
-        "Leorio",
-        "Hisoka",
-        "Gittarackur",
-        "Hanzo",
-        "Bodoro",
-        "Pokkle"
-    };
-
-    static String[] enemyDialogs = {
-        "Gon: Wow! This is amazing! Right, Killua? \nKillua: Yeah..",
-        "Killua: Hmph. So this is it?",
-        "Kurapika: My objective is clear. I will not be swayed.",
-        "Leorio: Alright, alright, I get it! Sheesh!",
-        "Hisoka: Heh>:)",
-        "* Gittarackur is revealed to be Illumi * \nIllumi: Killua. Come home.",
-        "Hanzo: My training is second to none!",
-        "Bodoro: ...",
-        "Pokkle: Okay, my arrows should be effective against this type...",
-    };
+    static List<String> enemyNames = new ArrayList<>();
+    static List<String> enemyDialogs = new ArrayList<>();
+    static List<String> attackActions = new ArrayList<>();
+    static List<String> talkActions = new ArrayList<>();
+    static List<String> distractActions = new ArrayList<>();
+    static List<String> runActions = new ArrayList<>();
 
     public static void exampleScreen(Scanner scanner){
+        loadSQLvariables();
         UI.clearScreen();
         narratorScreen(scanner);
         enemyChooseScreen(scanner);
         gameScreen(scanner);
+    }
+
+    public static void loadSQLvariables(){
+        enemyNames = SQL.runGetResult("SELECT name FROM p5enemies;");
+        enemyDialogs = SQL.runGetResult("SELECT dialog FROM p5enemies;");
+
+        int randomEnemyIndex = random.nextInt(enemyNames.size());
+        chosenEnemy = enemyNames.get(randomEnemyIndex);
+        chosenEnemyDialog = enemyDialogs.get(randomEnemyIndex);
+
+        attackActions = SQL.runGetResultAll("SELECT * FROM p5actions WHERE action_type_id = 1;");
+        talkActions = SQL.runGetResultAll("SELECT * FROM p5actions WHERE action_type_id = 2;");
+        distractActions = SQL.runGetResultAll("SELECT * FROM p5actions WHERE action_type_id = 3;");
+        runActions = SQL.runGetResultAll("SELECT * FROM p5actions WHERE action_type_id = 4;");
     }
 
     public static void narratorScreen(Scanner scanner){
@@ -47,91 +47,87 @@ public class _PhaseFinal {
             "Netero: Everyone rested up? Good. Now, then.",
             "For the Final Phase of the Hunter Exam,\nwe will be competing in a one-on-one tournament.",
             "Now, for the rules of the tournament:",
-            "1. You must win by making your opponent concede.",
-            "2. Killing your opponent is strictly forbidden.",
-            "\nPress Enter To Continue...",
+            "1. You must win by making your opponent concede.\n2. Killing your opponent is strictly forbidden.",
         };
 
         for (String line : narratorLines) {
-            System.out.println(line);
+            System.out.print(line + "\n");
             scanner.nextLine();
         }
+		
+		UI.printGreyText("\nPress Enter To Continue...");
+		scanner.nextLine();
     }
 
     public static void enemyChooseScreen(Scanner scanner){
-        int randomEnemyIndex = random.nextInt(enemies.length);
-        chosenEnemy = enemies[randomEnemyIndex];
-        chosenEnemyDialog = enemyDialogs[randomEnemyIndex];
-
         UI.clearScreen();
+        displayStatus();
         UI.printBox("Enemy: " + chosenEnemy);
         System.out.println(chosenEnemyDialog);
-        System.out.println("\nPress Enter To Continue...");
         scanner.nextLine();
 
         if (chosenEnemy.equals("Gittarackur")) chosenEnemy = "Illumi";
     }
 
     public static void gameScreen(Scanner scanner) {
+        String input = "";
         UI.clearScreen();
-        while (playerHP > 0 && enemyHP > 0) {
-            displayStatus();
-            System.out.println("What will you do?");
-            UI.printBox("1. Attack\n2. Talk\n3. Throw/Distract\n4. Run/Hide");
-
-            String choice = scanner.nextLine().trim();
-
-            String result = evaluateChoice(choice);
-            UI.printBox(result);
-
-            System.out.println("\nPress Enter To Continue...");
-            scanner.nextLine();
-            UI.clearScreen();
-        }
-
         displayStatus();
+        UI.printBox("1. Attack\n2. Talk\n3. Distract\n4. Run");
+        input = scanner.nextLine();
 
-        if (playerHP <= 0) {
-            UI.printBox("You collapsed. Exam failed.");
-        } else {
-            UI.printBox("Enemy steps back and disappears. You passed the final test.");
+        switch (input) {
+            case "1":
+            case "2":
+            case "3":
+            case "4":
+                String result = evaluateChoice(input);
+                UI.printBox(result);
+                UI.printGreyText("\nPress Enter To Continue...");
+                scanner.nextLine();
+    
+                if (playerHP > 0 && enemyHP > 0){
+                    gameScreen(scanner);
+                }else{
+                    gameEndScreen(scanner);
+                }
+                break;
+            default:
+                gameScreen(scanner);
+                break;
         }
-
-        System.out.println("\nPress Enter To Continue...");
-        playerHP = 100;
-        enemyHP = 100;
-        scanner.nextLine();
-        UI.clearScreen();
-        _Intro.titleScreen(scanner);
     }
 
     static String evaluateChoice(String choice) {
+        String[] action = {};
+        int index = 0;
         switch (choice) {
             case "1":
-                playerHP -= 50;
-                return "You tried to attack directly... Enemy countered. -50 HP";
+                index = random.nextInt(attackActions.size());
+                action = attackActions.get(index).split("::");
+                break;
             case "2":
-                if (random.nextInt(100) < 60) {
-                    enemyHP -= 50;
-                    return "You talk calmly. Enemy hesitates. -50 Enemy HP";
-                } else {
-                    playerHP -= 20;
-                    return "Enemy ignores your words. -20 HP";
-                }
+                index = random.nextInt(talkActions.size());
+                action = talkActions.get(index).split("::");
+                break;
             case "3":
-                enemyHP -= 30;
-                return "You distracted the enemy successfully. -30 Enemy HP";
+                index = random.nextInt(distractActions.size());
+                action = distractActions.get(index).split("::");
+                break;
             case "4":
-                if (random.nextInt(100) < 50) {
-                    return "You ran and avoided damage.";
-                } else {
-                    playerHP -= 30;
-                    return "You tripped while running. Enemy struck. -30 HP";
-                }
-            default:
-                playerHP -= 40;
-                return "You hesitated or made an invalid choice. Enemy attacked. -40 HP";
+                index = random.nextInt(runActions.size());
+                action = runActions.get(index).split("::");
+                break;
         }
+
+        if (action.length > 0) {
+            enemyHP += Integer.parseInt(action[3]);
+            playerHP += Integer.parseInt(action[4]);
+            // add damage to current score
+            Player.currentScore -= Integer.parseInt(action[3]);
+            return action[2];
+        }
+        return "invalid.";
     }
 
     static void displayStatus() {
@@ -144,7 +140,10 @@ public class _PhaseFinal {
         String[] player = getStickmanLines(playerHP);
         String[] enemy = getStickmanLines(enemyHP);
         for (int i = 0; i < player.length; i++) {
-            System.out.printf("   %-10s   %-10s\n", player[i], enemy[i]);
+            System.out.print("   ");
+            System.out.print(player[i]);
+            System.out.print("        ");
+            System.out.println(enemy[i]);
         }
         System.out.println();
     }
@@ -175,6 +174,29 @@ public class _PhaseFinal {
                 "RIP  "
             };
         }
+    }
+
+    static void gameEndScreen(Scanner scanner){
+        UI.clearScreen();
+        displayStatus();
+        if (playerHP <= 0) {
+            UI.printBox("You collapsed. Exam failed.");
+        } else
+        if (enemyHP < 0) {
+            UI.printBox("You killed the enemy. Exam failed.");
+        }
+        else {
+            UI.printBox("CONGRATULATIONS! You passed the hunter exam!");
+            Player.currentScore += 100;
+        }
+
+        Player.updateScore();
+
+        UI.printGreyText("\nPress Enter To Continue...");
+        playerHP = 100;
+        enemyHP = 100;
+        scanner.nextLine();
+        _Intro.homeScreen(scanner);
     }
 }
 
