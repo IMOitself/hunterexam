@@ -2,10 +2,10 @@
 import java.util.List;
 public class Player 
 {
-	static String username;
-	static String password;
-	static int currentPhase;
-	static int currentScore;
+	static String username = "none";
+	static String password = "none";
+	static int currentPhase = 0;
+	static int currentScore = 0;
 
 
 	static String getTopPlayers(){
@@ -54,5 +54,9 @@ public class Player
 		Player.currentPhase = Integer.parseInt(playerData[2]);
 		Player.currentScore = Integer.parseInt(playerData[3]);
 		return true;
+	}
+
+	static void updateScore(){
+		SQL.run("UPDATE players SET current_score = '" + currentScore + "' WHERE username = '" + username + "';");
 	}
 }

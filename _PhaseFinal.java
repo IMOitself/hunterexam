@@ -123,6 +123,8 @@ public class _PhaseFinal {
         if (action.length > 0) {
             enemyHP += Integer.parseInt(action[3]);
             playerHP += Integer.parseInt(action[4]);
+            // add damage to current score
+            Player.currentScore -= Integer.parseInt(action[3]);
             return action[2];
         }
         return "invalid.";
@@ -185,13 +187,15 @@ public class _PhaseFinal {
         }
         else {
             UI.printBox("CONGRATULATIONS! You passed the hunter exam!");
+            Player.currentScore += 100;
         }
+
+        Player.updateScore();
 
         UI.printGreyText("\nPress Enter To Continue...");
         playerHP = 100;
         enemyHP = 100;
         scanner.nextLine();
-        UI.clearScreen();
         _Intro.homeScreen(scanner);
     }
 }
