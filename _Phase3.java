@@ -342,6 +342,7 @@ public class _Phase3 {
         int computerWins = 0;
 
         while (playerWins < 3 && computerWins < 3) {
+            UI.clearScreen();
             System.out.println("\nScore: You " + playerWins + " - " + computerWins + " Leroute");
             System.out.print("Choose (Rock/Paper/Scissors): ");
             String playerChoice = scanner.nextLine().toUpperCase();
@@ -370,6 +371,9 @@ public class _Phase3 {
                 System.out.println("Leroute wins this round!");
                 computerWins++;
             }
+
+            UI.printGreyText("\nPress enter to continue...");
+            scanner.nextLine();
         }
 
         if (playerWins == 3) {
