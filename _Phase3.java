@@ -132,7 +132,7 @@ public class _Phase3 {
             scanner.nextLine();
 
             System.out.println("Killua calmly stops Leorio: \"Actually, he made the right choice.\"");
-            System.out.println("\nKillua coolly analyzes the situation: \"Professional work. That stance... he was definitely military.\"");
+            System.out.println("\nKillua coolly analyzes the situation: \"That stance... he was definitely a former military or mercenary.\"");
             System.out.println("\"They're trying to buy time - every hour we waste is a year off their sentences.\"");
             System.out.println("\"If Tonpa had fought, Bendot would have crushed his throat first\"");
             System.out.println("\"to prevent surrender, then tortured him slowly to death.\"");
@@ -173,7 +173,7 @@ public class _Phase3 {
             System.out.println("-5 hours deducted for the prolonged torture");
             remainingHours -= 5;
 
-            System.out.println("\nKillua observes coldly: \"Professional work. He was military.\"");
+            System.out.println("\nKillua observes coldly: \"Those methods... i think he was a former military or mercenary.\"");
             System.out.println("Leorio is pale: \"That... that could have been any of us...\"");
 
             tonpaAlive = false;
@@ -284,7 +284,7 @@ public class _Phase3 {
         scanner.nextLine();
 
         System.out.println("Before anyone can blink, Killua rips out Johness's heart!");
-        System.out.println("'The loser dies,' Killua says innocently.");
+        System.out.println("Killua smiles with satisfaction.");
 
         System.out.println("\nYou won 3 challenges! Proceeding to next stage...");
         System.out.println("Remaining time: " + remainingHours + " hours");
