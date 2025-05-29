@@ -11,6 +11,14 @@ public class _Phase1 {
     static boolean ignoreInput = false;
     
     public static void exampleScreen(Scanner scanner){
+        UI.clearScreen();
+        System.out.println("\n==============================================");
+        System.out.println("    HUNTER x HUNTER - SPEED CHALLENGE");
+        System.out.println("             Phase 1 of Hunter Exam");
+        System.out.println("==============================================");
+        UI.printGreyText("\nPress enter to continue...");
+        scanner.nextLine();
+        
         List<String> wordsToGuess = new ArrayList<>(Arrays.asList(
             "run", "jog", "walk", "fast", "pace", "step", "move", "air", "breathe", "leg",
             "foot", "arm", "sweat", "tunnel", "tired", "shoe", "hope", "through", "pass", "fail"

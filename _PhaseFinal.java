@@ -22,7 +22,15 @@ public class _PhaseFinal {
 
     public static void exampleScreen(Scanner scanner){
         loadSQLvariables();
+
         UI.clearScreen();
+        System.out.println("\n==============================================");
+        System.out.println("    HUNTER x HUNTER - PVP CHALLENGE");
+        System.out.println("             Final Phase of Hunter Exam");
+        System.out.println("==============================================");
+        UI.printGreyText("\nPress enter to continue...");
+        scanner.nextLine();
+
         narratorScreen(scanner);
         enemyChooseScreen(scanner);
         gameScreen(scanner);
