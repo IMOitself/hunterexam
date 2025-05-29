@@ -6,10 +6,11 @@ public class _Phase3 {
     private static boolean tonpaAlive = true;
     private static boolean tonpaInjured = false;
     private static boolean leorioPassed = true;
-    private static Scanner scanner = new Scanner(System.in);
+    private static Scanner scanner;
     private static Random random = new Random();
 
-    public static void main(String[] args) {
+    public static void main(Scanner scanner) {
+        _Phase3.scanner = scanner;
         displayIntro();
         initialDescent();
         enterTower();
@@ -490,6 +491,7 @@ public class _Phase3 {
         System.out.println("\nThank you for playing the Hunter Exam!");
         UI.printGreyText("\nPress enter to continue...");
         scanner.nextLine();
+        _PlayerScreen.main(scanner);
     }
 
     public static void goodEnding() {

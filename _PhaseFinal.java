@@ -4,7 +4,7 @@ import java.util.Random;
 import java.util.ArrayList;
 
 public class _PhaseFinal {
-    static Scanner scanner = new Scanner(System.in);
+    static Scanner scanner;
     static Random random = new Random();
 
     static int playerHP = 100;
@@ -20,7 +20,8 @@ public class _PhaseFinal {
     static List<String> distractActions = new ArrayList<>();
     static List<String> runActions = new ArrayList<>();
 
-    public static void exampleScreen(Scanner scanner){
+    public static void main(Scanner scanner){
+        _PhaseFinal.scanner = scanner;
         loadSQLvariables();
 
         UI.clearScreen();

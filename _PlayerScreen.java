@@ -1,7 +1,7 @@
 import java.util.Scanner;
 
 public class _PlayerScreen {
-    public static void exampleScreen(Scanner scanner){
+    public static void main(Scanner scanner){
         UI.clearScreen();
         UI.printGreyText("[ Work in progress ]");
         UI.printBox("Username: " + Player.username + "\nPassword: " + Player.password + "\nCurrent Phase: " + Player.currentPhase + "\nCurrent Score: " + Player.currentScore);
@@ -23,19 +23,19 @@ public class _PlayerScreen {
                 _Phase2.exampleScreen(scanner);
                 break;
             case "3":
-                _Phase3.main(null);
+                _Phase3.main(scanner);
                 break;
             case "4":
                 _Phase4.exampleScreen(scanner);
                 break;
             case "5":
-                _PhaseFinal.exampleScreen(scanner);
+                _PhaseFinal.main(scanner);
                 break;
 			case "6":
                 _Intro.homeScreen(scanner);
                 break;
             case "7":
-                _PlayerScreen.exampleScreen(scanner);
+                _PlayerScreen.main(scanner);
                 break;
             default:
                 testScreen(scanner);

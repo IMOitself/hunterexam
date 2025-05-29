@@ -85,7 +85,7 @@ public class _Intro {
                 UI.printBox("Welcome To Hunter Exam, " + username + "!");
                 UI.printGreyText("\nPress Enter To Continue...");
                 scanner.nextLine();
-                _PlayerScreen.exampleScreen(scanner);
+                _PlayerScreen.main(scanner);
             }else{
                 mainMenu(scanner);
             }
@@ -113,7 +113,7 @@ public class _Intro {
                 UI.printBox("Welcome Back, " + username);
                 UI.printGreyText("\nPress Enter To Continue...");
                 scanner.nextLine();
-                _PlayerScreen.exampleScreen(scanner);
+                _PlayerScreen.main(scanner);
             }
             else{
                 scanner.nextLine();
