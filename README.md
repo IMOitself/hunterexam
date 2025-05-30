@@ -11,16 +11,16 @@
 <details>
   <summary>Files for connecting everything:</summary>
   
-* **`_Intro.java`** 
+* **`_Intro.java`**
+* **`_PlayerScreen.java`** 
 * **`Main.java`**
 * **`UI.java`**
+* **`Player.java`** 
 
 </details>
 
 <details>
-  <summary>Files just for our SQL database:</summary>
-  
-* **`SQL.java`**
+  <summary>Files for our SQL database:</summary>
 * **`mysql-connector-j-9.3.0.jar`**
 
 </details>
@@ -81,7 +81,7 @@
 ## ▶️ How to Run
 </div>
 
-**Run `Main.java` [new]**
+**Run `Main.java`**
 
 <details>
   <summary>windows</summary>
