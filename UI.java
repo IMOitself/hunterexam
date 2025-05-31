@@ -45,4 +45,66 @@ public class UI {
             Thread.sleep(ms);
         } catch (Exception e) {}
     }
+
+    public static void rpsUI() {
+        try {
+            // UI DISPLAY FOR JAJANKEN 
+            String[] rockHand = {
+                "    _______      _______    ",
+                "---'   ____)    (____   '---",
+                "      (_____)  (_____)      ",
+                "      (_____)  (____)       ",
+                "      (____)   (____)       ",
+                "---.__(___)     (___)__.---"
+            };
+    
+            String[] paperHand = {
+                "    _______                 _______    ",
+                "---'   ____)____       ____(____   '---",
+                "          ______)     (______          ",
+                "          _______)   (_______          ",
+                "         _______)     (_______         ",
+                "---.__________)        (__________.--- "
+            };
+    
+            String[] scissorsHand = {
+                "    _______                 _______     ",
+                "---'   ____)____       ____(____        ",
+                "          ______)     (______           ",
+                "       __________)   (__________        ",
+                "      (____)               (____        ",
+                "---.__(___)                 (___)__.--- "
+            };
+    
+            
+            clearScreen();
+            
+            System.out.println("\nRock...");
+            for (String line : rockHand) {
+                System.out.println(line);
+            }
+            delay(1000);
+            
+            clearScreen();
+            
+            System.out.println("\nPaper...");
+            for (String line : paperHand) {
+                System.out.println(line);
+            }
+            delay(1000);
+            clearScreen();
+            
+            System.out.println("\nScissors...");
+            for (String line : scissorsHand) {
+                System.out.println(line);
+            }
+            delay(1000);
+            clearScreen();
+            
+            System.out.println("\nShoot!");
+            delay(500);
+        } catch (Exception e) {
+            Thread.currentThread().interrupt();
+        }
+    }
 }

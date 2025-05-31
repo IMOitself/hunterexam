@@ -346,6 +346,7 @@ public class _Phase3 {
             System.out.println("\nScore: You " + playerWins + " - " + computerWins + " Leroute");
             System.out.print("Choose (Rock/Paper/Scissors): ");
             String playerChoice = scanner.nextLine().toUpperCase();
+            UI.rpsUI();
 
             while (!playerChoice.equals("ROCK") && !playerChoice.equals("PAPER") && !playerChoice.equals("SCISSORS")) {
                 UI.clearScreen();
