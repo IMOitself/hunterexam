@@ -67,7 +67,8 @@
 </details>
 
 <div align="center">
-
+<br/>
+  
 ## ▶️ How to Run
 </div>
 
@@ -92,8 +93,9 @@
 </details>
 
 <div align="center">
-
-## ▶️ How to Update
+<br/>
+  
+## 🔃 How to Update
 </div>
 
 * Enter this code
