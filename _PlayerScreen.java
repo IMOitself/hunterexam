@@ -12,12 +12,12 @@ public class _PlayerScreen {
 
     public static void testScreen(Scanner scanner) {
         UI.clearScreen();
-        UI.printBox("1. Phase 1\n2. Phase 2\n3. Phase 3\n4. Phase 4\n5. Final\n6. Main Menu\n7. Back");
+        UI.printBox("1. Phase 1\n2. Phase 2\n3. Phase 3\n4. Phase 4\n5. Final\n6. Main Menu");
         String input = scanner.nextLine();
 
         switch (input) {
             case "1":
-                _Phase1.exampleScreen(scanner);
+                _Phase1.main(new String[]{});
                 break;
             case "2":
                 _Phase2.exampleScreen(scanner);
@@ -33,9 +33,6 @@ public class _PlayerScreen {
                 break;
 			case "6":
                 _Intro.homeScreen(scanner);
-                break;
-            case "7":
-                _PlayerScreen.main(scanner);
                 break;
             default:
                 testScreen(scanner);
