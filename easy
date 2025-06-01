@@ -34,7 +34,7 @@ public class easy extends hunterProject {
 			startTimer(); // TIMER STARTS 
 	        
 	        while (isRunning) {
-	        	ResultSet resultSet = statement.executeQuery("SELECT word FROM wordseasy ORDER BY RAND() LIMIT 1;");
+	        	ResultSet resultSet = statement.executeQuery("SELECT p1easy FROM hunter_exam ORDER BY RAND() LIMIT 1;");
 		        if (resultSet.next()) {
 		            word = resultSet.getString("word");
 		            System.out.println("Word to match: " + word); // Print word before asking for input
