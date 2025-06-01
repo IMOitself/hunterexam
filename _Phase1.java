@@ -1,6 +1,6 @@
 import java.util.*;
 
-public class hunterProject {
+public class _Phase1 {
 	static Scanner scanner = new Scanner(System.in);
 	
 	static int correctCount = 0;
