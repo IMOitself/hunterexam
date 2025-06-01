@@ -1,0 +1,79 @@
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.Statement;
+import java.util.Scanner;
+
+public class normal extends hunterProject{
+	static void startGameNorm() {
+	    Scanner scanner = new Scanner(System.in);
+	    
+	    hunterProject.prologue(); //<----- will run the prologue first
+	    
+	    System.out.println("You have 10 seconds\n");
+
+	    //DATABASE
+	    String url = "jdbc:mysql://localhost:3306/hunterph1";
+	    String username = "root";
+	    String password = "";
+	    
+	    //VARIABLE1
+	    String word = "";        
+	    String input1 = "";
+	    //VARIABLE2
+        correctCount = 0;
+        wrongInput = 0;
+            
+	    try { // DATABASE CONNECTION
+	        Class.forName("com.mysql.cj.jdbc.Driver");
+
+	        Connection connection = DriverManager.getConnection(url, username, password);
+	        Statement statement = connection.createStatement();
+
+	        
+			startTimer(); // TIMER STARTS 
+	        
+	        while (isRunning) {
+	        	ResultSet resultSet = statement.executeQuery("SELECT word FROM wordsnormal ORDER BY RAND() LIMIT 1;");
+		        if (resultSet.next()) {
+		            word = resultSet.getString("word");
+		            System.out.println("Word to match: " + word); // Print word before asking for input
+		        }		      
+	        System.out.print("Input here: ");
+	        input1 = scanner.next();
+	        
+	        //MAIN CONDITION 
+		        if (input1.equalsIgnoreCase(word)) { //<------ IF THE INPUT IS CORRECT
+		        	
+		        	System.out.println("correct");
+		        	correctCount ++;
+		        	wrongInput = 0;
+		        	
+		        	correctDialogue(correctCount);
+		        	resetTimer(); // <------- reset timer for every correct input		        	
+		        } else { //<------ IF THE INPUT IS WRONG
+		        	System.out.println("WRONG");
+		        	wrongInput ++;
+		        	wrongDialogue(wrongInput);
+		        
+		        
+		        }
+		        if (wrongInput == 2) { 
+		        	timer.cancel();
+		        	failedTest();
+		        	break;
+		        }
+		        if (correctCount == 2) {
+		        	timer.cancel();
+		        	epilogue();
+		        	break;
+		        }
+	        }
+	        timer.cancel();
+	        scanner.close();
+	    } catch (Exception e) {
+	        System.out.print(e);
+	    }
+	}
+
+}
