@@ -13,9 +13,9 @@ public class difficult extends hunterProject{
 	    System.out.println("You have 10 seconds\n");
 
 	    //DATABASE
-	    String url = "jdbc:mysql://localhost:3306/hunterph1";
-	    String username = "root";
-	    String password = "";
+	    String url = "jdbc:db-mysql-sgp1-information-management-do-user-9437339-0.l.db.ondigitalocean.com";
+	    String username = "hunter_exam_user";
+	    String password = "AVNS_FZjhURUQoeysC1t3OjX";
 	    
 	    //VARIABLE1
 	    String word = "";        
