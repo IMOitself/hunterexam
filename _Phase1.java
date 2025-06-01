@@ -1,16 +1,18 @@
-import java.util.Scanner;
-import java.util.Timer;
-import java.util.TimerTask;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Collections;
+import java.util.*;
 
 public class _Phase1 {
 
-    static boolean ignoreInput = false;
+    static Scanner scanner = new Scanner(System.in);
+	
+	static int correctCount = 0;
+	static int wrongInput = 0;
+	public static final int TIME_LIMIT = 10; // seconds
+
+    public static Timer timer;
+    public static int timeLeft;
+    public static boolean isRunning = true;
     
-    public static void exampleScreen(Scanner scanner){
+    public static void exampleScreen(){
         UI.clearScreen();
         System.out.println("\n==============================================");
         System.out.println("    HUNTER x HUNTER - SPEED CHALLENGE");
@@ -18,11 +20,6 @@ public class _Phase1 {
         System.out.println("==============================================");
         UI.printGreyText("\nPress enter to continue...");
         scanner.nextLine();
-        
-        List<String> wordsToGuess = new ArrayList<>(Arrays.asList(
-            "run", "jog", "walk", "fast", "pace", "step", "move", "air", "breathe", "leg",
-            "foot", "arm", "sweat", "tunnel", "tired", "shoe", "hope", "through", "pass", "fail"
-        ));
 
         Collections.shuffle(wordsToGuess);
 
