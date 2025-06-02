@@ -101,9 +101,10 @@ public class _Phase1 {
 		// UI.clearScreen();  
         
         UI.printGreyText("\nPress enter to return to the menu");
-		
+
         scanner.nextLine(); 
-        _PlayerScreen.main(scanner);
+		System.out.println("---TEST---");
+        // _PlayerScreen.main(scanner);
     }
 
 	static void correctDialogue(int correct) {
