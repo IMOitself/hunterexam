@@ -16,7 +16,7 @@ public class _Phase1 {
     public static boolean isRunning = true;
     public static List<String> wordsToGuess = new ArrayList<>();
     public static int currentWordIndex = 0;
-    
+    static volatile boolean timedOut = false;
 	public static void main(String[] args) {
 		
 		UI.clearScreen();
@@ -70,7 +70,7 @@ public class _Phase1 {
 	            if (timeLeft == 0) {
                     timer.cancel();
                     isRunning = false;
-                    gameOverDueToTimeout();
+					timedOut = true;
 				
 	            }
 	        }
@@ -284,6 +284,12 @@ public class _Phase1 {
             
 	    startTimer(); // TIMER STARTS 
 	    while (isRunning) {
+			while (true) {
+    			if (timedOut) {
+        		gameOverDueToTimeout(); // this will now be on main thread
+        		break;
+    		}
+
             String word = wordsToGuess.get(currentWordIndex);
             System.out.println("Word to match: " + word); // Print word before asking for input
             System.out.print("Input here: ");
@@ -319,6 +325,7 @@ public class _Phase1 {
 		    }
             currentWordIndex++;
 	    }
+	}
 	}
 
     static void startGamediff() {
