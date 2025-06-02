@@ -65,7 +65,7 @@ public class _Phase1 {
 	        @Override
 	        public void run() {
 	            timeLeft--;
-//	            System.out.print(timeLeft + " ");
+	            System.out.print(timeLeft + " ");
 
 	            if (timeLeft == 0) {
                     timer.cancel();
