@@ -84,8 +84,8 @@ public class _Phase1 {
     private static void gameOverDueToTimeout() {
     	
     	UI.clearScreen();
-        System.out.println("\nYou got lost in the tunnel, pure darkness envelops your vision. Then others never found you again.");
-		UI.delay(100);
+        System.out.println("\nYou got lost in the tunnel, pure darkness envelops your vision.");
+		UI.delay(500);
 		System.out.println(">>");
 		UI.delay(2000);
 		
@@ -93,7 +93,7 @@ public class _Phase1 {
 		UI.clearScreen();  
 
         UI.printBox("You failed the test.");
-		UI.delay(100);
+		UI.delay(500);
 		System.out.println(">>");
 		UI.delay(2000);
 		
@@ -126,16 +126,16 @@ public class _Phase1 {
 	static void wrongDialogue(int wrong) {
 		switch (wrong) {
 			case 3:
-				System.out.println("-------------TEST_WRONG-------------");
+				System.out.println("Character: What...? it feels like i've been here before.");
 				break;
 			case 5:
-				System.out.println("-------------TEST_WRONG-------------");
+				System.out.println("Character: I know this place... I just need to follow this path.");
 				break;
 			case 7:
-				System.out.println("-------------TEST_WRONG-------------");
+				System.out.println("Character: *panting* I have to keep going... But I'm lost, I don't know where to go.");
 				break;
 			case 10:
-				System.out.println("-------------TEST_WRONG-------------");
+				System.out.println("Character: I'm tired...");
 				break;
 		}
 	}
@@ -144,9 +144,19 @@ public class _Phase1 {
 		
 		UI.clearScreen();
 		System.out.println("\nYou escaped the tunnel. Panting and sweating but thankful that you found your way out.");
-		UI.delay(1500);
+		UI.delay(500);
+		System.out.println(">>");
+		UI.delay(2000);
+		
+		scanner.nextLine();
+		UI.clearScreen();  
 		System.out.println("\nNarrator: Congrats! You passed the test, You may now proceed to the next phase.");
-		UI.delay(1500);
+		UI.delay(500);
+		System.out.println(">>");
+		UI.delay(2000);
+		
+		scanner.nextLine();
+		UI.clearScreen();  
 		UI.printGreyText("\nPress enter to go to the next phase");
 		scanner.nextLine(); 
         _Phase2.exampleScreen(scanner);
@@ -156,7 +166,7 @@ public class _Phase1 {
 		
 		UI.clearScreen();
         System.out.println("\nHunter Exam Stage 1: Tunnel Run");
-		UI.delay(100);
+		UI.delay(500);
 		System.out.println(">>");
 		UI.delay(2000);
 	
@@ -164,7 +174,7 @@ public class _Phase1 {
 		UI.clearScreen(); 
 
         System.out.println("\nNarrator: Welcome, examinee. Your first challenge lies ahead...");
-		UI.delay(100);
+		UI.delay(500);
 		System.out.println(">>");
 		UI.delay(2000);
 
@@ -172,7 +182,7 @@ public class _Phase1 {
 		UI.clearScreen(); 
 
         System.out.println("\nNarrator: You and others enter a dark, endless tunnel. Only the persistent reach the light...");
-		UI.delay(100);
+		UI.delay(500);
 		System.out.println(">>");
 		UI.delay(2000);
 		
@@ -188,9 +198,20 @@ public class _Phase1 {
 		
 		UI.clearScreen();
 		System.out.println("\nYou got lost in the tunnel, pure darkness envelops your vision. Then others never found you again.");
-		UI.delay(3000);
+		UI.delay(500);
+		System.out.println(">>");
+		UI.delay(2000);
+		
+		scanner.nextLine();
+		UI.clearScreen();  
+		
 		UI.printBox("\nYou failed the test.");
-		UI.delay(3000);
+		UI.delay(500);
+		System.out.println(">>");
+		UI.delay(2000);
+		
+		scanner.nextLine();
+		UI.clearScreen();  
 		
 		UI.printGreyText("\nPress enter to return to the menu");
 		scanner.nextLine(); 
@@ -232,13 +253,12 @@ public class _Phase1 {
 		    }
             scanner.nextLine();
 
-		    if (wrongInput == 2) { 
+		    if (wrongInput == 10) { 
 		        timer.cancel();
 		        failedTest();
 		        break;
 		    }
-		    else
-		    if (correctCount == 2) {
+		    if (correctCount == 10) {
 		        timer.cancel();
 		        epilogue();
 		        break;
@@ -284,13 +304,12 @@ public class _Phase1 {
 		    }
             scanner.nextLine();
 
-		    if (wrongInput == 2) { 
+		    if (wrongInput == 10) { 
 		        timer.cancel();
 		        failedTest();
 		        break;
 		    }
-            else
-		    if (correctCount == 2) {
+		    if (correctCount == 10) {
 		        timer.cancel();
 		        epilogue();
 		        break;
@@ -334,13 +353,12 @@ public class _Phase1 {
 		    }
             scanner.nextLine();
 
-		    if (wrongInput == 2) { 
+		    if (wrongInput == 10) { 
 		        timer.cancel();
 		        failedTest();
 		        break;
 		    }
-            else
-		    if (correctCount == 2) {
+		    if (correctCount == 10) {
 		        timer.cancel();
 		        epilogue();
 		        break;
