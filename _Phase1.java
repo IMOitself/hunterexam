@@ -87,18 +87,18 @@ public class _Phase1 {
     	UI.clearScreen();
         System.out.println("\nYou got lost in the tunnel, pure darkness envelops your vision.");
 		UI.delay(500);
-		// System.out.println(">>");
-
-
-        UI.printBox("You failed the test.");
-		UI.delay(500);
-		// System.out.println(">>");
-
-        
-        UI.printGreyText("\nPress enter to return to the menu");
+		System.out.println(">>");
 
 		scanner.nextLine(); 
-        _PlayerScreen.main(scanner);
+        UI.printBox("You failed the test.");
+		UI.delay(500);
+		System.out.println(">>");
+
+        scanner.nextLine(); 
+        UI.printGreyText("\nPress enter to return to the menu");
+
+		scanner.next(); 
+		_PlayerScreen.main(scanner);
     }
 
 
@@ -294,11 +294,13 @@ public class _Phase1 {
 		        wrongInput = 0;
 		        	
 		        correctDialogue(correctCount);
-		        resetTimer(); // <------- reset timer for every correct input		        	
+		        resetTimer(); // <------- reset timer for every correct input
+				UI.clearScreen();		        	
 		    } else { //<------ IF THE INPUT IS WRONG
 		        UI.printBox("WRONG");
 		        wrongInput ++;
 		        wrongDialogue(wrongInput); 
+				UI.clearScreen();
 		    }
             scanner.nextLine();
 
@@ -344,11 +346,13 @@ public class _Phase1 {
 		        wrongInput = 0;
 		        	
 		        correctDialogue(correctCount);
-		        resetTimer(); // <------- reset timer for every correct input		        	
+		        resetTimer(); // <------- reset timer for every correct input
+				UI.clearScreen();		        	
 		    } else { //<------ IF THE INPUT IS WRONG
 		        UI.printBox("WRONG");
 		        wrongInput ++;
 		        wrongDialogue(wrongInput); 
+				UI.clearScreen();
 		    }
             scanner.nextLine();
 
