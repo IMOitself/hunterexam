@@ -26,7 +26,7 @@ public class _PhaseFinal {
 
         UI.clearScreen();
         System.out.println("\n==============================================");
-        System.out.println("    HUNTER x HUNTER - PVP CHALLENGE");
+        System.out.println("           HUNTER x HUNTER - PVP CHALLENGE");
         System.out.println("             Final Phase of Hunter Exam");
         System.out.println("==============================================");
         UI.printGreyText("\nPress enter to continue...");
@@ -135,16 +135,7 @@ public class _PhaseFinal {
             int enemyHPadd = Integer.parseInt(action[2]);
             int playerHPadd = Integer.parseInt(action[3]);
 
-            if(enemyHPadd > 0) { // If it heals the enemy
-                hpChangeText = chosenEnemy + " +" + enemyHPadd;
-            }else if (enemyHPadd < 0) {
-                hpChangeText = chosenEnemy + " " + enemyHPadd;
-            }
-            if(playerHPadd > 0) { // If it heals the player
-                hpChangeText += " You +" + playerHPadd;
-            }else if (playerHPadd < 0){
-                hpChangeText += " You " + playerHPadd;
-            }
+            hpChangeText = hpChangeText(enemyHPadd, playerHPadd);
             
             enemyHP += enemyHPadd;
             playerHP += playerHPadd;
@@ -154,6 +145,21 @@ public class _PhaseFinal {
             resultText = action[1];
         }
         UI.printBox(resultText + "\n\n" + hpChangeText);
+    }
+
+    static String hpChangeText(int enemyHPadd, int playerHPadd){
+        String hpChangeText = "";
+        if(enemyHPadd > 0) {
+            hpChangeText = chosenEnemy + " +" + enemyHPadd;
+        }else if (enemyHPadd < 0) {
+            hpChangeText = chosenEnemy + " " + enemyHPadd;
+        }
+        if(playerHPadd > 0) {
+            hpChangeText += " You +" + playerHPadd;
+        }else if (playerHPadd < 0){
+            hpChangeText += " You " + playerHPadd;
+        }
+        return hpChangeText;
     }
 
     static void displayStatus() {
