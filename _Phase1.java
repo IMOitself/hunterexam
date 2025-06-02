@@ -81,7 +81,7 @@ public class _Phase1 {
         startTimer();    // Start new timer
     }
     
-    private static void gameOverDueToTimeout() {
+    static void gameOverDueToTimeout() {
     	
     	UI.clearScreen();
         System.out.println("\nYou got lost in the tunnel, pure darkness envelops your vision.");
@@ -101,7 +101,6 @@ public class _Phase1 {
 		UI.clearScreen();  
         
         UI.printGreyText("\nPress enter to return to the menu");
-		System.out.println(">>");
         scanner.nextLine(); 
         _PlayerScreen.main(scanner);
     }
@@ -205,7 +204,7 @@ public class _Phase1 {
 		scanner.nextLine();
 		UI.clearScreen();  
 		
-		UI.printBox("\nYou failed the test.");
+		UI.printBox("You failed the test.");
 		UI.delay(500);
 		System.out.println(">>");
 
