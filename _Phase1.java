@@ -284,17 +284,18 @@ public class _Phase1 {
             
 	    startTimer(); // TIMER STARTS 
 	    while (isRunning) {
-				if (timedOut){
-					gameOverDueToTimeout();
-					break;
-				}
+			if (timedOut){
+				gameOverDueToTimeout();
+				break;
+			}
+
 
             String word = wordsToGuess.get(currentWordIndex);
             System.out.println("Word to match: " + word); // Print word before asking for input
             System.out.print("Input here: ");
             input1 = scanner.next();
 
-
+			
 	        
 	        //MAIN CONDITION 
 		    if (input1.equalsIgnoreCase(word)) { //<------ IF THE INPUT IS CORRECT	
