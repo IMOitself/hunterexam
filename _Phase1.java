@@ -33,6 +33,8 @@ public class _Phase1 {
             System.out.println("        HUNTER x HUNTER - SPEED CHALLENGE");
             System.out.println("             Phase 1 of Hunter Exam");
             System.out.println("==============================================\n");
+
+			UI.clearScreen();
             UI.printBox("=== DEMO MENU ===\nSELECT DIFFICULTY\n(0) EASY\n(1) NORMAL\n(2) HARD");
             System.out.print("Input: ");
         	
@@ -83,11 +85,23 @@ public class _Phase1 {
     	
     	UI.clearScreen();
         System.out.println("\nYou got lost in the tunnel, pure darkness envelops your vision. Then others never found you again.");
-        UI.delay(1500);
-        UI.printBox("\nYou failed the test.");
-        UI.delay(1500);
+		UI.delay(100);
+		System.out.println(">>");
+		UI.delay(2000);
+		
+		scanner.nextLine();
+		UI.clearScreen();  
+
+        UI.printBox("You failed the test.");
+		UI.delay(100);
+		System.out.println(">>");
+		UI.delay(2000);
+		
+		scanner.nextLine();
+		UI.clearScreen();  
         
-        UI.printGreyText("Timer runs out\nPress enter to return to the menu");
+        UI.printGreyText("\nPress enter to return to the menu");
+		System.out.println(">>");
         scanner.nextLine(); 
         _PlayerScreen.main(scanner);
     }
@@ -142,12 +156,30 @@ public class _Phase1 {
 		
 		UI.clearScreen();
         System.out.println("\nHunter Exam Stage 1: Tunnel Run");
-        UI.delay(1500);
-        System.out.println("Narrator: Welcome, examinee. Your first challenge lies ahead...");
-        UI.delay(1500);
-        System.out.println("Narrator: You and others enter a dark, endless tunnel. Only the persistent reach the light...");
-        UI.delay(1500);
-        UI.printGreyText("\n(Press ENTER to begin your run through the tunnel)");
+		UI.delay(100);
+		System.out.println(">>");
+		UI.delay(2000);
+	
+		scanner.nextLine();
+		UI.clearScreen(); 
+
+        System.out.println("\nNarrator: Welcome, examinee. Your first challenge lies ahead...");
+		UI.delay(100);
+		System.out.println(">>");
+		UI.delay(2000);
+
+		scanner.nextLine();
+		UI.clearScreen(); 
+
+        System.out.println("\nNarrator: You and others enter a dark, endless tunnel. Only the persistent reach the light...");
+		UI.delay(100);
+		System.out.println(">>");
+		UI.delay(2000);
+		
+		scanner.nextLine();
+		UI.clearScreen();  
+
+        UI.printGreyText("\nPress ENTER to begin your run through the tunnel");
         scanner.nextLine();
 
 	}
@@ -156,9 +188,9 @@ public class _Phase1 {
 		
 		UI.clearScreen();
 		System.out.println("\nYou got lost in the tunnel, pure darkness envelops your vision. Then others never found you again.");
-		UI.delay(1500);
+		UI.delay(3000);
 		UI.printBox("\nYou failed the test.");
-		UI.delay(1500);
+		UI.delay(3000);
 		
 		UI.printGreyText("\nPress enter to return to the menu");
 		scanner.nextLine(); 
@@ -190,7 +222,7 @@ public class _Phase1 {
 		        UI.printBox("CORRECT");
 		        correctCount ++;
 		        wrongInput = 0;
-		        UI.clearScreen();
+		        
 		        correctDialogue(correctCount);
 		        resetTimer(); // <------- reset timer for every correct input		        	
 		    } else { //<------ IF THE INPUT IS WRONG
@@ -210,9 +242,9 @@ public class _Phase1 {
 		        epilogue();
 		        break;
 		    }
-		timer.cancel();
+	        timer.cancel();
 	        scanner.close();
-            currentWordIndex++;
+		    currentWordIndex++;
 	    }
 	}	      
 
