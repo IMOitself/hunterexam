@@ -1,3 +1,5 @@
+import java.util.HashMap;
+
 public class UI {
     public static void clearScreen() {
         System.out.print("\033[H\033[2J");
@@ -46,9 +48,9 @@ public class UI {
         } catch (Exception e) {}
     }
 
+    // UI DISPLAY FOR JAJANKEN 
     public static void rpsUI() {
-        try {
-            // UI DISPLAY FOR JAJANKEN 
+        try { 
             String[] rockHand = {
                 "    _______      _______    ",
                 "---'   ____)    (____   '---",
@@ -106,5 +108,87 @@ public class UI {
         } catch (Exception e) {
             Thread.currentThread().interrupt();
         }
+    }
+    // JAJANKEN GAME UI
+    public static HashMap<String, String[]> rpsPosibleChocies() {
+        HashMap<String, String[]> choices = new HashMap<String, String[]>();
+        
+        choices.put("RocktoRock", new String[] {
+            "    _______      _______    ",
+            "---'   ____)    (____   '---",
+            "      (_____)  (_____)      ",
+            "      (_____)  (____)       ",
+            "      (____)   (____)       ",
+            "---.__(___)     (___)__.---"
+        });
+        choices.put("PapertoPaper", new String[] {
+            "    _______                 _______    ",
+            "---'   ____)____       ____(____   '---",
+            "          ______)     (______          ",
+            "          _______)   (_______          ",
+            "         _______)     (_______         ",
+            "---.__________)        (__________.--- "
+        });
+        choices.put("ScissorstoScissors", new String[] {
+            "    _______                 _______     ",
+            "---'   ____)____       ____(____        ",
+            "          ______)     (______           ",
+            "       __________)   (__________        ",
+            "      (____)               (____        ",
+            "---.__(___)                 (___)__.--- "
+        });
+    
+        choices.put("RocktoPaper", new String[] {
+            "    _______                 _______    ",
+            "---'   ____)           ____(____   '---",
+            "      (_____)         (______          ",
+            "      (_____)        (_______          ",
+            "      (____)          (_______         ",
+            "---.__(___)            (__________.--- "
+        });
+        choices.put("RocktoScissors", new String[] {
+            "    _______                 _______    ",
+            "---'   ____)           ____(____   '---",
+            "          ______)     (______          ",
+            "          _______)   (_______          ",
+            "         _______)         (____        ",
+            "---.__________)            (___)__.--- "
+        });
+        
+        choices.put("PapertoRock", new String[] {
+            "    _______                 _______    ",
+            "---'   ____)____       ____(____   '---",
+            "          ______)     (_____)          ",
+            "          _______)   (_____)           ",
+            "         _______)     (____)           ",
+            "---.__________)        (___)__.---     "
+        });
+        choices.put("PapertoScissors", new String[] {
+            "    _______                 _______     ",
+            "---'   ____)____       ____(____   '---",
+            "          ______)     (______          ",
+            "          _______)   (__________       ",
+            "         _______)          (____       ",
+            "---.__________)             (___)__.---"
+        });
+        
+        choices.put("ScissorstoRock", new String[] {
+            "    _______                 _______    ",
+            "---'   ____)____       ____(____   '---",
+            "          ______)     (_____)          ",
+            "       __________)   (_____)           ",
+            "      (____)          (____)           ",
+            "---.__(___)            (___)__.---     "
+        });
+        choices.put("ScissorstoPaper", new String[] {
+            "    _______                 _______    ",
+            "---'   ____)____       ____(____   '---",
+            "          ______)     (______          ",
+            "       __________)   (_______          ",
+            "      (____)          (_______        ",
+            "---.__(___)            (__________.---"
+        });
+    
+        return choices;
     }
 }
