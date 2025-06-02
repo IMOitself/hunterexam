@@ -43,11 +43,11 @@ public class _Phase1 {
         		break;
         	}
         	if (mainInput.equals("1")) {
-        		//startGameNorm();
+        		startGameNorm();
         		break;
         	}
            	if (mainInput.equals("2")) {
-        		//startGamediff();
+        		startGamediff();
         		break;
         	}
         }
