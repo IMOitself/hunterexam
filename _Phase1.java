@@ -3,7 +3,7 @@ import java.util.List;
 import java.util.Timer;
 import java.util.TimerTask;
 import java.util.Scanner;
-import java.sql.*;
+
 public class _Phase1 {
 	static Scanner scanner = new Scanner(System.in);
 	
@@ -87,7 +87,7 @@ public class _Phase1 {
         System.out.println("\nYou got lost in the tunnel, pure darkness envelops your vision.");
 		UI.delay(500);
 		System.out.println(">>");
-		UI.delay(2000);
+
 		
 		scanner.nextLine();
 		UI.clearScreen();  
@@ -95,7 +95,7 @@ public class _Phase1 {
         UI.printBox("You failed the test.");
 		UI.delay(500);
 		System.out.println(">>");
-		UI.delay(2000);
+
 		
 		scanner.nextLine();
 		UI.clearScreen();  
@@ -146,14 +146,14 @@ public class _Phase1 {
 		System.out.println("\nYou escaped the tunnel. Panting and sweating but thankful that you found your way out.");
 		UI.delay(500);
 		System.out.println(">>");
-		UI.delay(2000);
+
 		
 		scanner.nextLine();
 		UI.clearScreen();  
 		System.out.println("\nNarrator: Congrats! You passed the test, You may now proceed to the next phase.");
 		UI.delay(500);
 		System.out.println(">>");
-		UI.delay(2000);
+
 		
 		scanner.nextLine();
 		UI.clearScreen();  
@@ -168,7 +168,7 @@ public class _Phase1 {
         System.out.println("\nHunter Exam Stage 1: Tunnel Run");
 		UI.delay(500);
 		System.out.println(">>");
-		UI.delay(2000);
+
 	
 		scanner.nextLine();
 		UI.clearScreen(); 
@@ -176,7 +176,7 @@ public class _Phase1 {
         System.out.println("\nNarrator: Welcome, examinee. Your first challenge lies ahead...");
 		UI.delay(500);
 		System.out.println(">>");
-		UI.delay(2000);
+
 
 		scanner.nextLine();
 		UI.clearScreen(); 
@@ -184,7 +184,7 @@ public class _Phase1 {
         System.out.println("\nNarrator: You and others enter a dark, endless tunnel. Only the persistent reach the light...");
 		UI.delay(500);
 		System.out.println(">>");
-		UI.delay(2000);
+
 		
 		scanner.nextLine();
 		UI.clearScreen();  
@@ -200,7 +200,7 @@ public class _Phase1 {
 		System.out.println("\nYou got lost in the tunnel, pure darkness envelops your vision. Then others never found you again.");
 		UI.delay(500);
 		System.out.println(">>");
-		UI.delay(2000);
+
 		
 		scanner.nextLine();
 		UI.clearScreen();  
@@ -208,7 +208,7 @@ public class _Phase1 {
 		UI.printBox("\nYou failed the test.");
 		UI.delay(500);
 		System.out.println(">>");
-		UI.delay(2000);
+
 		
 		scanner.nextLine();
 		UI.clearScreen();  
@@ -263,8 +263,8 @@ public class _Phase1 {
 		        epilogue();
 		        break;
 		    }
-	        timer.cancel();
-	        scanner.close();
+	        // timer.cancel();
+	        // scanner.close();
 		    currentWordIndex++;
 	    }
 	}	      
@@ -309,6 +309,7 @@ public class _Phase1 {
 		        failedTest();
 		        break;
 		    }
+			else
 		    if (correctCount == 10) {
 		        timer.cancel();
 		        epilogue();
@@ -357,7 +358,7 @@ public class _Phase1 {
 		        timer.cancel();
 		        failedTest();
 		        break;
-		    }
+		    } else
 		    if (correctCount == 10) {
 		        timer.cancel();
 		        epilogue();
