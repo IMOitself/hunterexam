@@ -11,9 +11,9 @@ public class _Phase3 {
 
     public static void main(Scanner scanner) {
         _Phase3.scanner = scanner;
-        //displayIntro();
-        //initialDescent();
-        //enterTower();
+        displayIntro();
+        initialDescent();
+        enterTower();
         prisonerChallenges();
         finalChallenge();
         displayEnding();
