@@ -80,6 +80,8 @@ public class _Phase1 {
     }
     
     private static void gameOverDueToTimeout() {
+    	
+    	UI.clearScreen();
         System.out.println("\nYou got lost in the tunnel, pure darkness envelops your vision. Then others never found you again.");
         UI.delay(1500);
         UI.printBox("\nYou failed the test.");
@@ -125,6 +127,8 @@ public class _Phase1 {
 	}
 	
 	static void epilogue() {
+		
+		UI.clearScreen();
 		System.out.println("\nYou escaped the tunnel. Panting and sweating but thankful that you found your way out.");
 		UI.delay(1500);
 		System.out.println("\nNarrator: Congrats! You passed the test, You may now proceed to the next phase.");
@@ -135,6 +139,8 @@ public class _Phase1 {
 	}
 	
 	static void prologue() {
+		
+		UI.clearScreen();
         System.out.println("\nHunter Exam Stage 1: Tunnel Run");
         UI.delay(1500);
         System.out.println("Narrator: Welcome, examinee. Your first challenge lies ahead...");
@@ -147,6 +153,8 @@ public class _Phase1 {
 	}
 	
 	static void failedTest() {
+		
+		UI.clearScreen();
 		System.out.println("\nYou got lost in the tunnel, pure darkness envelops your vision. Then others never found you again.");
 		UI.delay(1500);
 		UI.printBox("\nYou failed the test.");
@@ -160,6 +168,7 @@ public class _Phase1 {
 	static void startGameEasy() {
 	    prologue(); //<----- will run the prologue first
 	    
+	    UI.clearScreen();
 	    System.out.println("You have 10 seconds\n");
 
         wordsToGuess = SQL.runGetResult("SELECT word FROM p1easy ORDER BY RAND();");
@@ -209,6 +218,7 @@ public class _Phase1 {
     static void startGameNorm() {
 	    prologue(); //<----- will run the prologue first
 	    
+	    UI.clearScreen();
 	    System.out.println("You have 10 seconds\n");
 
         wordsToGuess = SQL.runGetResult("SELECT word FROM p1norm ORDER BY RAND();");
@@ -258,6 +268,7 @@ public class _Phase1 {
     static void startGamediff() {
 	    prologue(); //<----- will run the prologue first
 	    
+	    UI.clearScreen();
 	    System.out.println("You have 10 seconds\n");
 
         wordsToGuess = SQL.runGetResult("SELECT word FROM p1diff ORDER BY RAND();");
