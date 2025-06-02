@@ -67,7 +67,7 @@ public class _Phase1 {
 	            timeLeft--;
 	            System.out.print(timeLeft + " ");
 
-	            if (timeLeft == 0) {
+	            if (timeLeft <= 0) {
                     timer.cancel();
                     isRunning = false;
 					timedOut = false;
@@ -83,7 +83,7 @@ public class _Phase1 {
     }
     
     static void gameOverDueToTimeout() {
-		timer.cancel();
+
     	UI.clearScreen();
         System.out.println("\nYou got lost in the tunnel, pure darkness envelops your vision.");
 		UI.delay(500);
