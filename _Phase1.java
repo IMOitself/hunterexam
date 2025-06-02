@@ -70,7 +70,7 @@ public class _Phase1 {
 	            if (timeLeft <= 0) {
                     timer.cancel();
                     isRunning = false;
-					timedOut = false;
+					// timedOut = false;
 				
 	            }
 	        }
@@ -284,7 +284,7 @@ public class _Phase1 {
             
 	    startTimer(); // TIMER STARTS 
 	    while (isRunning) {
-			if (timedOut) {
+			if (isRunning) {
 				gameOverDueToTimeout();
 				break;
 			}
