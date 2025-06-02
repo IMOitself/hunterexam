@@ -3,7 +3,7 @@ import java.util.List;
 import java.util.Timer;
 import java.util.TimerTask;
 import java.util.Scanner;
-
+import java.sql.*;
 public class _Phase1 {
 	static Scanner scanner = new Scanner(System.in);
 	
@@ -237,6 +237,7 @@ public class _Phase1 {
 		        failedTest();
 		        break;
 		    }
+		    else
 		    if (correctCount == 2) {
 		        timer.cancel();
 		        epilogue();
