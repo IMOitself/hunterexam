@@ -283,11 +283,11 @@ public class _Phase1 {
         wrongInput = 0;
             
 	    startTimer(); // TIMER STARTS 
-	    while (isRunning) {
-			if (isRunning) {
-				gameOverDueToTimeout();
-				break;
-			}
+	    while (isRunning) { //<------------ MAY MALI PA
+			// if (isRunning) {
+			// 	gameOverDueToTimeout();
+			// 	break;
+			// }
 
 
             String word = wordsToGuess.get(currentWordIndex);
