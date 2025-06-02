@@ -67,7 +67,7 @@ public class _Phase1 {
 	            timeLeft--;
 //	            System.out.print(timeLeft + " ");
 
-	            if (timeLeft <= 0) {
+	            if (timeLeft == 0) {
                     timer.cancel();
                     isRunning = false;
                     gameOverDueToTimeout();
