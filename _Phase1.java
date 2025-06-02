@@ -241,11 +241,13 @@ public class _Phase1 {
 		        wrongInput = 0;
 		        
 		        correctDialogue(correctCount);
-		        resetTimer(); // <------- reset timer for every correct input		        	
+		        resetTimer(); // <------- reset timer for every correct input	
+				UI.clearScreen();	        	
 		    } else { //<------ IF THE INPUT IS WRONG
 		        UI.printBox("WRONG");
 		        wrongInput ++;
 		        wrongDialogue(wrongInput); 
+				UI.clearScreen();
 		    }
             scanner.nextLine();
 
