@@ -38,17 +38,17 @@ public class _PhaseFinal {
     }
 
     public static void loadSQLvariables(){
-        enemyNames = SQL.runGetResult("SELECT name FROM p5enemies;");
-        enemyDialogs = SQL.runGetResult("SELECT dialog FROM p5enemies;");
+        enemyNames = SQL.runGetResult("SELECT name FROM p5Enemies;");
+        enemyDialogs = SQL.runGetResult("SELECT dialog FROM p5Enemies;");
 
         int randomEnemyIndex = random.nextInt(enemyNames.size());
         chosenEnemy = enemyNames.get(randomEnemyIndex);
         chosenEnemyDialog = enemyDialogs.get(randomEnemyIndex);
 
-        attackActions = SQL.runGetResultAll("SELECT * FROM p5actions WHERE action_type_id = 1;");
-        talkActions = SQL.runGetResultAll("SELECT * FROM p5actions WHERE action_type_id = 2;");
-        distractActions = SQL.runGetResultAll("SELECT * FROM p5actions WHERE action_type_id = 3;");
-        runActions = SQL.runGetResultAll("SELECT * FROM p5actions WHERE action_type_id = 4;");
+        attackActions = SQL.runGetResultAll("SELECT * FROM p5Actions WHERE action_type_id = 1;");
+        talkActions = SQL.runGetResultAll("SELECT * FROM p5Actions WHERE action_type_id = 2;");
+        distractActions = SQL.runGetResultAll("SELECT * FROM p5Actions WHERE action_type_id = 3;");
+        runActions = SQL.runGetResultAll("SELECT * FROM p5Actions WHERE action_type_id = 4;");
     }
 
     public static void narratorScreen(Scanner scanner){
@@ -90,8 +90,7 @@ public class _PhaseFinal {
             case "2":
             case "3":
             case "4":
-                String result = evaluateChoice(input);
-                UI.printBox(result);
+                runChoiceAndPrintResult(input);
                 UI.printGreyText("\nPress Enter To Continue...");
                 scanner.nextLine();
     
@@ -107,7 +106,8 @@ public class _PhaseFinal {
         }
     }
 
-    static String evaluateChoice(String choice) {
+    static void runChoiceAndPrintResult(String choice) {
+        String resultText = "";
         String[] action = {};
         int index = 0;
         switch (choice) {
@@ -128,15 +128,32 @@ public class _PhaseFinal {
                 action = runActions.get(index).split("::");
                 break;
         }
+        
+        String hpChangeText = "";
 
         if (action.length > 0) {
-            enemyHP += Integer.parseInt(action[3]);
-            playerHP += Integer.parseInt(action[4]);
-            // add damage to current score
-            Player.currentScore -= Integer.parseInt(action[3]);
-            return action[2];
+            int enemyHPadd = Integer.parseInt(action[2]);
+            int playerHPadd = Integer.parseInt(action[3]);
+
+            if(enemyHPadd > 0) { // If it heals the enemy
+                hpChangeText = chosenEnemy + " +" + enemyHPadd;
+            }else if (enemyHPadd < 0) {
+                hpChangeText = chosenEnemy + " " + enemyHPadd;
+            }
+            if(playerHPadd > 0) { // If it heals the player
+                hpChangeText += " You +" + playerHPadd;
+            }else if (playerHPadd < 0){
+                hpChangeText += " You " + playerHPadd;
+            }
+            
+            enemyHP += enemyHPadd;
+            playerHP += playerHPadd;
+
+            // add score based on damage
+            Player.currentScore -= enemyHPadd;
+            resultText = action[1];
         }
-        return "invalid.";
+        UI.printBox(resultText + "\n\n" + hpChangeText);
     }
 
     static void displayStatus() {
@@ -158,23 +175,29 @@ public class _PhaseFinal {
     }
 
     static String[] getStickmanLines(int hp) {
-        if (hp > 70) {
+        if (hp > 75) {
             return new String[]{
                 "  O  ",
                 " /|\\ ",
                 " / \\ "
             };
-        } else if (hp > 40) {
+        } else if (hp > 50) {
             return new String[]{
                 "  O  ",
                 " /|  ",
-                " /   "
+                " / \\ "
+            };
+        } else if (hp > 25) {
+            return new String[]{
+                "  O  ",
+                "  |  ",
+                " / \\ "
             };
         } else if (hp > 0) {
             return new String[]{
                 "  o  ",
-                " /   ",
-                "     "
+                "  |  ",
+                " /   "
             };
         } else {
             return new String[]{
