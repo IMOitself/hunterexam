@@ -19,12 +19,6 @@
 
 </details>
 
-<details>
-  <summary>Files for our SQL database:</summary>
-* **`mysql-connector-j-9.3.0.jar`**
-
-</details>
-
 ---
 
 ### Our Gdocs link
@@ -38,9 +32,7 @@
 ## ⬇️ Download
 </div>
 
-<details>
-  <summary> 
-    💻 WINDOWS</summary>
+💻 WINDOWS
 
   * Download Git and run it
     [download link](https://github.com/git-for-windows/git/releases/download/v2.49.0.windows.1/Git-2.49.0-64-bit.exe)
@@ -49,20 +41,18 @@
   * On your coding software e.g VS Code or other
   * <img src="images/instruction1.png" alt="hakdog" width="400"/>
   * <img src="images/instruction2.png" alt="hakdog" width="400"/>
-* Enter this code
+* Enter this code in the Terminal
     ```bash
     git clone https://github.com/IMOitself/hunterexam.git
     cd hunterexam/
     ```
-  
-</details>
-
+    
 <details>
   <summary>📱 ANDROID</summary>
   
 * Download Termux
     [download link](https://f-droid.org/repo/com.termux_1021.apk)
-* Enter this code
+* Enter this code in Termux
     ```bash
     pkg update && pkg upgrade -y
     pkg install git openjdk-17 -y
@@ -77,14 +67,12 @@
 </details>
 
 <div align="center">
-
+<br/>
+  
 ## ▶️ How to Run
 </div>
 
-**Run `Main.java`**
-
-<details>
-  <summary>windows</summary>
+💻 WINDOWS
   
 * 
    ```bash
@@ -94,7 +82,7 @@
    
 </details>
 <details>
-  <summary>android</summary>
+  <summary>📱 ANDROID</summary>
   
 * 
    ```bash
@@ -105,8 +93,9 @@
 </details>
 
 <div align="center">
-
-## ▶️ How to Update
+<br/>
+  
+## 🔃 How to Update
 </div>
 
 * Enter this code
