@@ -205,12 +205,13 @@ public class _Phase1 {
 		        failedTest();
 		        break;
 		    }
-            else
 		    if (correctCount == 2) {
 		        timer.cancel();
 		        epilogue();
 		        break;
 		    }
+		timer.cancel();
+	        scanner.close();
             currentWordIndex++;
 	    }
 	}	      
