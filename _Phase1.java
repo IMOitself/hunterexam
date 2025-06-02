@@ -16,7 +16,7 @@ public class _Phase1 {
     public static boolean isRunning = true;
     public static List<String> wordsToGuess = new ArrayList<>();
     public static int currentWordIndex = 0;
-    static volatile boolean timedOut = false;
+    static volatile boolean timedOut = true;
 	public static void main(String[] args) {
 		
 		UI.clearScreen();
@@ -70,7 +70,7 @@ public class _Phase1 {
 	            if (timeLeft == 0) {
                     timer.cancel();
                     isRunning = false;
-					timedOut = true;
+					timedOut = false;
 				
 	            }
 	        }
@@ -284,7 +284,7 @@ public class _Phase1 {
             
 	    startTimer(); // TIMER STARTS 
 	    while (isRunning) {
-			while (timedOut){
+			if (timedOut) {
 				gameOverDueToTimeout();
 				break;
 			}
