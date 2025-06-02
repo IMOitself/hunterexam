@@ -32,8 +32,16 @@ public class _Phase4 {
         System.out.println("You scored " + score + " out of 5.");
         if (score >= 3) {
             System.out.println("🎉 Congratulations! You passed Phase 4.");
+            Player.currentScore += 100;
+            Player.updateScore();
+            UI.printGreyText("\nPress Enter To Continue...");
+            scanner.nextLine();
+            _PhaseFinal.main(scanner);
         } else {
             System.out.println("❌ You failed Phase 4. Try again.");
+            UI.printGreyText("\nPress Enter To Continue...");
+            scanner.nextLine();
+            _PlayerScreen.main(scanner);
         }
     }
 
