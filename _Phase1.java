@@ -190,7 +190,7 @@ public class _Phase1 {
 		        UI.printBox("CORRECT");
 		        correctCount ++;
 		        wrongInput = 0;
-		        	
+		        UI.clearScreen();
 		        correctDialogue(correctCount);
 		        resetTimer(); // <------- reset timer for every correct input		        	
 		    } else { //<------ IF THE INPUT IS WRONG
