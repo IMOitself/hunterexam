@@ -71,6 +71,7 @@ public class _Phase1 {
                     timer.cancel();
                     isRunning = false;
                     gameOverDueToTimeout();
+				
 	            }
 	        }
 	    }, 1000, 1000);
@@ -86,25 +87,26 @@ public class _Phase1 {
     	UI.clearScreen();
         System.out.println("\nYou got lost in the tunnel, pure darkness envelops your vision.");
 		UI.delay(500);
-		// System.out.println(">>");
+		System.out.println(">>");
 
 		
-		// scanner.nextLine();
-		// UI.clearScreen();  
+		scanner.nextLine();
+		UI.clearScreen();  
 
         UI.printBox("You failed the test.");
 		UI.delay(500);
-		// System.out.println(">>");
+		System.out.println(">>");
 
 		
-		// scanner.nextLine();
-		// UI.clearScreen();  
+		scanner.nextLine();
+		UI.clearScreen();  
         
         UI.printGreyText("\nPress enter to return to the menu");
-		
-        scanner.nextLine(); 
-        _PlayerScreen.main(scanner);
+
+		scanner.nextLine(); 
+        _Phase2.exampleScreen(scanner);
     }
+
 
 	static void correctDialogue(int correct) {
 		switch (correct) {
