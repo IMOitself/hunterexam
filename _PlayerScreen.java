@@ -41,7 +41,7 @@ public class _PlayerScreen {
                 _Phase3.main(scanner);
                 break;
             case 4:
-                _Phase4.exampleScreen(scanner);
+                _Phase4.main(scanner);
                 break;
             case 5:
                 _PhaseFinal.main(scanner);
