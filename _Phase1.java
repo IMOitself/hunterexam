@@ -70,7 +70,7 @@ public class _Phase1 {
 	            if (timeLeft == 0) {
                     timer.cancel();
                     isRunning = false;
-					// timedOut = true;
+					timedOut = false;
 				
 	            }
 	        }
