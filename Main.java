@@ -8,9 +8,9 @@ class Main {
         _Intro.titleScreen(scanner);
         
         if(SQL.canConnect()){
-			UI.clearScreen();
             SQL.run("USE hunter_exam;");
 			UI.delay(250);
+			UI.clearScreen();
             _Intro.mainMenu(scanner);
 
         }
