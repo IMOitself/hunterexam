@@ -240,7 +240,7 @@ public class _Phase1 {
 		        wrongInput ++;
 		        wrongDialogue(wrongInput);
 		    }
-            scanner.nextLine();
+			UI.delay(500);
 
 		    if (wrongInput == 10 || correctCount == 10) { 
 		        timer.cancel();
