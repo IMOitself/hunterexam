@@ -274,18 +274,18 @@ public class _Phase3 {
 
         // First bet
         System.out.println("\nFirst bet: Is Majtani dead or alive?");
-        System.out.print("Choose (Dead/Alive): ");
+        System.out.print("Choose (dead/alive): ");
         String condition = scanner.nextLine();
 
-        while (!condition.equalsIgnoreCase("Dead") && !condition.equalsIgnoreCase("Alive")) {
+        while (!condition.equalsIgnoreCase("dead") && !condition.equalsIgnoreCase("alive")) {
             UI.clearScreen();
-            UI.printGreyText("Invalid choice! Please enter 'Dead' or 'Alive'.");
+            UI.printGreyText("Invalid choice! Please enter 'dead' or 'alive'.");
             System.out.println("First bet: Is Majtani dead or alive?");
-            System.out.print("Choose (Dead/Alive): ");
+            System.out.print("Choose (dead/alive): ");
             condition = scanner.nextLine();
         }
 
-        if (condition.equalsIgnoreCase("Dead")) {
+        if (condition.equalsIgnoreCase("dead")) {
             System.out.println("\nLeorio checks - he's unconscious but alive!");
             System.out.println("You lose 10 hours.");
             remainingHours -= 10;
@@ -347,30 +347,34 @@ public class _Phase3 {
             System.out.println("\nScore: You " + playerWins + " - " + computerWins + " Leroute");
             System.out.print("Choose (Rock/Paper/Scissors): ");
             String playerChoice = scanner.nextLine().toUpperCase();
-            UI.rpsUI();
 
             while (!playerChoice.equals("ROCK") && !playerChoice.equals("PAPER") && !playerChoice.equals("SCISSORS")) {
                 UI.clearScreen();
-                UI.printGreyText("Invalid choice! Please enter 'Rock', 'Paper', or 'Scissors'.");
+                UI.printGreyText("Invalid choice! Please enter 'ROCK', 'PAPER', or 'SCISSORS'.");
                 System.out.println("\nScore: You " + playerWins + " - " + computerWins + " Leroute");
                 System.out.print("Choose (Rock/Paper/Scissors): ");
                 playerChoice = scanner.nextLine().toUpperCase();
             }
+            UI.printRPSStart();
 
             String[] options = {"ROCK", "PAPER", "SCISSORS"};
             String computerChoice = options[random.nextInt(3)];
-
+            
+            UI.clearScreen();
+            System.out.println("\nYou chose: " + playerChoice);
             System.out.println("Leroute chose: " + computerChoice);
 
+            UI.printRPSResult(playerChoice, computerChoice);
+
             if (playerChoice.equals(computerChoice)) {
-                System.out.println("Draw! Try again.");
+                System.out.println("\nDraw! Try again.");
             } else if ((playerChoice.equals("ROCK") && computerChoice.equals("SCISSORS")) ||
                     (playerChoice.equals("PAPER") && computerChoice.equals("ROCK")) ||
                     (playerChoice.equals("SCISSORS") && computerChoice.equals("PAPER"))) {
-                System.out.println("You win this round!");
+                System.out.println("\nYou win this round!");
                 playerWins++;
             } else {
-                System.out.println("Leroute wins this round!");
+                System.out.println("\nLeroute wins this round!");
                 computerWins++;
             }
 
@@ -477,27 +481,34 @@ public class _Phase3 {
         UI.clearScreen();
         System.out.println("\n=== TEAM STATUS ===");
         System.out.println("Gon: PASSED");
+        UI.delay(500);
         System.out.println("Killua: PASSED");
+        UI.delay(500);
         System.out.println("Kurapika: PASSED");
+        UI.delay(500);
         if(leorioPassed){
             System.out.println("Leorio: PASSED");
+            UI.delay(500);
         }else{
             System.out.println("Leorio: FAILED");
+            UI.delay(500);
         }
         if(tonpaAlive){
             if(tonpaInjured){
                 System.out.println("Tonpa: INJURED BUT PASSED");
+                UI.delay(500);
             }else{
                 System.out.println("Tonpa: PASSED");
+                UI.delay(500);
             }
         }else{
             System.out.println("Tonpa: DEAD");
+            UI.delay(500);
         }
 
-        System.out.println("\nThank you for playing the Hunter Exam!");
-        UI.printGreyText("\nPress enter to continue...");
-        scanner.nextLine();
-        _PlayerScreen.main(scanner);
+        UI.printGreyText("\nPress enter to go to the next phase");
+		scanner.nextLine(); 
+        _Phase4.main(scanner);
     }
 
     public static void goodEnding() {

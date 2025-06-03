@@ -49,146 +49,86 @@ public class UI {
     }
 
     // UI DISPLAY FOR JAJANKEN 
-    public static void rpsUI() {
-        try { 
-            String[] rockHand = {
-                "    _______      _______    ",
-                "---'   ____)    (____   '---",
-                "      (_____)  (_____)      ",
-                "      (_____)  (____)       ",
-                "      (____)   (____)       ",
-                "---.__(___)     (___)__.---"
-            };
-    
-            String[] paperHand = {
-                "    _______                 _______    ",
-                "---'   ____)____       ____(____   '---",
-                "          ______)     (______          ",
-                "          _______)   (_______          ",
-                "         _______)     (_______         ",
-                "---.__________)        (__________.--- "
-            };
-    
-            String[] scissorsHand = {
-                "    _______                 _______     ",
-                "---'   ____)____       ____(____        ",
-                "          ______)     (______           ",
-                "       __________)   (__________        ",
-                "      (____)               (____        ",
-                "---.__(___)                 (___)__.--- "
-            };
-    
-            
-            clearScreen();
-            
-            System.out.println("\nRock...");
-            for (String line : rockHand) {
-                System.out.println(line);
-            }
-            delay(1000);
-            
-            clearScreen();
-            
-            System.out.println("\nPaper...");
-            for (String line : paperHand) {
-                System.out.println(line);
-            }
-            delay(1000);
-            clearScreen();
-            
-            System.out.println("\nScissors...");
-            for (String line : scissorsHand) {
-                System.out.println(line);
-            }
-            delay(1000);
-            clearScreen();
-            
-            System.out.println("\nShoot!");
-            delay(500);
-        } catch (Exception e) {
-            Thread.currentThread().interrupt();
-        }
+    public static void printRPSStart() {
+        UI.clearScreen();
+        printRPSResult("ROCK", "ROCK");
+        System.out.println("\n                  Rock...");
+        UI.delay(500);
+        
+        UI.clearScreen();
+        printRPSResult("PAPER", "PAPER");
+        System.out.println("\n                   Paper...");
+        UI.delay(500);
+        
+        UI.clearScreen();
+        printRPSResult("SCISSORS", "SCISSORS");
+        System.out.println("\n                  Scissors...");
+        UI.delay(500);
+        
+        UI.clearScreen();
+        System.out.println("\n\n\n                    Shoot!");
+        delay(500);
     }
     // JAJANKEN GAME UI
-    public static HashMap<String, String[]> rpsPosibleChocies() {
-        HashMap<String, String[]> choices = new HashMap<String, String[]>();
-        
-        choices.put("RocktoRock", new String[] {
-            "    _______      _______    ",
-            "---'   ____)    (____   '---",
-            "      (_____)  (_____)      ",
-            "      (_____)  (____)       ",
-            "      (____)   (____)       ",
-            "---.__(___)     (___)__.---"
+    public static void printRPSResult(String playerChoice, String computerChoice) {
+        playerChoice = playerChoice.toUpperCase();
+        computerChoice = computerChoice.toUpperCase();
+        HashMap<String, String[]> playerHand = new HashMap<>();
+        playerHand.put("ROCK", new String[] {
+            "    ______  ",
+            "---'   ___) ",
+            "      (____)",
+            "      (____)",
+            "      (____) ",
+            "---.__(___)  "
         });
-        choices.put("PapertoPaper", new String[] {
-            "    _______                 _______    ",
-            "---'   ____)____       ____(____   '---",
-            "          ______)     (______          ",
-            "          _______)   (_______          ",
-            "         _______)     (_______         ",
-            "---.__________)        (__________.--- "
+        playerHand.put("PAPER", new String[] {
+            "    _______       ",
+            "---'   ____)____  ",
+            "          ______) ",
+            "          _______)",
+            "         _______) ",
+            "---.__________)   "
         });
-        choices.put("ScissorstoScissors", new String[] {
-            "    _______                 _______     ",
-            "---'   ____)____       ____(____        ",
-            "          ______)     (______           ",
-            "       __________)   (__________        ",
-            "      (____)               (____        ",
-            "---.__(___)                 (___)__.--- "
+        playerHand.put("SCISSORS", new String[] {
+            "    __           ",
+            "---'  |_________ ",
+            "      |   ______)",
+            "   |__|  _______)",
+            "      (____)     ",
+            "---.__(___)      "
         });
-    
-        choices.put("RocktoPaper", new String[] {
-            "    _______                 _______    ",
-            "---'   ____)           ____(____   '---",
-            "      (_____)         (______          ",
-            "      (_____)        (_______          ",
-            "      (____)          (_______         ",
-            "---.__(___)            (__________.--- "
+        HashMap<String, String[]> computerHand = new HashMap<>();
+        computerHand.put("ROCK", new String[] {
+            "  ______    ",
+            " (___   '---",
+            "(____)      ",
+            "(____)      ",
+            "(____)      ",
+            " (___)__.---"
         });
-        choices.put("RocktoScissors", new String[] {
-            "    _______                 _______    ",
-            "---'   ____)           ____(____   '---",
-            "          ______)     (______          ",
-            "          _______)   (_______          ",
-            "         _______)         (____        ",
-            "---.__________)            (___)__.--- "
+        computerHand.put("PAPER", new String[] {
+            "       _______    ",
+            "  ____(____   '---",
+            " (______          ",
+            "(_______          ",
+            " (_______         ",
+            "   (__________.---"
         });
-        
-        choices.put("PapertoRock", new String[] {
-            "    _______                 _______    ",
-            "---'   ____)____       ____(____   '---",
-            "          ______)     (_____)          ",
-            "          _______)   (_____)           ",
-            "         _______)     (____)           ",
-            "---.__________)        (___)__.---     "
+        computerHand.put("SCISSORS", new String[] {
+            "           __    ",
+            " _________|  '---",
+            "(______   |      ",
+            "(_______  |__|   ",
+            "    (____)       ",
+            "     (___)__.--- "
         });
-        choices.put("PapertoScissors", new String[] {
-            "    _______                 _______     ",
-            "---'   ____)____       ____(____   '---",
-            "          ______)     (______          ",
-            "          _______)   (__________       ",
-            "         _______)          (____       ",
-            "---.__________)             (___)__.---"
-        });
-        
-        choices.put("ScissorstoRock", new String[] {
-            "    _______                 _______    ",
-            "---'   ____)____       ____(____   '---",
-            "          ______)     (_____)          ",
-            "       __________)   (_____)           ",
-            "      (____)          (____)           ",
-            "---.__(___)            (___)__.---     "
-        });
-        choices.put("ScissorstoPaper", new String[] {
-            "    _______                 _______    ",
-            "---'   ____)____       ____(____   '---",
-            "          ______)     (______          ",
-            "       __________)   (_______          ",
-            "      (____)          (_______        ",
-            "---.__(___)            (__________.---"
-        });
-    
-        return choices;
+
+        for (int i = 0; i < playerHand.get(playerChoice).length; i++) {
+            System.out.print("   ");
+            System.out.print(playerHand.get(playerChoice)[i]);
+            System.out.print("        ");
+            System.out.println(computerHand.get(computerChoice)[i]);
+        }
     }
 }
