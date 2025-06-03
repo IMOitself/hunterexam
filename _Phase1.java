@@ -9,14 +9,13 @@ public class _Phase1 {
 	
 	static int correctCount = 0;
 	static int wrongInput = 0;
-	public static final int TIME_LIMIT = 10; // seconds
+	public static final int TIME_LIMIT = 5; // seconds
 
     public static Timer timer;
-    public static int timeLeft;
+    public static volatile int timeLeft;
     public static boolean isRunning = true;
     public static List<String> wordsToGuess = new ArrayList<>();
     public static int currentWordIndex = 0;
-    static volatile boolean timedOut = false;
 	
 	public static void main(String[] args) {
 		Player.updatePhase(1);
@@ -57,52 +56,26 @@ public class _Phase1 {
         scanner.close();
 
 	}
+
+	public static void resetTimer() {
+        timer.cancel();  // Stop current timer
+        startTimer();    // Start new timer
+    }
+    
 	
 	public static void startTimer() {
 	    timer = new Timer();
 	    timeLeft = TIME_LIMIT;
 
-	    timer.scheduleAtFixedRate(new TimerTask() {
+	    timer.schedule(new TimerTask() {
 	        @Override
 	        public void run() {
-	            timeLeft--;
-	            System.out.print(timeLeft + " ");
-
-	            if (timeLeft <= 0) {
-                    timer.cancel();
-                    isRunning = false;
-					// timedOut = false;
-				
-	            }
+	            isRunning = false;
+				System.out.println("Time's up!");
+				UI.printGreyText("\nPress enter to continue...");
 	        }
-	    }, 1000, 1000);
+	    }, TIME_LIMIT * 1000);
 	}
-	
-    public static void resetTimer() {
-        timer.cancel();  // Stop current timer
-        startTimer();    // Start new timer
-    }
-    
-    static void gameOverDueToTimeout() {
-
-    	UI.clearScreen();
-        System.out.println("\nYou got lost in the tunnel, pure darkness envelops your vision.");
-		UI.delay(500);
-		System.out.println(">>");
-
-		scanner.nextLine();
-		UI.clearScreen(); 
-        UI.printBox("You failed the test.");
-		UI.delay(500);
-		System.out.println(">>");
-
-        scanner.nextLine(); 
-		UI.clearScreen();
-        UI.printGreyText("\nPress enter to return to the menu");
-
-		scanner.nextLine(); 
-		_PlayerScreen.main(scanner);
-    }
 
 
 	static void correctDialogue(int correct) {
@@ -194,7 +167,6 @@ public class _Phase1 {
 	}
 	
 	static void failedTest() {
-		
 		UI.clearScreen();
 		System.out.println("\nYou got lost in the tunnel, pure darkness envelops your vision. Then others never found you again.");
 		UI.delay(500);
@@ -219,9 +191,6 @@ public class _Phase1 {
 	
 	static void startGameEasy() {
 	    prologue(); //<----- will run the prologue first
-	    
-	    UI.clearScreen();
-	    System.out.println("You have 10 seconds\n");
 
         wordsToGuess = SQL.runGetResult("SELECT word FROM p1easy ORDER BY RAND();");
 	    //VARIABLE1      
@@ -232,10 +201,16 @@ public class _Phase1 {
             
 	    startTimer(); // TIMER STARTS 
 	    while (isRunning) {
+			UI.clearScreen();
+			System.out.println("You have "+ TIME_LIMIT + " seconds\n");
             String word = wordsToGuess.get(currentWordIndex);
             System.out.println("Word to match: " + word); // Print word before asking for input
             System.out.print("Input here: ");
-            input1 = scanner.next();
+            input1 = scanner.nextLine();
+
+			if (!isRunning) {
+				break;
+			}
 	        
 	        //MAIN CONDITION 
 		    if (input1.equalsIgnoreCase(word)) { //<------ IF THE INPUT IS CORRECT	
@@ -245,29 +220,30 @@ public class _Phase1 {
 		        
 		        correctDialogue(correctCount);
 		        resetTimer(); // <------- reset timer for every correct input	
-				UI.clearScreen();	        	
+					        	
 		    } else { //<------ IF THE INPUT IS WRONG
 		        UI.printBox("WRONG");
 		        wrongInput ++;
-		        wrongDialogue(wrongInput); 
-				UI.clearScreen();
+		        wrongDialogue(wrongInput);
 		    }
             scanner.nextLine();
 
-		    if (wrongInput == 10) { 
+		    if (wrongInput == 10 || correctCount == 10) { 
 		        timer.cancel();
-		        failedTest();
 		        break;
 		    }
-		    if (correctCount == 10) {
-		        timer.cancel();
-		        epilogue();
-		        break;
-		    }
-	        // timer.cancel();
-	        // scanner.close();
+
 		    currentWordIndex++;
 	    }
+		if (wrongInput == 10) {
+			failedTest();
+		}
+		if (correctCount == 10) {
+			epilogue();
+		}
+		if (!isRunning) {
+			failedTest();
+		}
 	}	      
 
     static void startGameNorm() {
@@ -284,50 +260,50 @@ public class _Phase1 {
         wrongInput = 0;
             
 	    startTimer(); // TIMER STARTS 
-	    while (isRunning) { //<------------ MAY MALI PA
-			// if (isRunning) {
-			// 	gameOverDueToTimeout();
-			// 	break;
-			// }
-
-
+	    while (isRunning) {
+			UI.clearScreen();
+			System.out.println("You have "+ TIME_LIMIT + " seconds\n");
             String word = wordsToGuess.get(currentWordIndex);
             System.out.println("Word to match: " + word); // Print word before asking for input
             System.out.print("Input here: ");
-            input1 = scanner.next();
+            input1 = scanner.nextLine();
 
-			
+			if (!isRunning) {
+				break;
+			}
 	        
 	        //MAIN CONDITION 
 		    if (input1.equalsIgnoreCase(word)) { //<------ IF THE INPUT IS CORRECT	
 		        UI.printBox("CORRECT");
 		        correctCount ++;
 		        wrongInput = 0;
-		        	
+		        
 		        correctDialogue(correctCount);
-		        resetTimer(); // <------- reset timer for every correct input
-				UI.clearScreen();		        	
+		        resetTimer(); // <------- reset timer for every correct input	
+					        	
 		    } else { //<------ IF THE INPUT IS WRONG
 		        UI.printBox("WRONG");
 		        wrongInput ++;
-		        wrongDialogue(wrongInput); 
-				UI.clearScreen();
+		        wrongDialogue(wrongInput);
 		    }
             scanner.nextLine();
 
-		    if (wrongInput == 10) { 
+		    if (wrongInput == 10 || correctCount == 10) { 
 		        timer.cancel();
-		        failedTest();
 		        break;
 		    }
-			else
-		    if (correctCount == 10) {
-		        timer.cancel();
-		        epilogue();
-		        break;
-		    }
-            currentWordIndex++;
+
+		    currentWordIndex++;
 	    }
+		if (wrongInput == 10) {
+			failedTest();
+		}
+		if (correctCount == 10) {
+			epilogue();
+		}
+		if (!isRunning) {
+			failedTest();
+		}
 	}
 
     static void startGamediff() {
@@ -345,40 +321,49 @@ public class _Phase1 {
             
 	    startTimer(); // TIMER STARTS 
 	    while (isRunning) {
+			UI.clearScreen();
+			System.out.println("You have "+ TIME_LIMIT + " seconds\n");
             String word = wordsToGuess.get(currentWordIndex);
             System.out.println("Word to match: " + word); // Print word before asking for input
             System.out.print("Input here: ");
-            input1 = scanner.next();
+            input1 = scanner.nextLine();
+
+			if (!isRunning) {
+				break;
+			}
 	        
 	        //MAIN CONDITION 
 		    if (input1.equalsIgnoreCase(word)) { //<------ IF THE INPUT IS CORRECT	
 		        UI.printBox("CORRECT");
 		        correctCount ++;
 		        wrongInput = 0;
-		        	
+		        
 		        correctDialogue(correctCount);
-		        resetTimer(); // <------- reset timer for every correct input
-				UI.clearScreen();		        	
+		        resetTimer(); // <------- reset timer for every correct input	
+					        	
 		    } else { //<------ IF THE INPUT IS WRONG
 		        UI.printBox("WRONG");
 		        wrongInput ++;
-		        wrongDialogue(wrongInput); 
-				UI.clearScreen();
+		        wrongDialogue(wrongInput);
 		    }
             scanner.nextLine();
 
-		    if (wrongInput == 10) { 
+		    if (wrongInput == 10 || correctCount == 10) { 
 		        timer.cancel();
-		        failedTest();
-		        break;
-		    } else
-		    if (correctCount == 10) {
-		        timer.cancel();
-		        epilogue();
 		        break;
 		    }
-            currentWordIndex++;
+
+		    currentWordIndex++;
 	    }
+		if (wrongInput == 10) {
+			failedTest();
+		}
+		if (correctCount == 10) {
+			epilogue();
+		}
+		if (!isRunning) {
+			failedTest();
+		}
 	}
 
 }	
