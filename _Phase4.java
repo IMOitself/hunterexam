@@ -20,26 +20,29 @@ public class _Phase4 {
         int score = 0;
 
         for (Question q : selectedQuestions) {
+            UI.clearScreen();
             System.out.println("Solve: " + q.text);
             int userAnswer = getValidInput();
             if (userAnswer == q.answer) {
-                System.out.println("✅ Correct!\n");
+                System.out.println("Correct!\n");
                 score++;
             } else {
-                System.out.println("❌ Wrong. Correct answer: " + q.answer + "\n");
+                System.out.println("Wrong. Correct answer: " + q.answer + "\n");
             }
+            UI.printGreyText("\nPress enter to continue...");
+            scanner.nextLine();
         }
 
         System.out.println("You scored " + score + " out of 5.");
         if (score >= 3) {
-            System.out.println("🎉 Congratulations! You passed Phase 4.");
+            System.out.println("Congratulations! You passed Phase 4.");
             Player.currentScore += 100;
             Player.updateScore();
             UI.printGreyText("\nPress Enter To Continue...");
             scanner.nextLine();
             _PhaseFinal.main(scanner);
         } else {
-            System.out.println("❌ You failed Phase 4. Try again.");
+            System.out.println("You failed Phase 4. Try again.");
             UI.printGreyText("\nPress Enter To Continue...");
             scanner.nextLine();
             _PlayerScreen.main(scanner);
@@ -51,16 +54,16 @@ public class _Phase4 {
             try {
                 int input = Integer.parseInt(scanner.nextLine());
                 if (input >= 1 && input <= 404) return input;
-                else System.out.println("Enter a number between 1 and 404:");
+                else System.out.println("\rEnter a number between 1 and 404:");
             } catch (NumberFormatException e) {
-                System.out.println("Please enter a valid number:");
+                System.out.println("\rPlease enter a valid number:");
             }
         }
     }
 
     static List<Question> getRandomQuestions() {
         List<Question> questions = new ArrayList<>();
-        List<String> result = SQL.runGetResultAll("SELECT * FROM p4Questions;");
+        List<String> result = SQL.runGetResultAll("SELECT * FROM p4Questions ORDER BY RAND() LIMIT 5;");
 
         for (String line : result) {
             String[] parts = line.split("::");
