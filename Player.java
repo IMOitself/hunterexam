@@ -4,7 +4,7 @@ public class Player
 {
 	static String username = "none";
 	static String password = "none";
-	static int currentPhase = 0;
+	static int currentPhase = 1;
 	static int currentScore = 0;
 
 
@@ -58,5 +58,9 @@ public class Player
 
 	static void updateScore(){
 		SQL.run("UPDATE players SET current_score = '" + currentScore + "' WHERE username = '" + username + "';");
+	}
+	static void updatePhase(int phase){
+		SQL.run("UPDATE players SET current_phase = '" + phase + "' WHERE username = '" + username + "';");
+		currentPhase = phase;
 	}
 }

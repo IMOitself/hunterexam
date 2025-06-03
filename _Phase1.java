@@ -17,8 +17,9 @@ public class _Phase1 {
     public static List<String> wordsToGuess = new ArrayList<>();
     public static int currentWordIndex = 0;
     static volatile boolean timedOut = false;
+	
 	public static void main(String[] args) {
-		
+		Player.updatePhase(1);
 		UI.clearScreen();
         System.out.println("\n==============================================");
         System.out.println("        HUNTER x HUNTER - SPEED CHALLENGE");

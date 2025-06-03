@@ -10,6 +10,7 @@ public class _Phase3 {
     private static Random random = new Random();
 
     public static void main(Scanner scanner) {
+        Player.updatePhase(3);
         _Phase3.scanner = scanner;
         displayIntro();
         initialDescent();

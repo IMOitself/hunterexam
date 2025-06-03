@@ -21,6 +21,7 @@ public class _PhaseFinal {
     static List<String> runActions = new ArrayList<>();
 
     public static void main(Scanner scanner){
+        Player.updatePhase(5);
         _PhaseFinal.scanner = scanner;
         loadSQLvariables();
 
@@ -233,6 +234,7 @@ public class _PhaseFinal {
         UI.printGreyText("\nPress Enter To Continue...");
         playerHP = 100;
         enemyHP = 100;
+        Player.updatePhase(1);
         scanner.nextLine();
         _Intro.homeScreen(scanner);
     }

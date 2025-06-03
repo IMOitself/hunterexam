@@ -6,6 +6,7 @@ public class _Phase4 {
     static Scanner scanner;
 
     public static void main(Scanner scanner) {
+        Player.updatePhase(4);
         _Phase4.scanner = scanner;
         UI.clearScreen();
         System.out.println("\n==============================================");

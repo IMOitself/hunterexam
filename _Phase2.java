@@ -2,6 +2,7 @@ import java.util.Scanner;
 
 public class _Phase2 {
     public static void exampleScreen(Scanner scanner){
+        Player.updatePhase(2);
         UI.clearScreen();
         System.out.println("\n==============================================");
         System.out.println("        HUNTER x HUNTER - COOKING CHALLENGE");
