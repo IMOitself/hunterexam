@@ -7,12 +7,11 @@ public class _PlayerScreen {
         UI.printBox("1. NEW GAME");
 
         if(Player.currentPhase > 1){
-            UI.printBox("2. CONTINUE");
+            UI.printBox("2. CONTINUE\n   Phase " + Player.currentPhase);
         }
 
-        UI.printBox("3. TEST PHASES");
-
         UI.colorGrey();
+        UI.printBox("3. TEST PHASES");
         UI.printBox("Username: " + Player.username + "\nPassword: " + Player.password + "\nCurrent Phase: " + Player.currentPhase + "\nCurrent Score: " + Player.currentScore);
         UI.colorReset();
 

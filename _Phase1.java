@@ -128,7 +128,6 @@ public class _Phase1 {
 
 		
 		scanner.nextLine();
-		UI.clearScreen();  
 		UI.printGreyText("\nPress enter to go to the next phase");
 		scanner.nextLine(); 
         _Phase2.exampleScreen(scanner);
