@@ -71,7 +71,7 @@ public class _Phase1 {
 	        @Override
 	        public void run() {
 	            isRunning = false;
-				System.out.println("Time's up!");
+				System.out.println("\nTime's up!");
 				UI.printGreyText("\nPress enter to continue...");
 	        }
 	    }, TIME_LIMIT * 1000);
@@ -113,7 +113,7 @@ public class _Phase1 {
 	}
 	
 	static void epilogue() {
-		
+
 		UI.clearScreen();
 		System.out.println("\nYou escaped the tunnel. Panting and sweating but thankful that you found your way out.");
 		UI.delay(500);
@@ -190,12 +190,12 @@ public class _Phase1 {
 		
 		UI.printGreyText("\nPress enter to return to the menu");
 		scanner.nextLine(); 
-		_PlayerScreen.main(scanner);
-
 		// Reset variables
 		correctCount = 0;
 		wrongInput = 0;
 		isRunning = true;
+		_PlayerScreen.main(scanner);
+
 	}
 	
 	static void startGameEasy() {
@@ -231,6 +231,8 @@ public class _Phase1 {
             System.out.println("Word to match: " + word); // Print word before asking for input
             System.out.print("Input here: ");
             input1 = scanner.nextLine();
+
+			// TODO: Fix game still continue after inputting empty string resulting in wrong answer
 
 			if (!isRunning) {
 				break;
