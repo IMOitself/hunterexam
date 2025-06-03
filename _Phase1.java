@@ -250,7 +250,7 @@ public class _Phase1 {
 	    prologue(); //<----- will run the prologue first
 	    
 	    UI.clearScreen();
-	    System.out.println("You have 10 seconds\n");
+	    System.out.println("You have "+ TIME_LIMIT + " seconds\n");
 
         wordsToGuess = SQL.runGetResult("SELECT word FROM p1norm ORDER BY RAND();");
 	    //VARIABLE1      
@@ -310,7 +310,7 @@ public class _Phase1 {
 	    prologue(); //<----- will run the prologue first
 	    
 	    UI.clearScreen();
-	    System.out.println("You have 10 seconds\n");
+	    System.out.println("You have "+ TIME_LIMIT + " seconds\n");
 
         wordsToGuess = SQL.runGetResult("SELECT word FROM p1diff ORDER BY RAND();");
 	    //VARIABLE1      
