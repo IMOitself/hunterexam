@@ -131,6 +131,11 @@ public class _Phase1 {
 		UI.printGreyText("\nPress enter to go to the next phase");
 		scanner.nextLine(); 
         _Phase2.exampleScreen(scanner);
+		
+		// Reset variables
+		correctCount = 0;
+		wrongInput = 0;
+		isRunning = true;
 	}
 	
 	static void prologue() {
@@ -186,6 +191,11 @@ public class _Phase1 {
 		UI.printGreyText("\nPress enter to return to the menu");
 		scanner.nextLine(); 
 		_PlayerScreen.main(scanner);
+
+		// Reset variables
+		correctCount = 0;
+		wrongInput = 0;
+		isRunning = true;
 	}
 	
 	static void startGameEasy() {
