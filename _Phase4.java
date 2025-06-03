@@ -46,6 +46,7 @@ public class _Phase4 {
             UI.printGreyText("\nPress Enter To Continue...");
             scanner.nextLine();
             _PlayerScreen.main(scanner);
+            Player.failHunterExam();
         }
     }
 

@@ -525,5 +525,6 @@ public class _Phase3 {
     public static void badEnding() {
         UI.printBox("Bad Ending");
         System.out.println("\nTIME'S UP! YOU FAILED PHASE 3!");
+        Player.failHunterExam();
     }
 }

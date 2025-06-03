@@ -195,7 +195,7 @@ public class _Phase1 {
 		wrongInput = 0;
 		isRunning = true;
 		_PlayerScreen.main(scanner);
-
+		Player.failHunterExam();
 	}
 	
 	static void startGameEasy() {

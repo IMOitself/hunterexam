@@ -63,4 +63,8 @@ public class Player
 		SQL.run("UPDATE players SET current_phase = '" + phase + "' WHERE username = '" + username + "';");
 		currentPhase = phase;
 	}
+	static void failHunterExam(){
+		SQL.run("UPDATE players SET current_phase = '1' WHERE username = '" + username + "';");
+		currentPhase = 1;
+	}
 }
