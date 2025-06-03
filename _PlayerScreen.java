@@ -19,6 +19,9 @@ public class _PlayerScreen {
 
         switch (input) {
             case "1":
+                Player.currentPhase = 1;
+                playGame(scanner);
+                break;
             case "2":
                 playGame(scanner);
                 break;
