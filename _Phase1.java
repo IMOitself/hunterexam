@@ -190,129 +190,24 @@ public class _Phase1 {
 	}
 	
 	static void startGameEasy() {
-	    prologue(); //<----- will run the prologue first
-
-        wordsToGuess = SQL.runGetResult("SELECT word FROM p1easy ORDER BY RAND();");
-	    //VARIABLE1      
-	    String input1 = "";
-	    //VARIABLE2
-        correctCount = 0;
-        wrongInput = 0;
-            
-	    startTimer(); // TIMER STARTS 
-	    while (isRunning) {
-			UI.clearScreen();
-			System.out.println("You have "+ TIME_LIMIT + " seconds\n");
-            String word = wordsToGuess.get(currentWordIndex);
-            System.out.println("Word to match: " + word); // Print word before asking for input
-            System.out.print("Input here: ");
-            input1 = scanner.nextLine();
-
-			if (!isRunning) {
-				break;
-			}
-	        
-	        //MAIN CONDITION 
-		    if (input1.equalsIgnoreCase(word)) { //<------ IF THE INPUT IS CORRECT	
-		        UI.printBox("CORRECT");
-		        correctCount ++;
-		        wrongInput = 0;
-		        
-		        correctDialogue(correctCount);
-		        resetTimer(); // <------- reset timer for every correct input	
-					        	
-		    } else { //<------ IF THE INPUT IS WRONG
-		        UI.printBox("WRONG");
-		        wrongInput ++;
-		        wrongDialogue(wrongInput);
-		    }
-            scanner.nextLine();
-
-		    if (wrongInput == 10 || correctCount == 10) { 
-		        timer.cancel();
-		        break;
-		    }
-
-		    currentWordIndex++;
-	    }
-		if (wrongInput == 10) {
-			failedTest();
-		}
-		if (correctCount == 10) {
-			epilogue();
-		}
-		if (!isRunning) {
-			failedTest();
-		}
+	    startGame("p1easy");
 	}	      
 
     static void startGameNorm() {
-	    prologue(); //<----- will run the prologue first
-	    
-	    UI.clearScreen();
-	    System.out.println("You have "+ TIME_LIMIT + " seconds\n");
-
-        wordsToGuess = SQL.runGetResult("SELECT word FROM p1norm ORDER BY RAND();");
-	    //VARIABLE1      
-	    String input1 = "";
-	    //VARIABLE2
-        correctCount = 0;
-        wrongInput = 0;
-            
-	    startTimer(); // TIMER STARTS 
-	    while (isRunning) {
-			UI.clearScreen();
-			System.out.println("You have "+ TIME_LIMIT + " seconds\n");
-            String word = wordsToGuess.get(currentWordIndex);
-            System.out.println("Word to match: " + word); // Print word before asking for input
-            System.out.print("Input here: ");
-            input1 = scanner.nextLine();
-
-			if (!isRunning) {
-				break;
-			}
-	        
-	        //MAIN CONDITION 
-		    if (input1.equalsIgnoreCase(word)) { //<------ IF THE INPUT IS CORRECT	
-		        UI.printBox("CORRECT");
-		        correctCount ++;
-		        wrongInput = 0;
-		        
-		        correctDialogue(correctCount);
-		        resetTimer(); // <------- reset timer for every correct input	
-					        	
-		    } else { //<------ IF THE INPUT IS WRONG
-		        UI.printBox("WRONG");
-		        wrongInput ++;
-		        wrongDialogue(wrongInput);
-		    }
-            scanner.nextLine();
-
-		    if (wrongInput == 10 || correctCount == 10) { 
-		        timer.cancel();
-		        break;
-		    }
-
-		    currentWordIndex++;
-	    }
-		if (wrongInput == 10) {
-			failedTest();
-		}
-		if (correctCount == 10) {
-			epilogue();
-		}
-		if (!isRunning) {
-			failedTest();
-		}
+	    startGame("p1norm");
 	}
 
     static void startGamediff() {
-	    prologue(); //<----- will run the prologue first
+	    startGame("p1diff");
+	}
+
+	static void startGame(String tablename) {
+		prologue(); //<----- will run the prologue first
 	    
 	    UI.clearScreen();
 	    System.out.println("You have "+ TIME_LIMIT + " seconds\n");
 
-        wordsToGuess = SQL.runGetResult("SELECT word FROM p1diff ORDER BY RAND();");
+        wordsToGuess = SQL.runGetResult("SELECT word FROM " + tablename + " ORDER BY RAND();");
 	    //VARIABLE1      
 	    String input1 = "";
 	    //VARIABLE2
