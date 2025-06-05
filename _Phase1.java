@@ -249,13 +249,16 @@ public class _Phase1 {
 	        
 	        //MAIN CONDITION 
 		    if (input1.equalsIgnoreCase(word)) { //<------ IF THE INPUT IS CORRECT
+
+				correctDialogue(correctCount);
+
 				Player.currentScore += 10;
 				Player.updateScore();
 		        UI.printBox("CORRECT");
 		        correctCount ++;
 		        wrongInput = 0;
 		        
-		        correctDialogue(correctCount);
+		        
 		        resetTimer(); // <------- reset timer for every correct input	
 					        	
 		    } else { //<------ IF THE INPUT IS WRONG
