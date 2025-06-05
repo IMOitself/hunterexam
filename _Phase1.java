@@ -166,6 +166,8 @@ public class _Phase1 {
 		UI.clearScreen();  
 
         UI.printGreyText("\nPress ENTER to begin your run through the tunnel");
+		UI.delay(500);
+		System.out.println(">>");
         scanner.nextLine();
 
 	}
@@ -173,7 +175,7 @@ public class _Phase1 {
 	static void failedTest() {
 		Player.failHunterExam();
 		UI.clearScreen();
-		System.out.println("\nYou got lost in the tunnel, pure darkness envelops your vision. Then others never found you again.");
+		System.out.println("\nYou got lost in the tunnel, pure darkness envelops your vision.");
 		UI.delay(500);
 		System.out.println(">>");
 
@@ -190,6 +192,8 @@ public class _Phase1 {
 		UI.clearScreen();  
 		
 		UI.printGreyText("\nPress enter to return to the menu");
+		UI.delay(500);
+		System.out.println(">>");
 		scanner.nextLine(); 
 		// Reset variables
 		correctCount = 0;
