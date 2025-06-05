@@ -128,8 +128,9 @@ public class _Phase1 {
 		UI.delay(500);
 		System.out.println(">>");
 
-		
+		UI.clearScreen();
 		scanner.nextLine();
+		
 		UI.printGreyText("\nPress enter to go to the next phase");
 		UI.delay(500);
 		System.out.println(">>");
