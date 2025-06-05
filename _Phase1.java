@@ -73,6 +73,8 @@ public class _Phase1 {
 	            isRunning = false;
 				System.out.println("\nTime's up!");
 				UI.printGreyText("\nPress enter to continue...");
+				UI.delay(500);
+				System.out.println(">>");
 	        }
 	    }, TIME_LIMIT * 1000);
 	}
@@ -129,6 +131,9 @@ public class _Phase1 {
 		
 		scanner.nextLine();
 		UI.printGreyText("\nPress enter to go to the next phase");
+		UI.delay(500);
+		System.out.println(">>");
+		
 		scanner.nextLine(); 
         _Phase2.exampleScreen(scanner);
 		
