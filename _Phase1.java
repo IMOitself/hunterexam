@@ -9,7 +9,7 @@ public class _Phase1 {
 	
 	static int correctCount = 0;
 	static int wrongInput = 0;
-	public static final int TIME_LIMIT = 5; // seconds
+	public static final int TIME_LIMIT = 10; // seconds
 
     public static Timer timer;
     public static volatile int timeLeft;
@@ -171,6 +171,7 @@ public class _Phase1 {
 	}
 	
 	static void failedTest() {
+		Player.failHunterExam();
 		UI.clearScreen();
 		System.out.println("\nYou got lost in the tunnel, pure darkness envelops your vision. Then others never found you again.");
 		UI.delay(500);
@@ -195,7 +196,6 @@ public class _Phase1 {
 		wrongInput = 0;
 		isRunning = true;
 		_PlayerScreen.main(scanner);
-		Player.failHunterExam();
 	}
 	
 	static void startGameEasy() {
@@ -239,7 +239,9 @@ public class _Phase1 {
 			}
 	        
 	        //MAIN CONDITION 
-		    if (input1.equalsIgnoreCase(word)) { //<------ IF THE INPUT IS CORRECT	
+		    if (input1.equalsIgnoreCase(word)) { //<------ IF THE INPUT IS CORRECT
+				Player.currentScore += 10;
+				Player.updateScore();
 		        UI.printBox("CORRECT");
 		        correctCount ++;
 		        wrongInput = 0;

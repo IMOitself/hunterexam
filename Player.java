@@ -20,7 +20,7 @@ public class Player
 		for(String player : topPlayers){
 			player = player.replace("::", "    ").trim();
 			if(i == 1) a += "TOP PLAYERS:";
-			a += "\n " + i + " " + player;
+			a += "\n TOP " + i + " " + player;
 			i++;
 		}
 		return a;

@@ -335,7 +335,7 @@ public class _Phase3 {
         System.out.println("\n=== Challenge 4: Rock-Paper-Scissors ===");
         System.out.println("\nLeroute's Mind Games");
         System.out.println("She challenges Leorio to Rock-Paper-Scissors");
-        System.out.println("with 80 hours at stake! She claims she can read minds...");
+        System.out.println("with 50 hours at stake! She claims she can read minds...");
         UI.printGreyText("\nPress enter to begin the game...");
         scanner.nextLine();
 
@@ -468,6 +468,9 @@ public class _Phase3 {
         UI.printGreyText("\nPress enter to see your results...");
         scanner.nextLine();
 
+        Player.currentScore += remainingHours;
+        Player.updateScore();
+
         if (remainingHours <= 0) {
             badEnding();
         } else if (remainingHours <= 24) {
@@ -523,8 +526,8 @@ public class _Phase3 {
     }
 
     public static void badEnding() {
+        Player.failHunterExam();
         UI.printBox("Bad Ending");
         System.out.println("\nTIME'S UP! YOU FAILED PHASE 3!");
-        Player.failHunterExam();
     }
 }

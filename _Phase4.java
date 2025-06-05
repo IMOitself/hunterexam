@@ -42,11 +42,11 @@ public class _Phase4 {
             scanner.nextLine();
             _PhaseFinal.main(scanner);
         } else {
+            Player.failHunterExam();
             System.out.println("You failed Phase 4. Try again.");
             UI.printGreyText("\nPress Enter To Continue...");
             scanner.nextLine();
             _PlayerScreen.main(scanner);
-            Player.failHunterExam();
         }
     }
 
