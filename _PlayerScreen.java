@@ -6,11 +6,12 @@ public class _PlayerScreen {
         _Intro.printTitle();
 
         UI.printBox("1. NEW GAME");
-        UI.printBox("0. MAIN MENU");
 
         if(Player.currentPhase > 1){
             UI.printBox("2. CONTINUE\n   Phase " + Player.currentPhase);
         }
+
+        UI.printBox("0. MAIN MENU");
 
         // uncomment this to show the test screen button and the player info
         //displayDebugMode();

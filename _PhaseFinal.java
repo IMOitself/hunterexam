@@ -221,10 +221,16 @@ public class _PhaseFinal {
         if (playerHP <= 0) {
             UI.printBox("You collapsed. Exam failed.");
             Player.failHunterExam();
+            UI.printGreyText("\nPress Enter to continue...");
+			scanner.nextLine();
+            _PlayerScreen.main(scanner);
         } else
         if (enemyHP < 0) {
             UI.printBox("You killed the enemy. Exam failed.");
             Player.failHunterExam();
+            UI.printGreyText("\nPress Enter to continue...");
+			scanner.nextLine();
+            _PlayerScreen.main(scanner);
         }
         else {
             UI.printBox("CONGRATULATIONS! You passed the hunter exam!");

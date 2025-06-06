@@ -9,6 +9,7 @@ public class _Phase2 {
         System.out.println("        HUNTER x HUNTER - COOKING CHALLENGE");
         System.out.println("             Phase 2 of Hunter Exam");
         System.out.println("==============================================");
+        UI.printGreyText("\nPress enter to continue...");
         scanner.nextLine();
 
         int score = 0;
@@ -55,19 +56,18 @@ public class _Phase2 {
         }
 
         System.out.println("Menchi: You scored " + score + " out of " + questions.size() + ".");
+        scanner.nextLine();
 
         if (score >= PASSING_SCORE) {
-            System.out.println("Menchi: Impressive palate!");
-            scanner.nextLine();
-            System.out.println("Menchi:You're worthy to proceed to Phase 3!");
+            System.out.println("Menchi: You're worthy to proceed to Phase 3!");
             scanner.nextLine();
             UI.printGreyText("Press enter to go to the next phase");
 		    scanner.nextLine(); 
             _Phase3.main(scanner);
         } else {
-            System.out.println("Menchi: Better luck next time!");
+            System.out.println("Menchi: You lack the culinary instinct to be a Hunter.");
             scanner.nextLine();
-            System.out.println("Menchi:You lack the culinary instinct to be a Hunter.");
+            System.out.println("Menchi: Better luck next time!");
             scanner.nextLine();
             _PlayerScreen.main(scanner);
         }
