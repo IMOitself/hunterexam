@@ -20,7 +20,7 @@ public class _Phase2 {
         scanner.nextLine();
         System.out.println("Menchi: Don't think of food as just ingredients—");
         scanner.nextLine();
-        System.out.println("think of the soul behind the dish!");
+        System.out.println("Menchi: think of the soul behind the dish!");
         scanner.nextLine();
 
         List<String> questions = SQL.runGetResultAll("SELECT * FROM p2Questions ORDER BY RAND() LIMIT 5;");
