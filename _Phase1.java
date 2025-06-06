@@ -16,6 +16,7 @@ public class _Phase1 {
     public static boolean isRunning = true;
     public static List<String> wordsToGuess = new ArrayList<>();
     public static int currentWordIndex = 0;
+	public static boolean isCorrect = false;
 	
 	public static void main(String[] args) {
 		Player.updatePhase(1);
@@ -73,6 +74,8 @@ public class _Phase1 {
 	            isRunning = false;
 				System.out.println("\nTime's up!");
 				UI.printGreyText("\nPress enter to continue...");
+				UI.delay(500);
+				System.out.println(">>");
 	        }
 	    }, TIME_LIMIT * 1000);
 	}
@@ -126,9 +129,13 @@ public class _Phase1 {
 		UI.delay(500);
 		System.out.println(">>");
 
-		
+		UI.clearScreen();
 		scanner.nextLine();
+		
 		UI.printGreyText("\nPress enter to go to the next phase");
+		UI.delay(500);
+		System.out.println(">>");
+		
 		scanner.nextLine(); 
         _Phase2.exampleScreen(scanner);
 		
@@ -166,6 +173,8 @@ public class _Phase1 {
 		UI.clearScreen();  
 
         UI.printGreyText("\nPress ENTER to begin your run through the tunnel");
+		UI.delay(500);
+		System.out.println(">>");
         scanner.nextLine();
 
 	}
@@ -173,7 +182,7 @@ public class _Phase1 {
 	static void failedTest() {
 		Player.failHunterExam();
 		UI.clearScreen();
-		System.out.println("\nYou got lost in the tunnel, pure darkness envelops your vision. Then others never found you again.");
+		System.out.println("\nYou got lost in the tunnel, pure darkness envelops your vision.");
 		UI.delay(500);
 		System.out.println(">>");
 
@@ -190,6 +199,8 @@ public class _Phase1 {
 		UI.clearScreen();  
 		
 		UI.printGreyText("\nPress enter to return to the menu");
+		UI.delay(500);
+		System.out.println(">>");
 		scanner.nextLine(); 
 		// Reset variables
 		correctCount = 0;
@@ -216,6 +227,10 @@ public class _Phase1 {
 	    UI.clearScreen();
 	    System.out.println("You have "+ TIME_LIMIT + " seconds\n");
 
+		if (isCorrect){
+			correctDialogue(correctCount);
+		}
+
         wordsToGuess = SQL.runGetResult("SELECT word FROM " + tablename + " ORDER BY RAND();");
 	    //VARIABLE1      
 	    String input1 = "";
@@ -233,6 +248,12 @@ public class _Phase1 {
             input1 = scanner.nextLine();
 
 			// TODO: Fix game still continue after inputting empty string resulting in wrong answer
+			
+			if (input1.equalsIgnoreCase(" ")){
+				System.out.println("Word to match: " + word); // Print word before asking for input
+        		System.out.print("Input here: ");
+			}
+
 
 			if (!isRunning) {
 				break;
@@ -240,14 +261,19 @@ public class _Phase1 {
 	        
 	        //MAIN CONDITION 
 		    if (input1.equalsIgnoreCase(word)) { //<------ IF THE INPUT IS CORRECT
+
+				
+
 				Player.currentScore += 10;
 				Player.updateScore();
 		        UI.printBox("CORRECT");
 		        correctCount ++;
 		        wrongInput = 0;
 		        
-		        correctDialogue(correctCount);
-		        resetTimer(); // <------- reset timer for every correct input	
+		        
+		        resetTimer(); // <------- reset timer for every correct input
+				
+				isCorrect = true;
 					        	
 		    } else { //<------ IF THE INPUT IS WRONG
 		        UI.printBox("WRONG");
