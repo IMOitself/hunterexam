@@ -73,10 +73,11 @@ public class _Phase1 {
 	        @Override
 	        public void run() {
 	            isRunning = false;
-				System.out.println("\nTime's up!");
+				UI.clearScreen();
+				UI.printBox("TIME'S UP");
 				UI.printGreyText("\nPress enter to continue...");
-			UI.delay(500);
-			System.out.println(">>");
+				UI.delay(500);
+				System.out.println(">>");
         }
 	    }, TIME_LIMIT * 1000);
 	}
@@ -85,19 +86,15 @@ public class _Phase1 {
 		switch (correct) {
 			case 3:
 				System.out.println("Character: \"I feel like I'm getting closer... just a bit more.\"");
-				UI.delay(1500);
 				break;
 			case 5:
 				System.out.println("Character: \"I can feel wind... the exit must be near!\"");
-				UI.delay(1500);
 				break;
 			case 7:
 				System.out.println("Character: \"I see a glimmer of light... almost there!\"");
-				UI.delay(1500);
 				break;
 			case 9:
 				System.out.println("Character: \"I think I can see the light! I need to keep up, I can see the exit.\"");
-				UI.delay(1500);
 				break;
 		}
 	}
@@ -248,7 +245,7 @@ public class _Phase1 {
 			wrongDialogue(wrongInput);
 
             String word = wordsToGuess.get(currentWordIndex);
-            System.out.println("Word to match: " + word); // Print word before asking for input
+            System.out.println("\nWord to match: " + word); // Print word before asking for input
             System.out.print("Input here: ");
             input1 = scanner.nextLine();
 
@@ -264,7 +261,7 @@ public class _Phase1 {
 			}
 
 	        //MAIN CONDITION 
-		    if (input1.equalsIgnoreCase(" ")) { //<------ IF THE INPUT IS CORRECT
+		    if (input1.equalsIgnoreCase(word)) { //<------ IF THE INPUT IS CORRECT
 
 				Player.currentScore += 10;
 				Player.updateScore();
@@ -274,7 +271,6 @@ public class _Phase1 {
 		        
 		        
 		        resetTimer(); // <------- reset timer for every correct input
-				// isCorrect = true;
 				
 					        	
 		    } else { //<------ IF THE INPUT IS WRONG
