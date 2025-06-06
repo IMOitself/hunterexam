@@ -229,16 +229,18 @@ public class _PhaseFinal {
         else {
             UI.printBox("CONGRATULATIONS! You passed the hunter exam!");
             Player.currentScore += 100;
+            System.out.print("\033[33m");
+            UI.printBox("Hunter's License");
+            System.out.print("\033[0m");
+            UI.printGreyText("\nGet the Hunter's License...");
+			scanner.nextLine();
+            _EndScreen.main(scanner);
         }
 
         Player.updateScore();
-
-        UI.printGreyText("\nPress Enter To Continue...");
         playerHP = 100;
         enemyHP = 100;
         Player.updatePhase(1);
-        scanner.nextLine();
-        _Intro.homeScreen(scanner);
     }
 }
 

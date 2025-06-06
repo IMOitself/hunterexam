@@ -11,7 +11,7 @@ public class _PlayerScreen {
         }
 
         UI.colorGrey();
-        UI.printBox("3. TEST PHASES");
+        UI.printBox("3. TEST SCREENS");
         UI.printBox("Username: " + Player.username + "\nPassword: " + Player.password + "\nCurrent Phase: " + Player.currentPhase + "\nCurrent Score: " + Player.currentScore);
         UI.colorReset();
 
@@ -75,7 +75,7 @@ public class _PlayerScreen {
 
     public static void testScreen(Scanner scanner) {
         UI.clearScreen();
-        UI.printBox("1. Phase 1\n2. Phase 2\n3. Phase 3\n4. Phase 4\n5. Final\n6. Main Menu");
+        UI.printBox("1. Phase 1\n2. Phase 2\n3. Phase 3\n4. Phase 4\n5. Final\n6. End Screen\n7. Main Menu");
         String input = scanner.nextLine();
 
         switch (input) {
@@ -95,6 +95,9 @@ public class _PlayerScreen {
                 _PhaseFinal.main(scanner);
                 break;
 			case "6":
+                _EndScreen.main(scanner);
+                break;
+			case "7":
                 _Intro.homeScreen(scanner);
                 break;
             default:
