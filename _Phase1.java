@@ -253,7 +253,8 @@ public class _Phase1 {
 			}
 			
 			if (input1 == null) { //<----- check if the input is null
-				// <----- return to the loop
+				System.out.println("Error");
+				break;
 			}
 
 			if (word.equalsIgnoreCase(input1)) {  //<----- check if the input is valid 
