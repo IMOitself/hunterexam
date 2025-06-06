@@ -37,7 +37,7 @@ public class _Phase1 {
             System.out.println("==============================================\n");
 
 			UI.clearScreen();
-            UI.printBox("=== DEMO MENU ===\nSELECT DIFFICULTY\n(0) EASY\n(1) NORMAL\n(2) HARD");
+            UI.printBox("=== MENU ===\nSELECT DIFFICULTY\n(0) EASY\n(1) NORMAL\n(2) HARD");
             System.out.print("Input: ");
         	
             String mainInput = scanner.nextLine();
@@ -250,11 +250,6 @@ public class _Phase1 {
             input1 = scanner.nextLine();
 
 			// TODO: Fix game still continue after inputting empty string resulting in wrong answer
-			
-			// if (input1.equalsIgnoreCase(" ")){
-			// 	System.out.println("Word to match: " + word); // Print word before asking for input
-        	// 	System.out.print("Input here: ");
-			// }
 
 			if (!isRunning) {
 				break;
@@ -265,7 +260,7 @@ public class _Phase1 {
 				UI.clearScreen();
 				Player.currentScore += 10;
 				Player.updateScore();
-		        UI.printBox("\nCORRECT");
+		        UI.printBox("CORRECT");
 		        correctCount ++;
 		        wrongInput = 0;
 		        
@@ -273,13 +268,11 @@ public class _Phase1 {
 		        resetTimer(); // <------- reset timer for every correct input									        	
 		    } 
 			else if (input1.isEmpty()){
-				// UI.clearScreen();
-
-				// System.out.println("Test");
+				//<-------- Empty
 			}
 			else { //<------ IF THE INPUT IS WRONG
 				UI.clearScreen();
-		        UI.printBox("\nWRONG");
+		        UI.printBox("WRONG");
 		        wrongInput ++;
 		    }
 			UI.delay(500);
