@@ -273,7 +273,10 @@ public class _Phase1 {
 		        resetTimer(); // <------- reset timer for every correct input
 				
 					        	
-		    } else { //<------ IF THE INPUT IS WRONG
+		    } if (input1.isEmpty()){
+				break;
+			}
+			else { //<------ IF THE INPUT IS WRONG
 		        UI.printBox("WRONG");
 		        wrongInput ++;
 		    }
