@@ -255,7 +255,6 @@ public class _Phase1 {
         		System.out.print("Input here: ");
 			}
 
-
 			if (!isRunning) {
 				break;
 			}
@@ -271,7 +270,7 @@ public class _Phase1 {
 		        
 		        
 		        resetTimer(); // <------- reset timer for every correct input
-				correctDialogue(correctCount);
+
 					        	
 		    } else { //<------ IF THE INPUT IS WRONG
 		        UI.printBox("WRONG");
@@ -296,6 +295,7 @@ public class _Phase1 {
 		if (!isRunning) {
 			failedTest();
 		}
+		correctDialogue(correctCount);
 	}
 
 }	
