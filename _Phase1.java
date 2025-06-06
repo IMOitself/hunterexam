@@ -273,9 +273,9 @@ public class _Phase1 {
 		        resetTimer(); // <------- reset timer for every correct input									        	
 		    } 
 			else if (input1.isEmpty()){
-				UI.clearScreen();
+				// UI.clearScreen();
 
-				System.out.println("Test");
+				// System.out.println("Test");
 			}
 			else { //<------ IF THE INPUT IS WRONG
 				UI.clearScreen();
