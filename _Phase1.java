@@ -85,19 +85,15 @@ public class _Phase1 {
 		switch (correct) {
 			case 3:
 				System.out.println("Character: \"I feel like I'm getting closer... just a bit more.\"");
-				UI.delay(1500);
 				break;
 			case 5:
 				System.out.println("Character: \"I can feel wind... the exit must be near!\"");
-				UI.delay(1500);
 				break;
 			case 7:
 				System.out.println("Character: \"I see a glimmer of light... almost there!\"");
-				UI.delay(1500);
 				break;
 			case 9:
 				System.out.println("Character: \"I think I can see the light! I need to keep up, I can see the exit.\"");
-				UI.delay(1500);
 				break;
 		}
 	}
