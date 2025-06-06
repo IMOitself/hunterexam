@@ -265,21 +265,21 @@ public class _Phase1 {
 				UI.clearScreen();
 				Player.currentScore += 10;
 				Player.updateScore();
-		        UI.printBox("CORRECT");
+		        UI.printBox("\nCORRECT");
 		        correctCount ++;
 		        wrongInput = 0;
 		        
 		        
 		        resetTimer(); // <------- reset timer for every correct input									        	
 		    } 
-			if (input1.trim().isEmpty()){
+			if (input1.isEmpty()){
 				UI.clearScreen();
 
 				System.out.println("Test");
 			}
 			else { //<------ IF THE INPUT IS WRONG
 				UI.clearScreen();
-		        UI.printBox("WRONG");
+		        UI.printBox("\nWRONG");
 		        wrongInput ++;
 		    }
 			UI.delay(500);
