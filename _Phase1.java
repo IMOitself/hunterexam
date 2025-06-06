@@ -16,7 +16,8 @@ public class _Phase1 {
     public static boolean isRunning = true;
     public static List<String> wordsToGuess = new ArrayList<>();
     public static int currentWordIndex = 0;
-	public static boolean isCorrect = false;
+	// public static boolean isCorrect = false;
+	
 	
 	public static void main(String[] args) {
 		Player.updatePhase(1);
@@ -74,12 +75,11 @@ public class _Phase1 {
 	            isRunning = false;
 				System.out.println("\nTime's up!");
 				UI.printGreyText("\nPress enter to continue...");
-				UI.delay(500);
-				System.out.println(">>");
-	        }
+			UI.delay(500);
+			System.out.println(">>");
+        }
 	    }, TIME_LIMIT * 1000);
 	}
-
 
 	static void correctDialogue(int correct) {
 		switch (correct) {
@@ -243,6 +243,10 @@ public class _Phase1 {
 	    while (isRunning) {
 			UI.clearScreen();
 			System.out.println("You have "+ TIME_LIMIT + " seconds\n");
+
+			correctDialogue(correctCount);
+			wrongDialogue(wrongInput);
+
             String word = wordsToGuess.get(currentWordIndex);
             System.out.println("Word to match: " + word); // Print word before asking for input
             System.out.print("Input here: ");
@@ -258,9 +262,9 @@ public class _Phase1 {
 			if (!isRunning) {
 				break;
 			}
-	        
+
 	        //MAIN CONDITION 
-		    if (input1.equalsIgnoreCase(word)) { //<------ IF THE INPUT IS CORRECT
+		    if (input1.equalsIgnoreCase(" ")) { //<------ IF THE INPUT IS CORRECT
 
 				Player.currentScore += 10;
 				Player.updateScore();
@@ -270,13 +274,12 @@ public class _Phase1 {
 		        
 		        
 		        resetTimer(); // <------- reset timer for every correct input
-				isCorrect = true;
-
+				// isCorrect = true;
+				
 					        	
 		    } else { //<------ IF THE INPUT IS WRONG
 		        UI.printBox("WRONG");
 		        wrongInput ++;
-		        wrongDialogue(wrongInput);
 		    }
 			UI.delay(500);
 
@@ -296,9 +299,5 @@ public class _Phase1 {
 		if (!isRunning) {
 			failedTest();
 		}
-		if (isCorrect) {
-			correctDialogue(correctCount);
-		}
 	}
-
 }
