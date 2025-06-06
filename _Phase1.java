@@ -274,7 +274,9 @@ public class _Phase1 {
 				
 					        	
 		    } if (input1.isEmpty()){
-				break;
+				System.out.println("\nWord to match: " + word); // Print word before asking for input
+				System.out.print("Input here: ");
+				scanner.nextLine();
 			}
 			else { //<------ IF THE INPUT IS WRONG
 		        UI.printBox("WRONG");
