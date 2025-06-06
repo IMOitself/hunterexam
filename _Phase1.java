@@ -244,7 +244,7 @@ public class _Phase1 {
 			wrongDialogue(wrongInput);
 
             String word = wordsToGuess.get(currentWordIndex);
-            System.out.println("Word to match: " + word); // Print word before asking for input
+            System.out.println("\nWord to match: " + word); // Print word before asking for input
             System.out.print("Input here: ");
             input1 = scanner.nextLine();
 
