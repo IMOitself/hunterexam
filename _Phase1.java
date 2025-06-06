@@ -75,7 +75,7 @@ public class _Phase1 {
 	            isRunning = false;
 				UI.clearScreen();
 				UI.printBox("TIME'S UP");
-				UI.printGreyText("\nPress enter to continue...");
+				UI.printGreyText(">>");
 				UI.delay(500);
 				System.out.println(">>");
         }
@@ -253,9 +253,11 @@ public class _Phase1 {
 				break;
 			}
 			
-			if (input1 != null) { //<----- check if the input is null
+			if (input1 == null) { //<----- check if the input is null
 				// <----- return to the loop
 			}
+
+
 
 			if (word.equalsIgnoreCase(input1)){  //<----- check if the input is valid 
 				//	<------ if the input is correct, continue
