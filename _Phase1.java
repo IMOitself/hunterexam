@@ -16,6 +16,7 @@ public class _Phase1 {
     public static boolean isRunning = true;
     public static List<String> wordsToGuess = new ArrayList<>();
     public static int currentWordIndex = 0;
+	public static boolean isCorrect = false;
 	
 	public static void main(String[] args) {
 		Player.updatePhase(1);
@@ -226,6 +227,10 @@ public class _Phase1 {
 	    UI.clearScreen();
 	    System.out.println("You have "+ TIME_LIMIT + " seconds\n");
 
+		if (isCorrect){
+			correctDialogue(correctCount);
+		}
+
         wordsToGuess = SQL.runGetResult("SELECT word FROM " + tablename + " ORDER BY RAND();");
 	    //VARIABLE1      
 	    String input1 = "";
@@ -243,6 +248,12 @@ public class _Phase1 {
             input1 = scanner.nextLine();
 
 			// TODO: Fix game still continue after inputting empty string resulting in wrong answer
+			
+			if (input1.equalsIgnoreCase(" ")){
+				System.out.println("Word to match: " + word); // Print word before asking for input
+        		System.out.print("Input here: ");
+			}
+
 
 			if (!isRunning) {
 				break;
@@ -251,7 +262,7 @@ public class _Phase1 {
 	        //MAIN CONDITION 
 		    if (input1.equalsIgnoreCase(word)) { //<------ IF THE INPUT IS CORRECT
 
-				correctDialogue(correctCount);
+				
 
 				Player.currentScore += 10;
 				Player.updateScore();
@@ -260,7 +271,9 @@ public class _Phase1 {
 		        wrongInput = 0;
 		        
 		        
-		        resetTimer(); // <------- reset timer for every correct input	
+		        resetTimer(); // <------- reset timer for every correct input
+				
+				isCorrect = true;
 					        	
 		    } else { //<------ IF THE INPUT IS WRONG
 		        UI.printBox("WRONG");
