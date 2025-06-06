@@ -274,13 +274,13 @@ public class _Phase1 {
 				
 					        	
 		    } 
-			if (!input1.equalsIgnoreCase(word)){
-				UI.printBox("WRONG");
-		        wrongInput ++;
+			if (input1.trim().isEmpty()){
+				System.out.println("Test");
 			}
-			// else { //<------ IF THE INPUT IS WRONG
-
-		    // }
+			else { //<------ IF THE INPUT IS WRONG
+		        UI.printBox("WRONG");
+		        wrongInput ++;
+		    }
 			UI.delay(500);
 
 		    if (wrongInput == 10 || correctCount == 10) { 
@@ -290,17 +290,16 @@ public class _Phase1 {
 
 		    currentWordIndex++;
 
-			while (input1.equals("")){
-				startTimer();
-				UI.clearScreen();
-				System.out.println("You have "+ TIME_LIMIT + " seconds\n");
+			// while (input1.trim().isEmpty()){
+			// 	startTimer();
+			// 	UI.clearScreen();
+			// 	System.out.println("You have "+ TIME_LIMIT + " seconds\n");
 
-				System.out.println("\nWord to match: " + word); // Print word before asking for input
-				System.out.print("Input here: ");
-				input1 = scanner.nextLine();
-				break;
-
-			}
+			// 	System.out.println("\nWord to match: " + word); // Print word before asking for input
+			// 	System.out.print("Input here: ");
+			// 	input1 = scanner.nextLine();
+			// 	break;
+			// }
 	    }
 		if (wrongInput == 10) {
 			failedTest();
