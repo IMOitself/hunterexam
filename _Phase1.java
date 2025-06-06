@@ -262,7 +262,7 @@ public class _Phase1 {
 
 	        //MAIN CONDITION 
 		    if (input1.equalsIgnoreCase(word)) { //<------ IF THE INPUT IS CORRECT
-
+				UI.clearScreen();
 				Player.currentScore += 10;
 				Player.updateScore();
 		        UI.printBox("CORRECT");
@@ -276,10 +276,11 @@ public class _Phase1 {
 		    } 
 			if (input1.trim().isEmpty()){
 				UI.clearScreen();
-				
+
 				System.out.println("Test");
 			}
 			else { //<------ IF THE INPUT IS WRONG
+				UI.clearScreen();
 		        UI.printBox("WRONG");
 		        wrongInput ++;
 		    }
