@@ -295,6 +295,7 @@ public class _Phase1 {
 				System.out.println("\nWord to match: " + word); // Print word before asking for input
 				System.out.print("Input here: ");
 				input1 = scanner.nextLine();
+				break;
 
 			}
 	    }
