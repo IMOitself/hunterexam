@@ -250,10 +250,10 @@ public class _Phase1 {
 
 			// TODO: Fix game still continue after inputting empty string resulting in wrong answer
 			
-			if (input1.equalsIgnoreCase(" ")){
-				System.out.println("Word to match: " + word); // Print word before asking for input
-        		System.out.print("Input here: ");
-			}
+			// if (input1.equalsIgnoreCase(" ")){
+			// 	System.out.println("Word to match: " + word); // Print word before asking for input
+        	// 	System.out.print("Input here: ");
+			// }
 
 			if (!isRunning) {
 				break;
@@ -270,6 +270,7 @@ public class _Phase1 {
 		        
 		        
 		        resetTimer(); // <------- reset timer for every correct input
+				isCorrect = true;
 
 					        	
 		    } else { //<------ IF THE INPUT IS WRONG
@@ -295,7 +296,9 @@ public class _Phase1 {
 		if (!isRunning) {
 			failedTest();
 		}
-		correctDialogue(correctCount);
+		if (isCorrect) {
+			correctDialogue(correctCount);
+		}
 	}
 
-}	
+}
