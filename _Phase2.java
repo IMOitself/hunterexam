@@ -15,7 +15,11 @@ public class _Phase2 {
         int PASSING_SCORE = 3;
 
         UI.clearScreen();
-        System.out.println("Menchi: \"This phase will test your culinary intuition! Don't think of food as just ingredients—think of the soul behind the dish!\"\n");
+        System.out.println("Menchi: This phase will test your culinary intuition!");
+        scanner.nextLine();
+        System.out.println("Menchi: Don't think of food as just ingredients—");
+        scanner.nextLine();
+        System.out.println("think of the soul behind the dish!");
         scanner.nextLine();
 
         List<String> questions = SQL.runGetResultAll("SELECT * FROM p2Questions ORDER BY RAND() LIMIT 5;");
@@ -53,12 +57,17 @@ public class _Phase2 {
         System.out.println("Menchi: You scored " + score + " out of " + questions.size() + ".");
 
         if (score >= PASSING_SCORE) {
-            System.out.println("Menchi: Impressive palate! You're worthy to proceed to Phase 3!");
+            System.out.println("Menchi: Impressive palate!");
+            scanner.nextLine();
+            System.out.println("Menchi:You're worthy to proceed to Phase 3!");
+            scanner.nextLine();
             UI.printGreyText("Press enter to go to the next phase");
 		    scanner.nextLine(); 
             _Phase3.main(scanner);
         } else {
-            System.out.println("Menchi: Better luck next time! You lack the culinary instinct to be a Hunter.");
+            System.out.println("Menchi: Better luck next time!");
+            scanner.nextLine();
+            System.out.println("Menchi:You lack the culinary instinct to be a Hunter.");
             scanner.nextLine();
             _PlayerScreen.main(scanner);
         }

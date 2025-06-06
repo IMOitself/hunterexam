@@ -4,9 +4,9 @@ public class _PlayerScreen {
     public static void main(Scanner scanner){
         UI.clearScreen();
         _Intro.printTitle();
-        System.out.println("Welcome Back, " + Player.username);
 
         UI.printBox("1. NEW GAME");
+        UI.printBox("0. MAIN MENU");
 
         if(Player.currentPhase > 1){
             UI.printBox("2. CONTINUE\n   Phase " + Player.currentPhase);
@@ -27,6 +27,9 @@ public class _PlayerScreen {
                 break;
             case "3":
                 testScreen(scanner);
+                break;
+            case "0":
+                _Intro.mainMenu(scanner);
                 break;
             default:
                 main(scanner);

@@ -30,8 +30,8 @@ public class _EndScreen {
             "║ ┌────────────────────────────────────┐ ║",
             addScore(),
             "║ │                                    │ ║",
-            "║ │In case of loss or theft of the card│ ║",
-            centerString("it will not be replaced"),
+            centerString("recieved upon completion of"),
+            centerString("the hunter exam."),
             "║ └────────────────────────────────────┘ ║",
             "╚════════════════════════════════════════╝"
         };
