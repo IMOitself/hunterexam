@@ -270,9 +270,7 @@ public class _Phase1 {
 		        wrongInput = 0;
 		        
 		        
-		        resetTimer(); // <------- reset timer for every correct input
-				
-					        	
+		        resetTimer(); // <------- reset timer for every correct input									        	
 		    } 
 			if (input1.trim().isEmpty()){
 				UI.clearScreen();
@@ -292,17 +290,6 @@ public class _Phase1 {
 		    }
 
 		    currentWordIndex++;
-
-			// while (input1.trim().isEmpty()){
-			// 	startTimer();
-			// 	UI.clearScreen();
-			// 	System.out.println("You have "+ TIME_LIMIT + " seconds\n");
-
-			// 	System.out.println("\nWord to match: " + word); // Print word before asking for input
-			// 	System.out.print("Input here: ");
-			// 	input1 = scanner.nextLine();
-			// 	break;
-			// }
 	    }
 		if (wrongInput == 10) {
 			failedTest();
