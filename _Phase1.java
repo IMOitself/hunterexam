@@ -249,8 +249,6 @@ public class _Phase1 {
             System.out.print("Input here: ");
             input1 = scanner.nextLine();
 
-			// TODO: Fix game still continue after inputting empty string resulting in wrong answer
-
 			if (!isRunning) {
 				break;
 			}
