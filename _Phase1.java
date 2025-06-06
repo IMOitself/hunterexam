@@ -264,7 +264,7 @@ public class _Phase1 {
 			}
 
 	        //MAIN CONDITION 
-		    if (input1.equalsIgnoreCase(" ")) { //<------ IF THE INPUT IS CORRECT
+		    if (input1.equalsIgnoreCase(word)) { //<------ IF THE INPUT IS CORRECT
 
 				Player.currentScore += 10;
 				Player.updateScore();
@@ -274,7 +274,6 @@ public class _Phase1 {
 		        
 		        
 		        resetTimer(); // <------- reset timer for every correct input
-				// isCorrect = true;
 				
 					        	
 		    } else { //<------ IF THE INPUT IS WRONG
