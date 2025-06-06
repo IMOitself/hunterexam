@@ -31,7 +31,7 @@ public class _EndScreen {
             addScore(),
             "║ │                                    │ ║",
             "║ │In case of loss or theft of the card│ ║",
-            "║ │it will not be replaced             │ ║",
+            centerString("it will not be replaced"),
             "║ └────────────────────────────────────┘ ║",
             "╚════════════════════════════════════════╝"
         };
