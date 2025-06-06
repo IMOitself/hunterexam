@@ -256,10 +256,6 @@ public class _Phase1 {
 				// <----- return to the loop
 			}
 
-			else if (input1.isEmpty()) { // <----- check if the input is only space
-				// <----- return to the loop
-			}
-
 			if (word.equalsIgnoreCase(input1)) {  //<----- check if the input is valid 
 				//	<------ if the input is correct, continue
 				UI.clearScreen(); //	<------ cleart the screen
@@ -273,6 +269,11 @@ public class _Phase1 {
 		        		        
 		        resetTimer(); // <------- reset timer for every correct input		
 			}
+
+			else if (input1.isEmpty()) { // <----- check if the input is only space
+				// <----- return to the loop
+			}
+			
 			else { //<----- if the input is wrong continue here
 				UI.clearScreen();
 		        UI.printBox("WRONG");
