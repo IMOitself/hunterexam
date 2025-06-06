@@ -42,6 +42,55 @@ public class _EndScreen {
         }
         System.out.print("\033[0m");
 
+        UI.printGreyText("\nPress Enter To Roll Credits...");
+        scanner.nextLine();
+        creditsScreen(scanner);
+    }
+
+    static void creditsScreen(Scanner scanner){
+        UI.clearScreen();
+        String[] lines = {
+            "==============================================",
+            "                    Credits",
+            "==============================================",
+            "\n",
+            "            Phase 1 - SPEED CHALLENGE:",
+            "",
+            "              Karl Ashton Mahusay",
+            "\n",
+            "           Phase 2 - COOKING CHALLENGE:",
+            "",
+            "                sir Rey Austria",
+            "\n",
+            "          Phase 3 - TRICK TOWER CHALLENGE:",
+            "",
+            "                  JR Balmaceda",
+            "\n",
+            "            Phase 4 - Math CHALLENGE:",
+            "",
+            "                  sir Rey Austria",
+            "\n",
+            "           Final Phase - PVP CHALLENGE:",
+            "",
+            "                  Meynard Villar",
+            "\n",
+            "             Refactoring and Database:",
+            "",
+            "                 Russell Bautista",
+            "\n",
+            "                Team Hunter Exam:",
+            "",
+            "                   JR Balmaceda",
+            "                  Meynard Villar",
+            "                 Russell Bautista",
+            "                  sir Rey Austria",
+            "                Karl Ashton Mahusay"
+        };
+        for (String line : lines) {
+            System.out.println(line);
+            UI.delay(150);
+        }
+
         UI.printGreyText("\nPress Enter To Exit...");
         scanner.nextLine();
         _Intro.homeScreen(scanner);
