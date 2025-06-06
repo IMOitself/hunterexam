@@ -10,11 +10,6 @@ public class _PlayerScreen {
             UI.printBox("2. CONTINUE\n   Phase " + Player.currentPhase);
         }
 
-        UI.colorGrey();
-        UI.printBox("3. TEST SCREENS");
-        UI.printBox("Username: " + Player.username + "\nPassword: " + Player.password + "\nCurrent Phase: " + Player.currentPhase + "\nCurrent Score: " + Player.currentScore);
-        UI.colorReset();
-
         String input = scanner.nextLine();
 
         switch (input) {
@@ -32,6 +27,9 @@ public class _PlayerScreen {
                 main(scanner);
                 break;
         }
+
+        // uncomment this to show the test screen button and the player info
+        //displayDebugMode(input);
     }
 
     public static void playGame(Scanner scanner){
@@ -104,5 +102,12 @@ public class _PlayerScreen {
                 testScreen(scanner);
                 break;
         }
+    }
+
+    public static void displayDebugMode(String input){
+        UI.colorGrey();
+        UI.printBox("3. TEST SCREENS");
+        UI.printBox("Username: " + Player.username + "\nPassword: " + Player.password + "\nCurrent Phase: " + Player.currentPhase + "\nCurrent Score: " + Player.currentScore);
+        UI.colorReset();
     }
 }
