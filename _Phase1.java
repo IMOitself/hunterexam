@@ -37,7 +37,7 @@ public class _Phase1 {
             System.out.println("==============================================\n");
 
 			UI.clearScreen();
-            UI.printBox("=== MENU ===\nSELECT DIFFICULTY\n(0) EASY\n(1) NORMAL\n(2) HARD");
+            UI.printBox("===== MENU =====\nSELECT DIFFICULTY\n(0) EASY\n(1) NORMAL\n(2) HARD");
             System.out.print("Input: ");
         	
             String mainInput = scanner.nextLine();
@@ -75,7 +75,6 @@ public class _Phase1 {
 	            isRunning = false;
 				UI.clearScreen();
 				UI.printBox("TIME'S UP");
-				UI.printGreyText("\nPress enter to continue...");
 				UI.delay(500);
 				System.out.println(">>");
         }
@@ -252,23 +251,30 @@ public class _Phase1 {
 			if (!isRunning) {
 				break;
 			}
+			
+			if (input1 == null) { //<----- check if the input is null
+				// <----- return to the loop
+			}
 
-	        //MAIN CONDITION 
-		    if (input1.equalsIgnoreCase(word)) { //<------ IF THE INPUT IS CORRECT
-				UI.clearScreen();
+			if (word.equalsIgnoreCase(input1)) {  //<----- check if the input is valid 
+				//	<------ if the input is correct, continue
+				UI.clearScreen(); //	<------ cleart the screen
+
 				Player.currentScore += 10;
 				Player.updateScore();
-		        UI.printBox("CORRECT");
+		        UI.printBox("CORRECT"); // <--------- system print
+
 		        correctCount ++;
 		        wrongInput = 0;
-		        
-		        
-		        resetTimer(); // <------- reset timer for every correct input									        	
-		    } 
-			else if (input1.isEmpty()){
-				//<-------- Empty
+		        		        
+		        resetTimer(); // <------- reset timer for every correct input		
 			}
-			else { //<------ IF THE INPUT IS WRONG
+
+			else if (input1.isEmpty()) { // <----- check if the input is only space
+				// <----- return to the loop
+			}
+			
+			else { //<----- if the input is wrong continue here
 				UI.clearScreen();
 		        UI.printBox("WRONG");
 		        wrongInput ++;
@@ -279,7 +285,6 @@ public class _Phase1 {
 		        timer.cancel();
 		        break;
 		    }
-
 		    currentWordIndex++;
 	    }
 		if (wrongInput == 10) {
