@@ -75,7 +75,6 @@ public class _Phase1 {
 	            isRunning = false;
 				UI.clearScreen();
 				UI.printBox("TIME'S UP");
-				UI.printGreyText(">>");
 				UI.delay(500);
 				System.out.println(">>");
         }
@@ -257,9 +256,11 @@ public class _Phase1 {
 				// <----- return to the loop
 			}
 
+			if (input1.equals("")) { // <----- check if the input is only space
+				// <----- return to the loop
+			}
 
-
-			if (word.equalsIgnoreCase(input1)){  //<----- check if the input is valid 
+			if (word.equalsIgnoreCase(input1)) {  //<----- check if the input is valid 
 				//	<------ if the input is correct, continue
 				UI.clearScreen(); //	<------ cleart the screen
 
