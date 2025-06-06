@@ -254,7 +254,7 @@ public class _Phase1 {
 			}
 			
 			if (input1 != null) { //<----- check if the input is null
-				return;
+				// <----- return to the loop
 			}
 
 			if (word.equalsIgnoreCase(input1)){  //<----- check if the input is valid 
@@ -264,7 +264,7 @@ public class _Phase1 {
 				Player.currentScore += 10;
 				Player.updateScore();
 		        UI.printBox("CORRECT"); // <--------- system print
-				
+
 		        correctCount ++;
 		        wrongInput = 0;
 		        		        
