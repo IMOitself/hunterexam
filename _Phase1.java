@@ -85,15 +85,19 @@ public class _Phase1 {
 		switch (correct) {
 			case 3:
 				System.out.println("Character: \"I feel like I'm getting closer... just a bit more.\"");
+				UI.delay(1500);
 				break;
 			case 5:
 				System.out.println("Character: \"I can feel wind... the exit must be near!\"");
+				UI.delay(1500);
 				break;
 			case 7:
 				System.out.println("Character: \"I see a glimmer of light... almost there!\"");
+				UI.delay(1500);
 				break;
 			case 9:
 				System.out.println("Character: \"I think I can see the light! I need to keep up, I can see the exit.\"");
+				UI.delay(1500);
 				break;
 		}
 	}
@@ -129,9 +133,10 @@ public class _Phase1 {
 		UI.delay(500);
 		System.out.println(">>");
 
-		UI.clearScreen();
-		scanner.nextLine();
 		
+		scanner.nextLine();
+		UI.clearScreen(); 
+
 		UI.printGreyText("\nPress enter to go to the next phase");
 		UI.delay(500);
 		System.out.println(">>");
@@ -227,10 +232,6 @@ public class _Phase1 {
 	    UI.clearScreen();
 	    System.out.println("You have "+ TIME_LIMIT + " seconds\n");
 
-		if (isCorrect){
-			correctDialogue(correctCount);
-		}
-
         wordsToGuess = SQL.runGetResult("SELECT word FROM " + tablename + " ORDER BY RAND();");
 	    //VARIABLE1      
 	    String input1 = "";
@@ -262,8 +263,6 @@ public class _Phase1 {
 	        //MAIN CONDITION 
 		    if (input1.equalsIgnoreCase(word)) { //<------ IF THE INPUT IS CORRECT
 
-				
-
 				Player.currentScore += 10;
 				Player.updateScore();
 		        UI.printBox("CORRECT");
@@ -272,8 +271,7 @@ public class _Phase1 {
 		        
 		        
 		        resetTimer(); // <------- reset timer for every correct input
-				
-				isCorrect = true;
+				correctDialogue(correctCount);
 					        	
 		    } else { //<------ IF THE INPUT IS WRONG
 		        UI.printBox("WRONG");
