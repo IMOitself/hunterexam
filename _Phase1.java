@@ -286,14 +286,16 @@ public class _Phase1 {
 		    }
 
 		    currentWordIndex++;
-			
+
 			while (input1.isEmpty()){
+				startTimer();
 				UI.clearScreen();
 				System.out.println("You have "+ TIME_LIMIT + " seconds\n");
 
 				System.out.println("\nWord to match: " + word); // Print word before asking for input
 				System.out.print("Input here: ");
-				scanner.nextLine();
+				input1 = scanner.nextLine();
+
 			}
 	    }
 		if (wrongInput == 10) {
