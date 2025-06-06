@@ -275,6 +275,8 @@ public class _Phase1 {
 					        	
 		    } 
 			if (input1.trim().isEmpty()){
+				UI.clearScreen();
+				
 				System.out.println("Test");
 			}
 			else { //<------ IF THE INPUT IS WRONG
