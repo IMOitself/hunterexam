@@ -108,11 +108,6 @@ public class _Intro {
             String password = scanner.nextLine();
 
             if(Player.canLogin(username, password)){
-                UI.clearScreen();
-				printTitle();
-                UI.printBox("Welcome Back, " + username);
-                UI.printGreyText("\nPress Enter To Continue...");
-                scanner.nextLine();
                 _PlayerScreen.main(scanner);
             }
             else{

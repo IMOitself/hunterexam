@@ -3,7 +3,9 @@ import java.util.Scanner;
 public class _PlayerScreen {
     public static void main(Scanner scanner){
         UI.clearScreen();
-        
+        _Intro.printTitle();
+        System.out.println("Welcome Back, " + Player.username);
+
         UI.printBox("1. NEW GAME");
 
         if(Player.currentPhase > 1){
