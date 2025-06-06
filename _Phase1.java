@@ -274,10 +274,13 @@ public class _Phase1 {
 				
 					        	
 		    } 
-			else { //<------ IF THE INPUT IS WRONG
-		        UI.printBox("WRONG");
+			if (!input1.equalsIgnoreCase(word)){
+				UI.printBox("WRONG");
 		        wrongInput ++;
-		    }
+			}
+			// else { //<------ IF THE INPUT IS WRONG
+
+		    // }
 			UI.delay(500);
 
 		    if (wrongInput == 10 || correctCount == 10) { 
@@ -287,7 +290,7 @@ public class _Phase1 {
 
 		    currentWordIndex++;
 
-			while (input1.equals(" ")){
+			while (input1.equals("")){
 				startTimer();
 				UI.clearScreen();
 				System.out.println("You have "+ TIME_LIMIT + " seconds\n");
