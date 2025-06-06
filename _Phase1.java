@@ -73,10 +73,11 @@ public class _Phase1 {
 	        @Override
 	        public void run() {
 	            isRunning = false;
-				System.out.println("\nTime's up!");
+				UI.clearScreen();
+				UI.printBox("TIME'S UP");
 				UI.printGreyText("\nPress enter to continue...");
-			UI.delay(500);
-			System.out.println(">>");
+				UI.delay(500);
+				System.out.println(">>");
         }
 	    }, TIME_LIMIT * 1000);
 	}
