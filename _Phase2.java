@@ -1,5 +1,3 @@
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import java.util.Scanner;
 import java.util.List;
 
@@ -14,28 +12,24 @@ public class _Phase2 {
         scanner.nextLine();
 
         int score = 0;
+        int PASSING_SCORE = 3;
 
         UI.clearScreen();
-        System.out.println("\n🧪 Phase 2: Cooking Challenge Begins!");
         System.out.println("Menchi: \"This phase will test your culinary intuition! Don't think of food as just ingredients—think of the soul behind the dish!\"\n");
-
-        List<String> questions = SQL.runGetResultAll("SELECT * FROM p2questions ORDER BY RANDOM() LIMIT 5;");
-        for(String question : questions){
-            System.out.println(question);
-            
-        }
         scanner.nextLine();
-        
-        /** 
-        int qNum = 1;
-        while (rs.next()) {
-            System.out.println("Q" + qNum + ": " + rs.getString("question_text"));
-            System.out.println("  1) " + rs.getString("choice_1"));
-            System.out.println("  2) " + rs.getString("choice_2"));
-            System.out.print("Your answer (1 or 2): ");
 
+        List<String> questions = SQL.runGetResultAll("SELECT * FROM p2Questions ORDER BY RAND() LIMIT 5;");
+        int qNum = 1;
+        for(String question : questions){
+            String[] parts = question.split("::");
             int answer;
             while (true) {
+                UI.clearScreen();
+                System.out.println("Q" + qNum + ": " + parts[1]);
+                System.out.println("  1) " + parts[2]);
+                System.out.println("  2) " + parts[3]);
+                System.out.print("\nYour answer (1 or 2): ");
+
                 try {
                     answer = Integer.parseInt(scanner.nextLine());
                     if (answer == 1 || answer == 2) break;
@@ -45,25 +39,30 @@ public class _Phase2 {
                 }
             }
 
-            if (answer == rs.getInt("correct_answer")) {
-                System.out.println("✅ Correct!");
+            if (answer == Integer.parseInt(parts[4])) {
+                UI.printBox("Correct!");
                 score++;
             } else {
-                System.out.println("❌ Wrong.");
+                UI.printBox("Wrong.");
             }
             qNum++;
             System.out.println();
+            scanner.nextLine();
         }
 
-        System.out.println("🍽️ Menchi: \"You scored " + score + " out of " + TOTAL_QUESTIONS + ".\"");
+        System.out.println("Menchi: You scored " + score + " out of " + questions.size() + ".");
 
         if (score >= PASSING_SCORE) {
-            System.out.println("🎉 Menchi: \"Impressive palate! You're worthy to proceed to Phase 3!\"");
-            // Call Phase 3 method or flag here
+            System.out.println("Menchi: Impressive palate! You're worthy to proceed to Phase 3!");
+            UI.printGreyText("Press enter to go to the next phase");
+		    scanner.nextLine(); 
+            _Phase3.main(scanner);
         } else {
-            System.out.println("💥 Menchi: \"Better luck next time! You lack the culinary instinct to be a Hunter.\"");
-            // End game or restart
+            System.out.println("Menchi: Better luck next time! You lack the culinary instinct to be a Hunter.");
+            scanner.nextLine();
+            _PlayerScreen.main(scanner);
         }
-        **/
+           
+        scanner.nextLine();
     }
 }
