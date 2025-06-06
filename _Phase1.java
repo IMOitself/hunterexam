@@ -287,7 +287,7 @@ public class _Phase1 {
 
 		    currentWordIndex++;
 
-			while (input1.isEmpty()){
+			while (input1.equals(" ")){
 				startTimer();
 				UI.clearScreen();
 				System.out.println("You have "+ TIME_LIMIT + " seconds\n");
