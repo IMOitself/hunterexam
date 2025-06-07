@@ -218,6 +218,10 @@ public class _PhaseFinal {
     static void gameEndScreen(Scanner scanner){
         UI.clearScreen();
         displayStatus();
+        Player.updateScore();
+        playerHP = 100;
+        enemyHP = 100;
+        Player.updatePhase(1);
         if (playerHP <= 0) {
             UI.printBox("You collapsed. Exam failed.");
             Player.failHunterExam();
@@ -242,11 +246,6 @@ public class _PhaseFinal {
 			scanner.nextLine();
             _EndScreen.main(scanner);
         }
-
-        Player.updateScore();
-        playerHP = 100;
-        enemyHP = 100;
-        Player.updatePhase(1);
     }
 }
 

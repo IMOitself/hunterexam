@@ -54,6 +54,7 @@ public class _Phase3 {
         UI.printGreyText("\nPress enter to continue...");
         scanner.nextLine();
 
+        UI.clearScreen();
         System.out.println("\nYour group decides to search for a safer entrance...");
         System.out.println("Gon discovers a hidden tile entrance!");
         remainingHours -= 6;
@@ -73,6 +74,7 @@ public class _Phase3 {
         UI.printGreyText("\nPress enter to continue...");
         scanner.nextLine();
 
+        UI.clearScreen();
         System.out.println("\nFirst vote: Open the door ahead?");
         System.out.println("Gon, Killua, Kurapika, and Leorio vote O (Yes)");
         System.out.println("Tonpa votes X (No) - he wants to sabotage you!");
@@ -80,6 +82,7 @@ public class _Phase3 {
         UI.printGreyText("\nPress enter to continue...");
         scanner.nextLine();
 
+        UI.clearScreen();
         System.out.println("\nSecond vote: Left or Right door?");
         System.out.println("Gon and Leorio choose Right (X)");
         System.out.println("Kurapika and Killua choose Left (O)");
@@ -98,6 +101,7 @@ public class _Phase3 {
             vote = scanner.nextLine().toUpperCase();
         }
 
+        UI.clearScreen();
         if (vote.equals("O")) {
             System.out.println("\nLeft door wins! Kurapika explains his reasoning:");
             System.out.println("'Most people choose right instinctively, so left might be better.'");
@@ -130,6 +134,7 @@ public class _Phase3 {
         UI.printGreyText("\nPress enter to continue...");
         scanner.nextLine();
 
+        UI.clearScreen();
         System.out.println("\nTonpa volunteers... \"Let me handle this rookie!\" he says with false bravado.");
         System.out.println("What should Tonpa do?");
         System.out.println("1. Surrender immediately");
@@ -148,6 +153,7 @@ public class _Phase3 {
         }
 
         if (choice.equals("1")) {
+            UI.clearScreen();
             System.out.println("\nTonpa immediately bows his head in submission, his voice shaking: \"I surrender... I surrender...\"");
             System.out.println("Bendot spits on the ground: \"Worthless coward!\"");
             System.out.println("-2 hours deducted for quick resolution");
@@ -159,6 +165,7 @@ public class _Phase3 {
             UI.printGreyText("\nPress enter to continue...");
             scanner.nextLine();
 
+            UI.clearScreen();
             System.out.println("Killua calmly stops Leorio: \"Actually, he made the right choice.\"");
             System.out.println("\nKillua coolly analyzes the situation: \"That stance... he was definitely a former military or mercenary.\"");
             System.out.println("\"They're trying to buy time - every hour we waste is a year off their sentences.\"");
@@ -167,23 +174,28 @@ public class _Phase3 {
             UI.printGreyText("\nPress enter to continue...");
             scanner.nextLine();
 
+            UI.clearScreen();
             System.out.println("Kurapika nods: \"Killua's right. This was the optimal outcome.\"");
             System.out.println("Leorio reluctantly releases Tonpa, still glaring.");
         } else {
+            UI.clearScreen();
             System.out.println("\nTonpa steps forward with shaky legs...");
             UI.printGreyText("\nPress enter to see what happens...");
             scanner.nextLine();
 
+            UI.clearScreen();
             System.out.println("Before Tonpa can react, Bendot lunges with terrifying speed!");
             System.out.println("His massive hand CRUSHES Tonpa's throat!");
             UI.printGreyText("\nPress enter to continue...");
             scanner.nextLine();
 
+            UI.clearScreen();
             System.out.println("Tonpa's eyes bulge as he tries to gasp for air...");
             System.out.println("Bendot whispers: \"No surrender for you, little man.\"");
             UI.printGreyText("\nPress enter to continue...");
             scanner.nextLine();
 
+            UI.clearScreen();
             System.out.println("The brutal torture begins...");
             System.out.println("- Bendot methodically breaks Tonpa's fingers one by one");
             System.out.println("- He stomps on Tonpa's knees, shattering them");
@@ -191,12 +203,14 @@ public class _Phase3 {
             UI.printGreyText("\nPress enter to continue...");
             scanner.nextLine();
 
+            UI.clearScreen();
             System.out.println("Gon looks away in horror as the torture continues for hours...");
             System.out.println("Finally, Bendot delivers the killing blow - a massive punch to the chest!");
             System.out.println("Tonpa's body goes limp, his ribcage completely caved in.");
             UI.printGreyText("\nPress enter to continue...");
             scanner.nextLine();
 
+            UI.clearScreen();
             System.out.println("Bendot wipes his hands: \"That's 5 hours of my life back.\"");
             System.out.println("-5 hours deducted for the prolonged torture");
             remainingHours -= 5;
@@ -225,6 +239,7 @@ public class _Phase3 {
         }
 
         if (candle.equals("long")) {
+            UI.clearScreen();
             System.out.println("The long candle is oil-soaked! It's burning faster!");
             System.out.println("Gon notices his candle isn't affected by wind...");
             System.out.println("Will he try to blow out Sedokan's candle? (Y/N)");
@@ -239,6 +254,7 @@ public class _Phase3 {
                 action = scanner.nextLine().toUpperCase();
             }
 
+            UI.clearScreen();
             if (action.equals("Y")) {
                 System.out.println("\nGon sprints and blows out Sedokan's candle!");
                 System.out.println("Brilliant move! No time lost.");
@@ -262,6 +278,7 @@ public class _Phase3 {
         UI.printGreyText("\nPress enter to see Kurapika's reaction...");
         scanner.nextLine();
 
+        UI.clearScreen();
         System.out.println("With one devastating punch, Kurapika knocks him out!");
         System.out.println("'A real Troupe tattoo has a number. Never mention them to me again.'");
 
